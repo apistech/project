@@ -1,4 +1,4 @@
-#EXTM3U url-tvg="" $BorpasFileFormat="1"
+#EXTM3U url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz" $BorpasFileFormat="1"
 
 #EXTINF:-1 group-title="IndihomeTV" tvg-logo="https://images.indihometv.com/logo_abcaustralia_small.png",ABC Australia
 rtp://@239.1.4.56:1234
