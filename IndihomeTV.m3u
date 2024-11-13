@@ -26,8 +26,9 @@ https://cdn10jtedge.indihometv.com/atm/hlsv3/beritasatu/playlist.m3u8
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0)
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_cnbcindonesia_ver1.png",CNBC Indonesia
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0)
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_cnnindonesia_ver1.png",CNN Indonesia
-https://cdn10jtedge.indihometv.com/joss/133/cnnindonesia/playlist.m3u8
+https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/1705631719_IDTV-88-WARNA-HD.png",IDTV
 https://cdn10jtedge.indihometv.com/joss/134/idtv/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_idx_small.png",IDX Channel
@@ -50,8 +51,10 @@ https://cdn10jtedge.indihometv.com/atm/hlsv3/KOMPAS_TV/playlist.m3u8
 https://cdn10jtedge.indihometv.com/atm/hlsv3/METRO_TV/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_ochannel_ver1.png",Moji
 https://cdn10jtedge.indihometv.com/joss/134/ochannel/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_net_ver1.png",NET TV
-https://cdn10jtedge.indihometv.com/joss/133/net/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/net_dash/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_nusantaratv_small.png?v=1.1",Nusantara TV
 https://cdn10jtedge.indihometv.com/atm/hlsv3/nusantaratv/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_rri_small1.png?v=2.0.0.13",RRI NET
@@ -124,8 +127,10 @@ https://cdn10jtedge.indihometv.com/atm/hlsv3/kplus/playlist.m3u8
 #KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kbsworld_ver2.png",KBS World
 https://cdn08jtedge.indihometv.com/dassdvr/133/kbsworld_dash/manifest.mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kix_ver1.png",KIX
-https://cdn10jtedge.indihometv.com/joss/133/kix/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/kix_dash/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kungfutv_small.png",Kungfu TV
 https://cdn10jtedge.indihometv.com/joss/130/kungfutv/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_lifetime_small.png",Lifetime
@@ -162,8 +167,10 @@ https://cdn10jtedge.indihometv.com/atm/hlsv3/atv/playlist.m3u8
 https://cdn10jtedge.indihometv.com/joss/134/eatgo720/playlist.m3u8
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://images.indihometv.com/logo_fashiontv_ver2.png",FashionTV
 https://cdn10jtedge.indihometv.com/atm/hlsv3/FASHION_TV/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://images.indihometv.com/logo_hgtv_ver1.png",HGTV
-https://cdn10jtedge.indihometv.com/joss/133/hgtv/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/hgtv_dash/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/assets/ANIMALPLANET-OTT-88-HD.png",Animal Planet
 https://cdn10jtedge.indihometv.com/joss/194/animalplanet/playlist.m3u8
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_cgtndocumentary_small1.png?v=2.0.0.13",CGTN Documentary
@@ -176,8 +183,10 @@ https://cdn10jtedge.indihometv.com/joss/194/curiosity/playlist.m3u8
 https://cdn10jtedge.indihometv.com/joss/194/discoveryasia/playlist.m3u8
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_disco_ver1.png",Discovery Channel
 https://cdn10jtedge.indihometv.com/joss/133/disco/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_history_ver3.png",History
-https://cdn10jtedge.indihometv.com/joss/133/history/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/history_dash/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_lingua_small.png",Lingua
 https://cdn10jtedge.indihometv.com/joss/133/lingua/playlist.m3u8
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/assets/THUMBNAIL-135-LOVENATUREHD.png",Love Nature
@@ -186,8 +195,10 @@ https://cdn10jtedge.indihometv.com/joss/194/lovenature/playlist.m3u8
 https://cdn10jtedge.indihometv.com/joss/130/pandatv/playlist.m3u8
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/assets/1717557969_88-PHOENIXCHINESE-WARNA.png",Phoenix Chinese
 https://cdn10jtedge.indihometv.com/atm/hlsv3/phoenixchinese/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_techstorm_ver1.png",TechStorm
-https://cdn10jtedge.indihometv.com/joss/133/techstorm/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/techstorm_dash/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_animax_small.png",Animax
 https://cdn10jtedge.indihometv.com/joss/130/animax/playlist.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_aniplus_small1.png?v=2.0.0.13",Aniplus
@@ -198,8 +209,10 @@ https://cdn10jtedge.indihometv.com/joss/194/cartoonnetwork/playlist.m3u8
 https://cdn10jtedge.indihometv.com/atm/hlsv3/boomerang/playlist.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_davinci_small1.png?v=2.0.0.13",Da Vinci
 https://cdn10jtedge.indihometv.com/joss/134/davinci720/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_dreamworks_ver1.png",DreamWorks
-https://cdn10jtedge.indihometv.com/joss/133/dreamworks/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/dreamworks_dash/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_duniaanak_small1.png?v=2.0.0.13",Dunia Anak
 https://cdn10jtedge.indihometv.com/joss/130/duniaanak/playlist.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/assets/FUNPLANET-OTT-88.png",FunPlanet
@@ -280,12 +293,18 @@ https://cdn10jtedge.indihometv.com/atm/hlsv3/PRAMBORS_TV/playlist.m3u8
 https://cdn10jtedge.indihometv.com/joss/133/fightsport/playlist.m3u8
 #EXTINF:-1 group-title="Sports" tvg-logo="https://images.indihometv.com/logo_horizonsport_ver2.png",Horizon Sports
 https://cdn10jtedge.indihometv.com/joss/133/horizonsport/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Sports" tvg-logo="https://images.indihometv.com/logo_nba_ver1.png",NBA TV
-https://cdn10jtedge.indihometv.com/joss/133/nba/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/nba_dash/manifest.mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Sports" tvg-logo="https://images.indihometv.com/assets/1719765710_SPOTV-OTT-88-BW.png",SPOTV
-https://cdn10jtedge.indihometv.com/joss/133/beib1/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/beib1_dash/manifest.mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
 #EXTINF:-1 group-title="Sports" tvg-logo="https://images.indihometv.com/assets/1719765786_SPOTV2-OTT-88-BW.png",SPOTV 2
-https://cdn10jtedge.indihometv.com/joss/133/beib2/playlist.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/133/beib2_dash/manifest.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://divign0fdw3sv.cloudfront.net/Images/ChannelLogo/contenthub/503_144.png",W-Sport
 https://cdn10jtedge.indihometv.com/joss/133/paramount/playlist.m3u8
 #EXTINF:-1 group-title="Religi" tvg-logo="https://images.indihometv.com/logo_alquran_small1.png?v=2.0.0.13",Al Quran Al Kareem
