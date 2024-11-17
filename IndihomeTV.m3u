@@ -237,8 +237,6 @@ https://streaming.indihometv.com/joss/133/hitsmovie/playlist.m3u8
 https://streaming.indihometv.com/joss/130/imc720/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/OTT-88-MAXSTREAM-HD.png",Maxstream
 https://streaming.indihometv.com/joss/194/maxstream/playlist.m3u8
-#EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/logo_myfamily_ver2.png",My Family
-https://streaming.indihometv.com/atm/hlsv3/myfamily/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/logo_blueantextreme_ver1.png",Rock Action
 https://streaming.indihometv.com/atm/hlsv3/ROCK_ACTION/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/1725346944_STUDIOUNIVERSAL-OTT-88-WARNA.png",Studio Universal
@@ -250,23 +248,23 @@ https://streaming.indihometv.com/joss/133/tvnmovies/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/logo_zbioskop_ver1.png",Zee Bioskop
 https://streaming.indihometv.com/atm/hlsv3/zbioskop/playlist.m3u8
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu.trenztv.workers.dev
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.transvision.co.id/img/channel/cinemax_new.png",CINEMAX
 https://cdnjkt4.transvision.co.id:1000/live/master/1/4028c6856c3db2cc016cdbfc4a1934bf/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu.trenztv.workers.dev
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.transvision.co.id/img/channel/hbo.png",HBO
 https://cdnjkt4.transvision.co.id:1000/live/master/3/4028c6856b6088c3016b87d64b970b53/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu.trenztv.workers.dev
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.transvision.co.id/img/channel/hbo_family.png",HBO Family
 https://cdnjkt4.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d055927fe37a4/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu.trenztv.workers.dev
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.transvision.co.id/img/channel/hbo_hits.png",HBO Hits
 https://cdnjkt4.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d054fbf67379f/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+#KODIPROP:inputstream.adaptive.license_key=https://cubmu.trenztv.workers.dev
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.transvision.co.id/img/channel/hbo_sig.png",HBO Signature
 https://cdnjkt4.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0ca37a2/manifest.mpd
 #EXTINF:-1 group-title="Music" tvg-logo="https://images.indihometv.com/logo_citradangdut_ver1.png",Citra Dangdut
