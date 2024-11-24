@@ -1,113 +1,113 @@
 #EXTM3U url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz" $BorpasFileFormat="1"
 
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://cdn.detik.net.id/20detik3/images/cnbc.png?v=2024041522301",CNBC Indonesia
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://cdn.detik.net.id/20detik3/images/cnn.png?v=2024041522301",CNN Indonesia
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://cdn.detik.net.id/20detik3/images/transtv.png?v=2024041522301",TransTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://cdn.detik.net.id/20detik3/images/trans7.png?v=2024041522301",Trans7
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/RXCiPfH_LYi15tgWbLNkEoJz3eQwouG6RDcg-df7Rirg3sFXP-gyW31SdwUdKTwZixUJQBMg=s160-c-k-c0x00ffffff-no-rj",Metro TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://edge.medcom.id/live-edge/smil:metro.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/aSfB73GRFrElS2ozpxfe3vl-rTo0Ahi4zJ7iTY1EebuDDxxbwt12rX6hjnn86CuQ_ifZPc613d8=s176-c-k-c0x00ffffff-no-rj",Magna Channel
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://edge.medcom.id/live-edge/smil:magna.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/yc0m0wYfpKojOAi5XEd1Ceg5BmCDHuj4SSdAw70Qw8qc4ubZ7G9qCpZz4GKD8Q1XOpr-zQldhA=s176-c-k-c0x00ffffff-no-rj",Metro Globe Network
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://edge.medcom.id/live-edge/smil:mgnch.smil/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/47Z8cXdtY5um1cSQC1uQx1lbCduUXp-YTxXUGOIXU8HDnJ5a2kCd7KsdPGChwbAaaQjEGex_jg=s160-c-k-c0x00ffffff-no-rj",BTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://b1news.beritasatumedia.com/Beritasatu/B1News_manifest.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/iR4JNV5U5Mh3ncStNrFmbAYwKCj2dmwejqAGldpDt5c7ZFXoYErW7cwgObdjBILdLJDxhDdBg4Y=s176-c-k-c0x00ffffff-no-rj",IDTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://b1world.beritasatumedia.com/Beritasatu/B1World_manifest.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_nThF1smJvY1aW_ttFLtCNanbz1e1Yg5XFhJ084qzuN810=s160-c-k-c0x00ffffff-no-rj",Kompas TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://ythls-v3.onrender.com/channel/UC5BMIWZe9isJXLZZWPWvBlg.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/xNyCNNuBxSShQ65UuNeepuQs-a10bjPOAzqOseBpV5Eh7xFdfZ5-xc-pef_acSnNTv-aH_Q5=s160-c-k-c0x00ffffff-no-rj",NET TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://ythls-v3.onrender.com/channel/UC1-ATnDVEwKT6-0aEeJ2ibA.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/fWG4CffosN393ogwj9zFqHZ5FdrKhVfp-maAP6Q5tIpWpIjicgAdJD7evTRGoxG9X46_MYASdA=s160-c-k-c0x00ffffff-no-rj",SindoNews TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://ythls-v3.onrender.com/channel/UCGfXjFgIUUTUUlzdG6BenXA.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/gv4Y_9ctDH18HkYWlf2pQD2ihzyZCKQ-qjbJHy8cdncE7gO6tKypg4f_oYYLgi8RBhEsczHPDQ=s160-c-k-c0x00ffffff-no-rj",Liputan6
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://ythls-v3.onrender.com/channel/UC1QpnGo11epfexw1bIiTHTg.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_mhUyV8iNg5d_3sAtlPxTioVDSu2YBHr0CnFZdgqd6sJUk=s160-c-k-c0x00ffffff-no-rj",TVRI
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://ythls-v3.onrender.com/channel/UCyIMsCzDRm8_y_6wM26_PWQ.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/6XQfAG_ey8LJ8B4bMbe9GtsPnKX5iJgfq6qkRToYRO8kQBmvc6SuCi4a0KqCpyajLIFoEKCX2Q=s176-c-k-c0x00ffffff-no-rj",Indonesiana TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://dgwubfppws111.cloudfront.net/out/v1/667a86e35ddd496c886fa11598dc184d/index.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_lUDf0Fu_9jQ0s4k6t5xUqk7M_WbgbOfF0vF_uc9xN64h8=s160-c-k-c0x00ffffff-no-rj",Jawa Pos TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://jawapostv.siar.us/jawapostv/live/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/RPfEX_ZXB5LaSXh8kbXGWQXREoCpOcdg-gPN15VoFvS9ZVljri_YqvUj8KZkKqIRBy3KDgMKCIU=s160-c-k-c0x00ffffff-no-rj",Nusantara TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://nusantaratv.siar.us/nusantaratv/live/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/_j4rrdA40olkcuVjfsbjT2e0iwtxYiknJJeRMJnMGrGJMy3GGd45MhdvjCZFmKLdRvMJ1SbQDqU=s160-c-k-c0x00ffffff-no-rj",SEA Today
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://hls.seatoday.com/hls_hd/seatoday.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/GjvsaBDYDBMze8ZXfXeK0Tv6s-awUIrgI5XP--yC3W7zpub6S7RRiQ_cXPabXvc7HH1aA9olmw=s160-c-k-c0x00ffffff-no-rj",Motorvision
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://stream.ads.ottera.tv/playlist.m3u8?network_id=535
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_ntzEIHdSENlbDNZ-fCEiq1QOp5zXKse-IWS_ChovPRn8A=s160-c-k-c0x00ffffff-no-rj",Red Bull TV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/dAWSmy-ZscA6BrXMX2A25Sg63AH4QZYx3tGgZz47NnrA5fNMokgGC5vB_zRpEJJ1Z9X1NjlMeng=s160-c-k-c0x00ffffff-no-rj",Zoomoo
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://zoomoo-samsungau.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_n00DzE39o-4IFJ07IP3gG__TMqKxXXbwYaARinwTXTDFM=s160-c-k-c0x00ffffff-no-rj",Channel News Asia
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://d2e1asnsl7br7b.cloudfront.net/4c152bfc7ad2463d928bfbec0990eaeb/index.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/3fbjZ6CAJl7Y7ii8qo0C4VEd_zcsC3-zrB0Nw5MW--VZmga15wtwwTBmePBRAPl3vCSFRoQq1Q=s160-c-k-c0x00ffffff-no-rj",Al Jazeera English
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live-hls-web-aje.getaj.net/AJE/index.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/LViWsQpkUN7p22xcW5kPzWai-HzWlaszpsEP3jQjnIyXi2G_gaZz7zosE1_vNOPrrdvzKYEryA=s160-c-k-c0x00ffffff-no-rj",Al Jazeera Arabic
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live-hls-web-aja.getaj.net/AJA/index.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_nrLdmT2948nM8e7GtnnI8jjUS6eOus7xMfaE4VJ__4Pg4=s160-c-k-c0x00ffffff-no-rj",Animal Planet
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Animal_Planet.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_n1HSiDaMtP-936dXUkkAF6JF5Tqqpup42bTqLiqmGKEaE=s160-c-k-c0x00ffffff-no-rj",DMAX
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/DMAX.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/NeriXai6f13HIRG8XucR7LwMOmpux-Qkwv8MK2p61RluzB3eQTtdln7YKcIgrqu9bp27PKASpg=s160-c-k-c0x00ffffff-no-rj",Discovery Channel
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Discovery_Channel.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/IqBuvdfizQ6GK78PY7nHxAYEqJK4b6YM170kvq-w-gkY21PlJ2oARaoy_6wjbyPjOQGzcKb1=s160-c-k-c0x00ffffff-no-rj",Discovery Kids
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Discovery_Kids.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/VEx_GysV1ngnO_e2l-r2fiR8PRFfb1CZWgTok_TjDFtH_3yNbBIOn9dT7L5URZjoM99jYYZ1ig=s160-c-k-c0x00ffffff-no-rj",Discovery Science
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Discovery_Science.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/RtlmnAvgnJowxUSCIHFdOlbYqsV9dWVkHoYoGVLzwMSxecuiht5CRHLd5Q3fWPOqTwBgGiYxaIA=s160-c-k-c0x00ffffff-no-rj",Discovery Turbo
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Discovery_Turbo.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/X3W_6EJSpVN0EbfO50pObccKWjaNSoZm3iqoZ1sQPTqYOsTfXUGm7IEnbLTWROxycdH2i1p5-g=s160-c-k-c0x00ffffff-no-rj",EUROSPORT
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Eurosport.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/uaQUlR1dk5Yc3qO6wHaAR-ezXGzmRKp0n7UNeU8qTVq9PYytDkJzuNoM6JlcaM-4VEWXO0ukxw=s160-c-k-c0x00ffffff-no-rj",Food Network
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Food_Network.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/VnFEiuVi7kwDHhPWcMRpsorIE8MQeqee_UEpyZvPFQA4OsuUl-cIEB6152EuPgmteQrHOdzUTg=s160-c-k-c0x00ffffff-no-rj",HGTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/HGTV.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/-2c6mbZfU4Se_l6z7Xfaq2O0iVFmhU9RcoDSd3zNIdj6G2wGuWPZu8ASfihFqFdzGdLcpVLK=s160-c-k-c0x00ffffff-no-rj",Investigation Discovery
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Investigation_Discovery.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/MHkiocHQY7zntu77ePW2S9GPHr_-iHkEsZ4xAQDXpQYUk8vBTJAwQk8Ndj65FPu_uRYqr413vA=s160-c-k-c0x00ffffff-no-rj",TLC
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/TLC.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_lMVV0eWXgxcwZUjjsc_HpTsLZugJaSPELWMBa47rzAaEGJ=s160-c-k-c0x00ffffff-no-rj",TRVL Channel
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/TRVL_Channel.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_nGk-I3TWbRvaq1tVt9oITiwHXUoOcSd3VRqLy_ciq9pvXb=s160-c-k-c0x00ffffff-no-rj",FashionTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://fashiontv-fashiontv-1-eu.rakuten.wurl.tv/playlist.m3u8
