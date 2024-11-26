@@ -124,7 +124,9 @@ https://streaming.indihometv.com/joss/130/insert720/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kplus_ver2.png",K-Plus
 https://streaming.indihometv.com/atm/DASH/kplus/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kbsworld_ver2.png",KBS World
-https://streaming.indihometv.com/joss/194/kbsworld/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
+https://cdn08jtedge.indihometv.com/dassdvr/133/kbsworld_dash/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kix_ver1.png",KIX
 https://streaming.indihometv.com/joss/133/kix/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kungfutv_small.png",Kungfu TV
