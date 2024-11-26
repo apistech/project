@@ -80,7 +80,9 @@ https://streaming.indihometv.com/atm/DASH/CHANNEL_NEWS_ASIA/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_cnbcasias_small.png",CNBC Asia
 https://streaming.indihometv.com/joss/134/cnbcasia/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_cnninternational_ver1.png",CNN International
-https://streaming.indihometv.com/joss/194/cnninternational/playlist.m3u8
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
+https://cdn08jtedge.indihometv.com/dassdvr/133/cnninternational_dash/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_dwtv_ver1.png",DW English
 https://streaming.indihometv.com/atm/DASH/DWTV/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_euronews_ver1.png",Euronews
