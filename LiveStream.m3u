@@ -1,4 +1,5 @@
 #EXTM3U url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz" $BorpasFileFormat="1"
+#EXTM3U billed-msg="⛔ BILA ANDA MEMBAYAR DARI PLAYLIST INI, MAKA ANDA TERTIPU!! PLAYLIST INI GRATIS UNTUK PEMAKAIAN PRIBADI ⛔"
 
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://cdn.detik.net.id/20detik3/images/cnbc.png?v=2024041522301",CNBC Indonesia
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
@@ -78,7 +79,7 @@ https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Animal
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_n1HSiDaMtP-936dXUkkAF6JF5Tqqpup42bTqLiqmGKEaE=s160-c-k-c0x00ffffff-no-rj",DMAX
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/DMAX.m3u8
-#EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/NeriXai6f13HIRG8XucR7LwMOmpux-Qkwv8MK2p61RluzB3eQTtdln7YKcIgrqu9bp27PKASpg=s160-c-k-c0x00ffffff-no-rj",Discovery Channel
+#EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/L-LdsQwDuN4za_QhtTZP5J4csHiqq57XjTOZInJp4US_NffJJjO4cdOjjmP7xulU2vQswBA34A=s160-c-k-c0x00ffffff-no-rj",Discovery HD
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/Discovery_Channel.m3u8
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/IqBuvdfizQ6GK78PY7nHxAYEqJK4b6YM170kvq-w-gkY21PlJ2oARaoy_6wjbyPjOQGzcKb1=s160-c-k-c0x00ffffff-no-rj",Discovery Kids
@@ -108,6 +109,3 @@ https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/TLC.m3
 #EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_lMVV0eWXgxcwZUjjsc_HpTsLZugJaSPELWMBa47rzAaEGJ=s160-c-k-c0x00ffffff-no-rj",TRVL Channel
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/TRVL_Channel.m3u8
-#EXTINF:-1 group-title="LiveStream" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_nGk-I3TWbRvaq1tVt9oITiwHXUoOcSd3VRqLy_ciq9pvXb=s160-c-k-c0x00ffffff-no-rj",FashionTV
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
-https://fashiontv-fashiontv-1-eu.rakuten.wurl.tv/playlist.m3u8
