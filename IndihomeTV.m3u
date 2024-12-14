@@ -72,8 +72,12 @@ https://streaming.indihometv.com/atm/hlsv3/transtv/playlist.m3u8
 https://streaming.indihometv.com/atm/hlsv3/tvone/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_tvri_small1.png?v=2.0.0.13",TVRI
 https://streaming.indihometv.com/atm/hlsv3/TVRI/playlist.m3u8
+#EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_abcaustralia_small.png",ABC Australia
+https://streaming.indihometv.com/atm/hlsv3/ABC_AUSTRALIA/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_aljazeera_small1.png?v=2.0.0.13",Al Jazeera English
 https://streaming.indihometv.com/atm/hlsv3/aljazeera/playlist.m3u8
+#EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_arirang_small.png",Arirang
+https://streaming.indihometv.com/atm/hlsv3/ARIRANG/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_bloomberg_small1.png?v=2.0.0.13",Bloomberg
 https://streaming.indihometv.com/atm/hlsv3/BLOOMBERG/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_newsasia_small.png?v=2.0.0.13",Channel News Asia
@@ -90,18 +94,16 @@ https://streaming.indihometv.com/atm/hlsv3/DWTV/playlist.m3u8
 https://streaming.indihometv.com/joss/134/euronews/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_france24_small.png?v=2.0.0.13",France24
 https://streaming.indihometv.com/atm/hlsv3/FRANCE_24/playlist.m3u8
+#EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_nhkworld_small.png?v=2.0.0.13",NHK World Japan
+https://streaming.indihometv.com/atm/hlsv3/NHK_WORLD_JAPAN/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/assets/1717557665_88-PHOENIXINFONEWS-WARNA.png",Phoenix InfoNews
 https://streaming.indihometv.com/atm/hlsv3/phoenixinfonews/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_seatoday_ver1.png",SEA Today
 https://streaming.indihometv.com/atm/hlsv3/seatoday/playlist.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_tvbsnews_small.png",TVBS News
 https://streaming.indihometv.com/atm/hlsv3/TVBS_NEWS/playlist.m3u8
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_abcaustralia_small.png",ABC Australia
-https://streaming.indihometv.com/atm/hlsv3/ABC_AUSTRALIA/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/ALLPLAY-HD-OTT-88.png",AllPlay Ent
 https://streaming.indihometv.com/atm/hlsv3/useeprime/playlist.m3u8
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_arirang_small.png",Arirang
-https://streaming.indihometv.com/atm/hlsv3/ARIRANG/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_axn_ver2.png",AXN
 https://streaming.indihometv.com/atm/hlsv3/axn/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_cctv4_small1.png?v=2.0.0.13",CCTV4
@@ -138,8 +140,6 @@ https://streaming.indihometv.com/atm/hlsv3/newtvcomprehensive/playlist.m3u8
 https://streaming.indihometv.com/atm/hlsv3/newtvfinance/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/1705925830_NEWTVVARIETY-88-HD-BW.png",New TV Variety
 https://streaming.indihometv.com/atm/hlsv3/newtvvariety/playlist.m3u8
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_nhkworld_small.png?v=2.0.0.13",NHK World Japan
-https://streaming.indihometv.com/atm/hlsv3/NHK_WORLD_JAPAN/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_sone_small.png?v=2.0.0.13",ONE
 https://streaming.indihometv.com/joss/133/sone/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_blueant_small.png?v=2.5",Rock Entertainment
