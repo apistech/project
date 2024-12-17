@@ -1,4 +1,4 @@
-#EXTM3U url=""
+#EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/"
 # ██ ██ █ ██ ██ █ █▀█ █ █▀█ █ ▀█ ▀█
 # █ ▀ █ █ █ ▀ █ █ █▀▀ █ █▀▀ █ █▄ █▄
 # ――――――――――――――――――――――――――――――――――――――――――――――
@@ -45,7 +45,7 @@ https://hbogoprod-vod.akamaized.net/video/vod/output/HBOAsia/664c3c53d9405210740
 #KODIPROP:inputstreamaddon=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=dash
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key={ "keys":[ { "kty":"oct", "k":"ubxkPl8qn/XgkhJWcmzqOg", "kid":"EOOHCOtx2ahwRHsBMiWSgA" } ], "type":"temporary" }
+#KODIPROP:inputstream.adaptive.license_key=10e38708eb71d9a870447b0132259280:b9bc643e5f2a9ff5e0921256726cea3a
 #EXTINF:-1 type="movie" group-title="HBOGO ASIA 2024" tvg-logo="https://dai3fd1oh325y.cloudfront.net/images/480p/042191X0-portrait.jpg",Godzilla X Kong: The New Empire 2024
 https://hbogoprod-vod.akamaized.net/video/vod/output/HBOAsia/667cf90ad94052107404ae58_hbovodhd/dash0/IDN_DOLBY_index.mpd
 
