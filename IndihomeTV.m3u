@@ -1,5 +1,4 @@
-#EXTM3U url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz" $BorpasFileFormat="1"
-#EXTM3U billed-msg="⛔ Playlist ini GRATIS! Untuk pemakaian pribadi ⛔"
+#EXTM3U $BorpasFileFormat="1" $NestedGroupsSeparator="/" url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz"
 
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/logo_rcti_hd.png",RCTI
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
