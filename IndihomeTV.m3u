@@ -123,6 +123,8 @@ https://cdn10jtedge.indihometv.com/joss/134/hitsnow/playlist.m3u8
 https://cdn10jtedge.indihometv.com/joss/130/insert720/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kplus_ver2.png",K-Plus
 https://cdn10jtedge.indihometv.com/atm/hlsv3/kplus/playlist.m3u8
+#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kungfutv_small.png",Kungfu TV
+https://cdn10jtedge.indihometv.com/joss/130/kungfutv/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kbsworld_ver2.png",KBS World
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
@@ -135,8 +137,6 @@ https://cdn10jtedge.indihometv.com/joss/134/lifetime720/playlist.m3u8
 https://cdn10jtedge.indihometv.com/atm/hlsv3/newtvcomprehensive/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/1705920072_NEWTVFINANCE-88-HD-WARNA.png",New TV Finance
 https://cdn10jtedge.indihometv.com/atm/hlsv3/newtvfinance/playlist.m3u8
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kungfutv_small.png",New TV KungfuTV
-https://cdn10jtedge.indihometv.com/joss/130/kungfutv/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/1705920559_NEWTVVARIETY-88-HD-WARNA.png",New TV Variety
 https://cdn10jtedge.indihometv.com/atm/hlsv3/newtvvariety/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_sone_small.png?v=2.0.0.13",ONE
