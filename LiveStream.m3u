@@ -1,5 +1,21 @@
 #EXTM3U url-tvg="https://github.com/apistech/project/raw/refs/heads/main/ApisTECH.xml.gz" $BorpasFileFormat="1"
 
+#EXTINF:-1 group-title="Local" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png",RCTI
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+https://r-plus.sedotcw3.workers.dev/index.m3u8?id=rcti
+#EXTINF:-1 group-title="Local" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/MNCTV.png",MNCTV
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+https://r-plus.sedotcw3.workers.dev/index.m3u8?id=mnctv
+#EXTINF:-1 group-title="Local" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/GTV.png",GTV
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+https://r-plus.sedotcw3.workers.dev/index.m3u8?id=gtv
+#EXTINF:-1 group-title="Local" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/iNews.png",iNews
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+https://r-plus.sedotcw3.workers.dev/index.m3u8?id=inews
 #EXTINF:-1 group-title="Local" tvg-logo="https://cdn.detik.net.id/20detik3/images/cnbc.png?v=2024041522301",CNBC Indonesia
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
@@ -12,10 +28,10 @@ https://video.detik.com/trans7/smil:trans7.smil/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://cdn.detik.net.id/20detik3/images/transtv.png?v=2024041522301",TransTV
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://video.detik.com/transtv/smil:transtv.smil/playlist.m3u8
-#EXTINF:-1 group-title="Local" tvg-logo="https://yt3.googleusercontent.com/47Z8cXdtY5um1cSQC1uQx1lbCduUXp-YTxXUGOIXU8HDnJ5a2kCd7KsdPGChwbAaaQjEGex_jg=s160-c-k-c0x00ffffff-no-rj",BTV
+#EXTINF:-1 group-title="Local" tvg-logo="https://yt3.googleusercontent.com/Kg0kYGkZHNQ8wi8UoOKD10tW0vCbWDocIPJoFqRAid_pNkPtW7lJSxkpO33htKuQqsvxMni7ZQ=s160-c-k-c0x00ffffff-no-rj",BTV
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://b1news.beritasatumedia.com/Beritasatu/B1News_manifest.m3u8
-#EXTINF:-1 group-title="Local" tvg-logo="https://yt3.googleusercontent.com/iR4JNV5U5Mh3ncStNrFmbAYwKCj2dmwejqAGldpDt5c7ZFXoYErW7cwgObdjBILdLJDxhDdBg4Y=s176-c-k-c0x00ffffff-no-rj",IDTV
+#EXTINF:-1 group-title="Local" tvg-logo="https://yt3.googleusercontent.com/CESdvvhKVqjoD7nWDxrZ3OKEvR-kt6w_nuGbPu6Rb5L7Cw8al0Ew_dMk4rhQZJ_egJPXE5rrKw=s160-c-k-c0x00ffffff-no-rj",BeritaSatu
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://b1world.beritasatumedia.com/Beritasatu/B1World_manifest.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://yt3.googleusercontent.com/RXCiPfH_LYi15tgWbLNkEoJz3eQwouG6RDcg-df7Rirg3sFXP-gyW31SdwUdKTwZixUJQBMg=s160-c-k-c0x00ffffff-no-rj",Metro TV
@@ -54,15 +70,25 @@ https://live-hls-web-aja.getaj.net/AJA/index.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://yt3.googleusercontent.com/3fbjZ6CAJl7Y7ii8qo0C4VEd_zcsC3-zrB0Nw5MW--VZmga15wtwwTBmePBRAPl3vCSFRoQq1Q=s160-c-k-c0x00ffffff-no-rj",Al Jazeera English
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://live-hls-web-aje.getaj.net/AJE/index.m3u8
+#EXTINF:-1 group-title="News",Arirang
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+https://amdlive-ch01-ctnd-com.akamaized.net/arirang_1ch/smil:arirang_1ch.smil/chunklist_b3256000_sleng.m3u8
+#EXTINF:-1 group-title="News" tvg-logo="https://i.imgur.com/vSz2WEp.png",BBC News Asia
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
+https://cdn4.skygo.mn/live/disk1/BBC_News/HLSv3-FTA/BBC_News.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://cdn4.mbahnunungonline.net/img/AG53buo.png?v=1.0.0.1",Bloomberg
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://bloomberg.com/media-manifest/streams/asia.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://yt3.googleusercontent.com/ytc/AIdro_n00DzE39o-4IFJ07IP3gG__TMqKxXXbwYaARinwTXTDFM=s160-c-k-c0x00ffffff-no-rj",Channel News Asia
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://d2e1asnsl7br7b.cloudfront.net/4c152bfc7ad2463d928bfbec0990eaeb/index.m3u8
+#EXTINF:-1 group-title="News",NHK World Japan
+https://nhkwlive-ojp.akamaized.net/hls/live/2003459/nhkwlive-ojp-en/index.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://yt3.googleusercontent.com/_j4rrdA40olkcuVjfsbjT2e0iwtxYiknJJeRMJnMGrGJMy3GGd45MhdvjCZFmKLdRvMJ1SbQDqU=s160-c-k-c0x00ffffff-no-rj",SEA Today
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://hls.seatoday.com/hls_hd/seatoday.m3u8
+#EXTINF:-1 group-title="Entertainment",KBS World
+https://kbsworld-ott.akamaized.net/hls/live/2002341/kbsworld/master.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://yt3.googleusercontent.com/MHkiocHQY7zntu77ePW2S9GPHr_-iHkEsZ4xAQDXpQYUk8vBTJAwQk8Ndj65FPu_uRYqr413vA=s160-c-k-c0x00ffffff-no-rj",TLC
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)
 https://raw.githubusercontent.com/apistech/project/refs/heads/main/stream/TLC.m3u8
