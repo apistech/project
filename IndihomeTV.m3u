@@ -41,6 +41,9 @@ https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_cnnindonesia_ver1.png",CNN Indonesia
 #EXTVLCOPT:http-user-agent=Mozilla/5.0
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
+#EXTINF:-1 group-title="Local" tvg-logo="https://pic.dens.tv/tv_183x174/1578297960_square.jpg",ElShinta
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://op-group2-swiftservesd-1.dens.tv/s/s12/index.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_idx_small.png",IDX Channel
 https://cdn10jtedge.indihometv.com/atm/DASH/idx/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_indosiar_ver3.png",Indosiar
@@ -63,6 +66,9 @@ https://cdn10jtedge.indihometv.com/atm/DASH/jawapos/manifest.mpd
 https://cdn10jtedge.indihometv.com/atm/DASH/jtv/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_kompastv_small.png?v=2.0.0.13",Kompas TV
 https://cdn10jtedge.indihometv.com/atm/DASH/KOMPAS_TV/manifest.mpd
+#EXTINF:-1 group-title="Local" tvg-logo="https://pic.dens.tv/tv_183x174/Magna_Channel_1.jpg",Magna Channel
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://op-group1-swiftservehd-1.dens.tv/h/h24/index.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/1740642278_MDTV-88-WARNA.png",MDTV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -93,6 +99,9 @@ https://cdn10jtedge.indihometv.com/atm/DASH/transtv/manifest.mpd
 https://cdn10jtedge.indihometv.com/atm/DASH/tvone/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_tvri_small1.png?v=2.0.0.13",TVRI
 https://cdn10jtedge.indihometv.com/atm/DASH/TVRI/manifest.mpd
+#EXTINF:-1 group-title="Local" tvg-logo="https://pic.dens.tv/tv_183x174/TVRI_Sport_1.jpg",TVRI Sport
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://op-group1-swiftservesd-1.dens.tv/s/s107/index.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_abcaustralia_small.png",ABC Australia
 https://cdn10jtedge.indihometv.com/atm/DASH/ABC_AUSTRALIA/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_aljazeera_small1.png?v=2.0.0.13",Al Jazeera Arabic
@@ -210,11 +219,6 @@ https://atemeshield1-voe.sysln.id/live/eds/KBSWorldHD/mpd/KBSWorldHD.mpd
 https://atemeshield1-voe.sysln.id/live/eds/KIXHD/mpd/KIXHD.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_kungfutv_small.png",Kungfu TV
 https://cdn08jtedge.indihometv.com/dassdvr/130/kungfutv/manifest.mpd
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_lifetime_small.png",Lifetime
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2c8ff6307bf94b408b9759d7cdb6e95e:50fede3d058915c8ddaa43721d52ec69
-https://atemeshield1-voe.sysln.id/live/eds/LifetimeHD/mpd/LifetimeHD.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/1705919539_NEWTVCOMPREHENSIVE-88-HD-WARNA.png",New TV Comprehensive
 https://cdn10jtedge.indihometv.com/atm/DASH/newtvcomprehensive/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/1705920072_NEWTVFINANCE-88-HD-WARNA.png",New TV Finance
@@ -308,6 +312,11 @@ https://d1abp075u76pbq.cloudfront.net/live/eds/OKTVnow/sa_dash_vmx/OKTVnow.mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=4d3d70298a8f442f9dee7c11a47c3edf:ff7a89f008a62664e5ebd821187296d1
 https://atemeshield1-voe.sysln.id/live/eds/HGTVHD/mpd/HGTVHD.mpd
+#EXTINF:-1 group-title="Lifestyle" tvg-logo="https://images.indihometv.com/logo_lifetime_small.png",Lifetime
+#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=2c8ff6307bf94b408b9759d7cdb6e95e:50fede3d058915c8ddaa43721d52ec69
+https://atemeshield1-voe.sysln.id/live/eds/LifetimeHD/mpd/LifetimeHD.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://images.indihometv.com/logo_tlc_ver1.png",TLC
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.license_type=clearkey
