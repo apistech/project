@@ -27,8 +27,7 @@ https://cdn10jtedge.indihometv.com/atm/DASH/balitv/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_key=a7fd43751f24d64a16f6f4d289ebd395:2ef65773d541ccaf8ba61a3d141711f0
 https://d1abp075u76pbq.cloudfront.net/live/eds/BandungTV/sa_dash_vmx/BandungTV.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/1735661896_88-BERITASATU.png",Berita Satu
-#EXTVLCOPT:http-user-agent=Mozilla/5.0
-https://b1world.beritasatumedia.com/Beritasatu/B1World_manifest.m3u8
+https://cdn08jtedge.indihometv.com/dassdvr/134/idtv/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/1735661605_88-BTV.png",BTV
 https://cdn10jtedge.indihometv.com/atm/DASH/beritasatu/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://pic.dens.tv/tv_183x174/BN_Channel_(Trial)_1.jpg",BN Channel
@@ -136,10 +135,7 @@ https://atemeshield1-voe.sysln.id/live/eds/CNNIntHD/mpd/CNNIntHD.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_dwtv_ver1.png",DW English
 https://cdn10jtedge.indihometv.com/atm/DASH/DWTV/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_euronews_ver1.png",Euronews
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=a94d7dbc775546ae8a7363800a64586c:6ede954c196e997735076255147c80aa
-https://atemeshield1-voe.sysln.id/live/eds/EURONEWS/mpd/EURONEWS.mpd
+https://cdn08jtedge.indihometv.com/dassdvr/134/euronews720/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Fox_News_Channel_logo.svg/2048px-Fox_News_Channel_logo.svg.png",Fox News Channel
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.license_type=clearkey
@@ -397,9 +393,7 @@ https://cdn08jtedge.indihometv.com/dassdvr/130/pandatv/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/assets/1717557969_88-PHOENIXCHINESE-WARNA.png",Phoenix Chinese
 https://cdn10jtedge.indihometv.com/atm/DASH/phoenixchinese/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://images.indihometv.com/logo_techstorm_ver1.png",TechStorm
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
-https://cdn08jtedge.indihometv.com/dassdvr/133/techstorm_dash/manifest.mpd
+https://cdn08jtedge.indihometv.com/dassdvr/133/techstorm/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_animax_small.png",Animax
 #EXTVLCOPT:http-user-agent=Dalvik/2.1.0
 #KODIPROP:inputstream.adaptive.license_type=clearkey
