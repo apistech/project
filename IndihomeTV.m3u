@@ -50,6 +50,11 @@ https://atemeshield1-voe.sysln.id/live/eds/IndosiarHD/mpd/IndosiarHD.mpd
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=a31cf5136789514b7e12b9cc99307c84:980e54d671ffc2b2f4cf54e75cae0ac2
 https://d1abp075u76pbq.cloudfront.net/live/eds/iNewsTV-HDD/sa_dash_vmx/iNewsTV-HDD.mpd
+#EXTINF:-1 group-title="Local" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLP8YCvEMtKTfZZuUESqgQxklp2JfcXc21w&s",Jakarta GlobeNews Channel
+#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=3fbf0d50c48a46bfbf287715296f17e5:b1e63bdfd4e89fc42ea41635ab2bc3a9
+https://atemeshield1-voe.sysln.id/live/eds/JakartaGlobeHD/mpd/JakartaGlobeHD.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/logo_kompastv_small.png?v=2.0.0.13",Kompas TV
 https://cdn10jtedge.indihometv.com/atm/DASH/KOMPAS_TV/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://pic.dens.tv/tv_183x174/Magna_Channel_1.jpg",Magna Channel
@@ -105,11 +110,6 @@ https://op-group2-swiftservesd-1.dens.tv/s/s12/index.m3u8
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=eeba2c9c08078d2a729328dbcd1e002b:19090336609b8f4fee1e7aea837a10d9
 https://d1abp075u76pbq.cloudfront.net/live/eds/LifeStyleFashion/sa_dash_vmx/LifeStyleFashion.mpd
-#EXTINF:-1 group-title="Daerah" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCLP8YCvEMtKTfZZuUESqgQxklp2JfcXc21w&s",Jakarta GlobeNews Channel
-#EXTVLCOPT:http-user-agent=Dalvik/2.1.0
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=3fbf0d50c48a46bfbf287715296f17e5:b1e63bdfd4e89fc42ea41635ab2bc3a9
-https://atemeshield1-voe.sysln.id/live/eds/JakartaGlobeHD/mpd/JakartaGlobeHD.mpd
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://images.indihometv.com/logo_jaktv_small1.png?v=2.0.0.13",JakTV
 https://cdn10jtedge.indihometv.com/atm/DASH/JAK_TV/manifest.mpd
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://images.indihometv.com/assets/1706756492_JAWAPOSTV-88-HD.png",Jawa Pos TV
