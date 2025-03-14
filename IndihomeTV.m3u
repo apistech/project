@@ -182,6 +182,9 @@ https://cdn10jtedge.indihometv.com/atm/DASH/seatoday/manifest.mpd
 https://d1abp075u76pbq.cloudfront.net/live/eds/TRTWorld/sa_dash_vmx/TRTWorld.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_tvbsnews_small.png",TVBS News
 https://cdn10jtedge.indihometv.com/atm/DASH/TVBS_NEWS/manifest.mpd
+#EXTINF:-1 group-title="News" tvg-logo="https://pic.dens.tv/tv_183x174/1615521253_square.jpg",WION
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://op-group1-swiftservehd-1.dens.tv/h/h91/index.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/ALLPLAY-HD-OTT-88.png",AllPlay Ent
 https://cdn10jtedge.indihometv.com/atm/DASH/useeprime/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/logo_axn_ver2.png",AXN
@@ -410,7 +413,7 @@ https://cdn10jtedge.indihometv.com/atm/DASH/indikids/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"64756e6961616e616b30303030303030":"40d96782fdd3ff05e7c0bf9aa7af8ce5"}
 https://cdn08jtedge.indihometv.com/dassdvr/130/duniaanak_dash/manifest.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW3JOiIPB1A8ewVRgYn4mqlB28_OVuPld9Fw&s",Hip Hip Horee!
+#EXTINF:-1 group-title="Kids" tvg-logo="https://thumbor.prod.vidiocdn.com/EOkH5JDfHzAnCeGKEXiY12G36Qw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/7052/63032e.png",Hip Hip Horee!
 #EXTVLCOPT:http-user-agent=Mozilla/5.0
 https://myvidio.tvnid.workers.dev/01/stream.m3u8?id=7052&type=hls
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/logo_horee_ver1.png",Horee!
@@ -577,6 +580,9 @@ https://cdnjkt4.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0c
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"636974726164616e6764757430303030":"65232737d3a5e4e14dbfd3d96805d30b"}
 https://cdn08jtedge.indihometv.com/dassdvr/130/citradangdut_dash/manifest.mpd
+#EXTINF:-1 group-title="Music" tvg-logo="https://pic.dens.tv/tv_183x174/1701423510_square.jpg",Dance TV
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+https://op-group1-swiftservehd-1.dens.tv/h/h250/index.m3u8
 #EXTINF:-1 group-title="Music" tvg-logo="https://pic.dens.tv/tv_183x174/1591343514_square.jpg",Dens ShowBiz
 #EXTVLCOPT:http-user-agent=Mozilla/5.0
 https://op-group1-swiftservehd-1.dens.tv/h/h203/index.m3u8
