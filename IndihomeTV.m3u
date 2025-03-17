@@ -460,11 +460,6 @@ https://d1abp075u76pbq.cloudfront.net/live/eds/Zoomoo/sa_dash_vmx/Zoomoo.mpd
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
 https://cdn08jtedge.indihometv.com/dassdvr/130/bioskopindonesia_dash/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_403.png",Buddy Star
-#EXTVLCOPT:http-referrer=https://www.visionplus.id/
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=ebe6190a3cfbbed4ec34e4d9c7a30e1e:d161b1f737e2aee9501149406c8abe9e
-https://d1abp075u76pbq.cloudfront.net/live/eds/Cinemachi-Kids-HD/sa_dash_vmx/Cinemachi-Kids-HD.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_22.png",Celestial Classic Movies
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -474,7 +469,7 @@ https://d1abp075u76pbq.cloudfront.net/live/eds/CelestialClassic/sa_dash_vmx/Cele
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
 https://cdn08jtedge.indihometv.com/dassdvr/130/celestialmovie_dash/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/logo_cinemaworldnew_small.png",Cinema World
+#EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_CINEMAWORLD_2025_03_17_14_53_08.png",Cinema World
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key={"69646b755f3130303030303030303030":"e4a2359b05563399f1d9adfce641724a"}
 https://cdn08jtedge.indihometv.com/dassdvr/134/cinemaworld_dash/manifest.mpd
@@ -534,6 +529,11 @@ https://cdn10jtedge.indihometv.com/atm/DASH/thrill/manifest.mpd
 https://cdn08jtedge.indihometv.com/dassdvr/133/tvnmovies_dash/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_ZEEBIOSKOP_2025_03_17_15_04_16.png",Zee Bioskop
 https://cdn10jtedge.indihometv.com/atm/DASH/zbioskop/manifest.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_403.png",Buddy Star
+#EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=ebe6190a3cfbbed4ec34e4d9c7a30e1e:d161b1f737e2aee9501149406c8abe9e
+https://d1abp075u76pbq.cloudfront.net/live/eds/Cinemachi-Kids-HD/sa_dash_vmx/Cinemachi-Kids-HD.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_402.png",Cineedge
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
