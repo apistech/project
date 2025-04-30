@@ -27,8 +27,6 @@ https://op-group1-swiftservehd-1.dens.tv/h/h39/index.m3u8
 https://live.cnbcindonesia.com/livecnbc/smil:cnbctv.smil/playlist.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_CNNINDO_2025_03_17_15_22_37.png",CNN Indonesia
 https://live.cnnindonesia.com/livecnn/smil:cnntv.smil/playlist.m3u8
-#EXTINF:-1 group-title="Local" tvg-logo="https://i.imgur.com/sXsAcZ3.png",Garuda TV
-https://hgmtv.com:19360/garudatvlivestreaming/720p.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://www.mncvision.id/userfiles/image/channel/iBcm_IDX.jpg",IDX Channel
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -87,7 +85,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/antara/manifest.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/balitv/manifest.mpd
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://www.visionplus.id/images/repository/600/600-LOGO-m.png",Bandung TV
 http://202.150.153.254:65500/bandungtvWEBSITE.m3u8
-#EXTINF:-1 group-title="Daerah" tvg-logo="https://i.imgur.com/fksxiaS.png",Channel Jowo
+#EXTINF:-1 group-title="Daerah" tvg-logo="https://pic.dens.tv/tv_183x174/Channel_Jowo_1.jpg",Channel Jowo
 https://op-group1-swiftservehd-1.dens.tv/h/h208/index.m3u8
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://images.indihometv.com/assets/88_DAAITV_2025_03_17_15_28_44.png",DAAI TV
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
@@ -96,6 +94,8 @@ https://op-group1-swiftservehd-1.dens.tv/h/h208/index.m3u8
 https://atemeshield1-voe.sysln.id/live/eds/DAAITV/mpd/DAAITV.mpd
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://pic.dens.tv/tv_183x174/1578297960_square.jpg",ElShinta
 https://op-group2-swiftservesd-1.dens.tv/s/s12/index.m3u8
+#EXTINF:-1 group-title="Daerah" tvg-logo="https://i.imgur.com/sXsAcZ3.png",Garuda TV
+https://hgmtv.com:19360/garudatvlivestreaming/720p.m3u8
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_90.png",Hanacaraka TV
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
