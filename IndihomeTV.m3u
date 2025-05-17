@@ -2,26 +2,25 @@
 
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/logo_rcti_hd.png",RCTI
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&O
-#KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=1
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=1
 https://fta4-cdn-flr.visionplus.id/out/v1/997ce8767b604fae9fce05379b3b8b3a/index.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/logo_mnc_hd.png",MNCTV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&O
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=2
 https://fta4-cdn-flr.visionplus.id/out/v1/d6b026ad50f14b7f9af5ddd5450007d4/index.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/logo_gtv_hd.png",GTV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&O
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=3
 https://fta2-cdn-flr.visionplus.id/out/v1/b8b9b1d5f80f45649b4a3619291551ab/index.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_INEWS_2025_03_17_15_13_44.png",iNews
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
-#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36&O
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=4
 https://fta2-cdn-flr.visionplus.id/out/v1/7b0404cd6a8a4a908123f10774854e46/index.mpd
@@ -96,6 +95,7 @@ https://op-group2-swiftservesd-1.dens.tv/s/s12/index.m3u8
 https://hgmtv.com:19360/garudatvlivestreaming/720p.m3u8
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_90.png",Hanacaraka TV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=89
 https://d1vckova5fh9mt.cloudfront.net/out/v1/17c724036c5f4615bd0b8093126b5c44/index.mpd
@@ -141,6 +141,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/CHANNEL_NEWS_ASIA/manifest.mpd
 https://atemeshield1-voe.sysln.id/live/eds/CGTN/mpd/CGTN.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/assets/88_CNBCASIA_2025_03_17_15_02_57.png",CNBC Asia
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=131
 https://fta3-cdn-flr.visionplus.id/out/v1/e8d3f81aae4b46fbacf545140b86f2c4/index.mpd
@@ -169,6 +170,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/NHK_WORLD_JAPAN/manifest.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/seatoday/manifest.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://images.indihometv.com/logo_trtworld_small.png",TRT World
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=148
 https://fta2-cdn-flr.visionplus.id/out/v1/be2bcc4b75e348e5b331fc5f99aa3daf/index.mpd
@@ -188,6 +190,7 @@ https://atemeshield1-voe.sysln.id/live/eds/CitraDramaHD/mpd/CitraDramaHD.mpd
 https://atemeshield1-voe.sysln.id/live/eds/CitraEntertainmentHD/mpd/CitraEntertainmentHD.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://www.visionplus.id/images/repository/427/173427-LOGO-m.png",Drama World
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://drm-vision2025.tvrusak1992.workers.dev/?no=204&type=drm
 https://fta4-cdn-flr.visionplus.id/out/v1/db82aed7a1864935b8b8f960651c3db7/index.mpd
@@ -197,6 +200,7 @@ https://fta4-cdn-flr.visionplus.id/out/v1/db82aed7a1864935b8b8f960651c3db7/index
 https://cdn08jtedge.indihometv.com/dassdvr/130/dunialain/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_86.png",Entertainment
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=72
 https://fta2-cdn-flr.visionplus.id/out/v1/a90cb773466446b08595007bab12b920/index.mpd
@@ -227,6 +231,7 @@ https://atemeshield1-voe.sysln.id/live/eds/KBSWorldHD/mpd/KBSWorldHD.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/kix/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://www.mncvision.id/userfiles/image/channel/nhk_150.png",NHK World Premium
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=162
 https://fta1-cdn-flr.visionplus.id/out/v1/8decf3562fe943e88872ef868d6fb6a5/index.mpd
@@ -246,6 +251,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/tv5monde/manifest.mpd
 https://atemeshield1-voe.sysln.id/live/eds/TvNHD/mpd/TvNHD.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_1.png",Vision Prime
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=87
 https://fta4-cdn-flr.visionplus.id/out/v1/873c24d3946048f68e459250f1d2fd98/index.mpd
@@ -260,6 +266,7 @@ https://atemeshield1-voe.sysln.id/live/eds/AFNHD/mpd/AFNHD.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/atv/manifest.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_96.png",Celebrities TV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=88
 https://fta3-cdn-flr.visionplus.id/out/v1/8cf72e61626f4361a45c57ce6f2fdad8/index.mpd
@@ -278,6 +285,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/FASHION_TV/manifest.mpd
 https://atemeshield1-voe.sysln.id/live/eds/FoodNetworkHD/mpd/FoodNetworkHD.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_95.png",Food Travel
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=71
 https://fta1-cdn-flr.visionplus.id/out/v1/77d7eac1b90247ac9aa745bd2eb47fa8/index.mpd
@@ -309,6 +317,7 @@ https://op-group1-swiftservehd-1.dens.tv/h/h216/index.m3u8
 https://atemeshield1-voe.sysln.id/live/eds/AnimalPlanetHD/mpd/AnimalPlanetHD.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_461.png",BBC Earth
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=102
 https://fta1-cdn-flr.visionplus.id/out/v1/4e5b2a283adf462c8b6b55b2ef059fac/index.mpd
@@ -355,6 +364,7 @@ https://atemeshield1-voe.sysln.id/live/eds/HistoryHD/mpd/HistoryHD.mpd
 https://atemeshield1-voe.sysln.id/live/eds/LoveNatureHD/mpd/LoveNatureHD.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_460.png",Outdoor Channel
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=101
 https://fta2-cdn-flr.visionplus.id/out/v1/c169ca1dcbe249c5bf233aabc3db4a4f/index.mpd
@@ -378,6 +388,7 @@ https://atemeshield1-voe.sysln.id/live/eds/CartoonNetWHD/mpd/CartoonNetWHD.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/boomerang/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://www.mncvision.id/userfiles/image/channel/cbeebies_150.png",CBeebies
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=58
 https://fta4-cdn-flr.visionplus.id/out/v1/2a5668fb3b9f4e34ab7c02cdc6ef56db/index.mpd
@@ -403,6 +414,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/indikids/manifest.mpd
 https://atemeshield1-voe.sysln.id/live/eds/HoreeHD/mpd/HoreeHD.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_46.png",Kids TV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=56
 https://fta3-cdn-flr.visionplus.id/out/v1/9041826689ae4f9c9619576d411fa989/index.mpd
@@ -410,6 +422,7 @@ https://fta3-cdn-flr.visionplus.id/out/v1/9041826689ae4f9c9619576d411fa989/index
 https://cdn08jtedge.indihometv.com/dassdvr/134/mentaritv/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/assets/88_MOONBUGKIDS_2025_03_17_15_10_52.png",Moonbug
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=57
 https://fta1-cdn-flr.visionplus.id/out/v1/198f7febb48c4c909d62977d88c195b0/index.mpd
@@ -430,6 +443,7 @@ https://atemeshield1-voe.sysln.id/live/eds/Nickelodeon/mpd/Nickelodeon.mpd
 https://raw.githubusercontent.com/AFDigitalTV/Channel/refs/heads/main/PL/vtv.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_39.png",Zoomoo
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=63
 https://fta3-cdn-flr.visionplus.id/out/v1/8554b3cb938e44038093df2d65080932/index.mpd
@@ -439,11 +453,13 @@ https://fta3-cdn-flr.visionplus.id/out/v1/8554b3cb938e44038093df2d65080932/index
 https://cdn08jtedge.indihometv.com/dassdvr/130/bioskopindonesia/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_22.png",Celestial Classic Movies
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=45
 https://fta1-cdn-flr.visionplus.id/out/v1/6bdbe6ce7f034807aba5f09bed048b05/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_CELESTIALMOVIES_2025_03_17_14_52_15.png",Celestial Movies Indonesia
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=44
 https://fta4-cdn-flr.visionplus.id/out/v1/fd25e662b7154c60a94f7c061573ba2d/index.mpd
@@ -462,11 +478,13 @@ https://atemeshield1-voe.sysln.id/live/eds/CitraBioskopHD/mpd/CitraBioskopHD.mpd
 https://cdn08jtedge.indihometv.com/dassdvr/133/flik/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_GALAXY_2025_03_17_15_31_45.png",Galaxy
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=49
 https://fta4-cdn-flr.visionplus.id/out/v1/751a0982779f4edd904205eb351e220d/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_GALAXYPREMIUM_2025_03_17_15_01_43.png",Galaxy Premium
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=48
 https://live-channel4-cdn.visionplus.id/out/v1/45c0752c6b6b4397b80243ac9fed96fd/index.mpd
@@ -509,26 +527,31 @@ https://atemeshield1-voe.sysln.id/live/eds/TvNMoviesHD/mpd/TvNMoviesHD.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/zbioskop/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_403.png",Buddy Star
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=37
 https://fta1-cdn-flr.visionplus.id/out/v1/c70975aaa68d47f2a38799e6730a7816/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_402.png",Cineedge
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=40
 https://fta4-cdn-flr.visionplus.id/out/v1/47c895ca72544fcfa4221c499b555a10/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_401.png",Originals
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=36
 https://fta3-cdn-flr.visionplus.id/out/v1/e992e986a88346c18a5dcc4fbcdae6b9/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_404.png",Superrix
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=39
 https://fta2-cdn-flr.visionplus.id/out/v1/782400332c96440598260730a864bc6f/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_405.png",Uniques
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=38
 https://fta3-cdn-flr.visionplus.id/out/v1/bde0a6d8d3fd4d77ae5093ad2e6699dc/index.mpd
@@ -590,6 +613,7 @@ https://atemeshield1-voe.sysln.id/live/eds/MTV90sHD/mpd/MTV90sHD.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/MTV_LIVE/manifest.mpd
 #EXTINF:-1 group-title="Music" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_111.png",Music TV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=142
 https://fta1-cdn-flr.visionplus.id/out/v1/c20d75deb06f401aa89681a9e5054de7/index.mpd
@@ -599,16 +623,19 @@ https://cdn08jtedge.indihometv.com/dassdvr/134/musikindo720/manifest.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/PRAMBORS_TV/manifest.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_417.png",beIN Sports 1
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=3ae6a430c1b8420ea280e317143d8d3a:142473ee925db0db0083c74a178c8298
 https://d6m3sfa7e58z5.cloudfront.net/out/v1/3b0660e05eed4d769521eb0275aab3ab/index.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_418.png",beIN Sports 2
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=3d756d566ca94e6499518ffb1474d5d0:dbe4ad6803e74739b8f954d23cc58e7b
 https://d6m3sfa7e58z5.cloudfront.net/out/v1/cfca527d0f16403396a71b2d3d54c32f/index.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_419.png",beIN Sports 3
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=344d320ca45641a88cf002db351ed9a4:246cc6ee7ab235cb824ed3b904b7040b
 https://d6m3sfa7e58z5.cloudfront.net/out/v1/a265695db5cb461095cbfefc02ad793b/index.mpd
@@ -651,16 +678,19 @@ https://op-group1-swiftservehd-1.dens.tv/h/h09/index.m3u8
 https://cdn08jtedge.indihometv.com/dassdvr/133/nba/manifest.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_420.png",Soccer Channel
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://drm-vision2025.tvrusak1992.workers.dev/?no=115&type=drm
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/63c0da12bb4d48afbaf053f51dff2353/index.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_421.png",Sportstars
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://drm-vision2025.tvrusak1992.workers.dev/?no=112&type=drm
 https://d2tjypxxy769fn.cloudfront.net/out/v1/89a6e4261cd7470f83e5869e90440cff/index.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_422.png",Sportstars 2
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=911e72adf36946afbdbb4f80782a8394:08aec548a851ba64b7172ae7f05cb91c
 https://fta3-cdn-flr.visionplus.id/out/v1/d2c68a3dfb644808b416bd90dcc92d5f/index.mpd
@@ -695,6 +725,7 @@ https://cdn09jtedge.indihometv.com/atm/DASH/mtatv/manifest.mpd
 https://cdn09jtedge.indihometv.com/atm/DASH/muitv/manifest.mpd
 #EXTINF:-1 group-title="Religi" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_92.png",Muslim TV
 #EXTVLCOPT:http-referrer=https://www.visionplus.id/
+#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=Mozilla/5.0
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://tvkitastream.my.id/rctiplus/drm-vip.php/widevine?id=137
 https://fta1-cdn-flr.visionplus.id/out/v1/a8f14e34c687494fb1454b88742db085/index.mpd
