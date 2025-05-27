@@ -497,6 +497,31 @@ https://fta2-cdn-flr.visionplus.id/out/v1/782400332c96440598260730a864bc6f/index
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://kingtvpremium.my.id/play/pision/drm.php?id=38
 https://fta3-cdn-flr.visionplus.id/out/v1/bde0a6d8d3fd4d77ae5093ad2e6699dc/index.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.firstmedia.com/_next/image?url=https%3A%2F%2Fflmngr.firstmedia.com%2Ffiles%2Flogos%2Fchannels%2F9-MOVIES%2FCinemax%20HD-FirstMedia-Chl-310.jpg&w=96&q=100",CINEMAX
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=b489136b34aa4166a9c9984f19155d30:2c6de796954779fd6f51584425ac834e
+https://atemeshield1-voe.sysln.id/live/eds/CinemaxHD/mpd/CinemaxHD.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.firstmedia.com/_next/image?url=https%3A%2F%2Fflmngr.firstmedia.com%2Ffiles%2Flogos%2Fchannels%2F9-MOVIES%2FHBO%20HD-FirstMedia-Chl-305.jpg&w=96&q=100",HBO
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=21ffca10810542af9734b82f4000c274:e3d2e4843ffadf510f6c91668a03e183
+https://atemeshield1-voe.sysln.id/live/eds/HBOHD/mpd/HBOHD.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.firstmedia.com/_next/image?url=https%3A%2F%2Fflmngr.firstmedia.com%2Ffiles%2Flogos%2Fchannels%2F9-MOVIES%2FHBO%20Family%20HD-FirstMedia-Chl-307.jpg&w=96&q=100",HBO Family
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=c374098609974ff5a1db0f2300098092:1cf7e0ca54f6f8a84f99a0607c0dfcee
+https://atemeshield1-voe.sysln.id/live/eds/HBOFamilyHD/mpd/HBOFamilyHD.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.firstmedia.com/_next/image?url=https%3A%2F%2Fflmngr.firstmedia.com%2Ffiles%2Flogos%2Fchannels%2F9-MOVIES%2FHBO%20Hits%20HD-FirstMedia-Chl-306.jpg&w=96&q=100",HBO Hits
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=47a7ef37081a4ab5937c94272d9988b6:e637e6be1231e14a670120b23dae1a0b
+https://atemeshield1-voe.sysln.id/live/eds/HBOHitsHD/mpd/HBOHitsHD.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://www.firstmedia.com/_next/image?url=https%3A%2F%2Fflmngr.firstmedia.com%2Ffiles%2Flogos%2Fchannels%2F9-MOVIES%2FHBO%20Signature%20HD-FirstMedia-Chl-308.jpg&w=96&q=100",HBO Signature
+#EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=5263a24be1084f29b190d98a52e30384:044798ce23772d14859c306a8a6b33f3
+https://atemeshield1-voe.sysln.id/live/eds/HBOSignatureHD/mpd/HBOSignatureHD.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_2yj5giid/landscape_carousel_xxhdpi.jpg",CINEMAX
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
@@ -516,26 +541,6 @@ https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d054fb
 #EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_t4w6p88r/landscape_carousel_xxhdpi.jpg",HBO Signature
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
-https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0ca37a2/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_2yj5giid/landscape_carousel_xxhdpi.jpg",CINEMAX
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=614a74726d6a4e50483547704f746979:39556563333039445762455a77587642
-https://cdnjkt913.transvision.co.id:1000/live/master/1/4028c6856c3db2cc016cdbfc4a1934bf/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_vae5o3nc/landscape_carousel_xxhdpi.jpg",HBO
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=e48a682b976e4155be8faea47f3b632c:bc47d6b9a9d0478a80d7eada933bcb92
-https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856b6088c3016b87d64b970b53/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_v0ahj8gp/landscape_carousel_xxhdpi.jpg",HBO Family
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=7737475074686773477770687a637442:545965514575566765686f5375484136
-https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d055927fe37a4/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_dx9zvcn8/landscape_carousel_xxhdpi.jpg",HBO Hits
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=5454376b416177365674647773333752:34304a6a4e6172557444676557737650
-https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d054fbf67379f/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://vmp-cms.telkomsel.com/sites/default/files/entry/0_t4w6p88r/landscape_carousel_xxhdpi.jpg",HBO Signature
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=315376494d5743594544753665377134:6b435a6b5479634a6b3871625a596838
 https://cdnjkt913.transvision.co.id:1000/live/master/3/4028c6856c3db2cc016d0552e0ca37a2/manifest.mpd
 #EXTINF:-1 group-title="Music" tvg-logo="https://images.indihometv.com/assets/88_CITRADANGDUT_2025_03_17_14_47_14.png",Citra Dangdut
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
