@@ -221,6 +221,8 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/TvNHD/mpd/TvNHD.mpd
 https://fta4-cdn-flr.visionplus.id/out/v1/873c24d3946048f68e459250f1d2fd98/index.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://images.indihometv.com/assets/88_WARNER_2025_03_17_15_11_51.png",Warner TV
 https://cdn09jtedge.indihometv.com/atm/DASH/warner/manifest.mpd
+#EXTINF:-1 group-title="Entertainment" tvg-logo="https://pic.dens.tv/tv_183x174/wedo-tv-amor183x174@3x@3x.jpg",WeDoTv Amor
+https://amg00735-amg00735c15-denstv-apac-7623.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://images.indihometv.com/assets/88_AFN_2025_03_17_14_44_55.png",Asian Food Network
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -314,6 +316,8 @@ https://cdn08jtedge.indihometv.com/dassdvr/194/lovenature/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=7efd32eb4765465c8a19aba6987770c8:733e8d3f4fb8f7ae021168d92f922645
 https://fta2-cdn-flr.visionplus.id/out/v1/c169ca1dcbe249c5bf233aabc3db4a4f/index.mpd
+#EXTINF:-1 group-title="Knowledge" tvg-logo="https://pic.dens.tv/tv_183x174/wedo-tv-big-stories183x174@3x.jpg",WeDoTv Big Stories
+https://amg00735-amg00735c19-denstv-apac-7624.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/assets/88_ANIMAX_2025_03_17_15_14_19.png",Animax
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -446,6 +450,8 @@ https://cdn09jtedge.indihometv.com/atm/DASH/thrill/manifest.mpd
 https://atemecdnbalancer-voe.sysln.id/live/eds/TvNMoviesHD/mpd/TvNMoviesHD.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://images.indihometv.com/assets/88_ZEEBIOSKOP_2025_03_17_15_04_16.png",Zee Bioskop
 https://cdn09jtedge.indihometv.com/atm/DASH/zbioskop/manifest.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://pic.dens.tv/tv_183x174/wedo-tv-movies183x174@3x.jpg",WeDoTv Movies
+https://amg00735-amg00735c46-denstv-apac-7617.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_403.png",Buddy Star
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 https://av-ch-cdn.mncnow.id/live/eds/Cinemachi-Kids-HD/sa_dash/Cinemachi-Kids-HD.mpd
@@ -597,6 +603,8 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/SPOTV2HD/mpd/SPOTV2HD.mpd
 https://op-group1-swiftservesd-1.dens.tv/s/s107/index.m3u8
 #EXTINF:-1 group-title="Sports" tvg-logo="https://pic.dens.tv/tv_183x174/W-Sport_(Trial)_1.jpg",W-Sport
 https://op-group1-swiftservehd-1.dens.tv/h/h26/index.m3u8
+#EXTINF:-1 group-title="Sports" tvg-logo="https://pic.dens.tv/tv_183x174/wedo-tv-sports183x174@3x.jpg",WeDoTv Sports
+https://amg00735-amg00735c45-denstv-apac-7616.playouts.now.amagi.tv/playlist.m3u8
 #EXTINF:-1 group-title="Religi" tvg-logo="https://images.indihometv.com/assets/88_ALQURANALKAREEM_(1)_2025_03_19_08_18_31.png",Al Quran Al Kareem
 https://cdn09jtedge.indihometv.com/atm/DASH/alquran/manifest.mpd
 #EXTINF:-1 group-title="Religi" tvg-logo="https://upload.wikimedia.org/wikipedia/id/c/c5/Citra_Muslim_Scm.jpeg",Citra Muslim
