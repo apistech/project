@@ -351,14 +351,14 @@ https://cdn09jtedge.indihometv.com/atm/DASH/boomerang/manifest.mpd
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
 https://cdnjktidc01.transvision.co.id/live/master/4/4028c6856c3db2cc016d144f21811dc9/manifest.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://transvision.co.id/img/channel/Cartoon%20TV%20Classics.jpg",Cartoon TV Classic
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
-https://cdnjktidc01.transvision.co.id/live/master/100/4028c685840ff0490184560100c34363/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://transvision.co.id/img/channel/new/CARTOON%20TV%20TAG%20PREMIUM.jpg",Cartoon TV Premium
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
 https://cdnjktidc01.transvision.co.id/live/master/5/4028c6856b8d2390016b9c47b6f01de1/manifest.mpd
+#EXTINF:-1 group-title="Kids" tvg-logo="https://transvision.co.id/img/channel/Cartoon%20TV%20Classics.jpg",Cartoon TV Classic
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://lic-cubmux.konslet.workers.dev/4rr0w/play.wv
+https://cdnjktidc01.transvision.co.id/live/master/100/4028c685840ff0490184560100c34363/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-D9sV_4ckaZvzVZu6VX43db-_ZQ0IrVUOeg&s",CBeebies
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
