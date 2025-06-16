@@ -43,10 +43,10 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/IndosiarHD/mpd/IndosiarHD.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_KOMPASTV_2025_03_17_14_56_36.png",Kompas TV
 https://cdn10jtedge.indihometv.com/atm/DASH/KOMPAS_TV/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_MDTV_2025_03_17_14_56_36.png",MDTV
-#EXTVLCOPT:http-referrer=https://www.visionplustv.id/
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=91dec6fd9fd84b879aacc027bf532790:588a2214bfb91fc0150b9ac2a745cef8
-https://d3b0v7fggu5zwm.cloudfront.net/out/v1/3aefa03d32954b678e5faab6daa04b58/index.mpd
+#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
+#KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
+#KODIPROP:inputstream.adaptive.stream_headers=dt-custom-data=eyJ1c2VySWQiOiJndWVzdDEwODc0QG1vcmF0ZWxpbmRvLmNvbSIsInNlc3Npb25JZCI6ImV5SjBlWEFpT2lKS1YxUWlMQ0poYkdjaU9pSklVekkxTmlKOS5leUpqZFhKeVpXNTBVMlZ6YzJsdmJrbGtJam9pTURNME56Rm1PVGt0WlRkbU5pMDBaREZrTFRrME1qWXROakl5TVRVMFpqRmxZek0zSWl3aVkzVnljbVZ1ZEVSbGRtbGpaVlI1Y0dVaU9pSkJJaXdpWTNWeWNtVnVkRkJzWVhSbWIzSnRTV1FpT2lJME1ESTRZelk0TlRZek5XRXdZell6TURFMk16VmhNVEUzWVRabE1EQXdNaUlzSW5ScGJXVjZiMjVsSWpvaVJYVnliM0JsTDB4dmJtUnZiaUlzSW1GMWRHaHZjbWwwZVNJNklsSlBURVZmVlZORlVpSXNJbVY0Y0NJNk1UYzFNRFU1TnpJM09Dd2lkWE5sY2tsa0lqb2lOREF5T0RRNFpUUTNaVE0xTlRNMk5qQXhOMlV6WkRSa05UazNaakF3TVdNaUxDSmtaWFpwWTJWSlpDSTZJalUyWlROaU1HTmhZamxqTVRVME9HTWlMQ0pwWVhRaU9qRTNORGd3TURVeU56Z3NJblZ6WlhKdVlXMWxJam9pWjNWbGMzUXhNRGczTkVCdGIzSmhkR1ZzYVc1a2J5NWpiMjBpZlEuX0pJYVNUcUFxVW9wSzNzUUJQSUZBRDJyU0FyWlhIa2c3dkR1Vl8wOUhWZyIsIm1lcmNoYW50IjoiZ2lpdGRfdHJhbnN2aXNpb24ifQ==
+https://cdnjkt913.transvision.co.id:1000/live/master/2/4028c685758bcfff01776bc7624307ab/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_METROTV_2025_03_17_14_51_08.png",Metro TV
 https://cdn10jtedge.indihometv.com/atm/DASH/METRO_TV/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_MOJI_2025_03_17_15_22_26.png",Moji
