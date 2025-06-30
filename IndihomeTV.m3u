@@ -43,10 +43,7 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/IndosiarHD/mpd/IndosiarHD.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_KOMPASTV_2025_03_17_14_56_36.png",Kompas TV
 https://cdn10jtedge.indihometv.com/atm/DASH/KOMPAS_TV/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_MDTV_2025_03_17_14_56_36.png",MDTV
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
-#KODIPROP:inputstream.adaptive.stream_headers=dt-custom-data=eyJ1c2VySWQiOiJpdGNvcmUubWFzdGVyX3N0MkB0cnYuY28uaWQiLCJzZXNzaW9uSWQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKamRYSnlaVzUwVTJWemMybHZia2xrSWpvaU16a3hPV1kzTlRjdFltWmpPUzAwTm1KaExXSmtaRGN0T0dGaU1XTmhOVEV4Tm1JMklpd2lZM1Z5Y21WdWRFUmxkbWxqWlZSNWNHVWlPaUpCSWl3aVkzVnljbVZ1ZEZCc1lYUm1iM0p0U1dRaU9pSTBNREk0WXpZNE5UYzBOVE0zWm1Oa01ERTNOR0ZtTmpjMU5tRTVOREk0T0NJc0luUnBiV1Y2YjI1bElqb2lSWFZ5YjNCbEwweHZibVJ2YmlJc0ltRjFkR2h2Y21sMGVTSTZJbEpQVEVWZlZWTkZVaUlzSW1WNGNDSTZNVGMxTVRJM01UY3pNeXdpZFhObGNrbGtJam9pTW1NNVpqaG1PRFk1TnpaaE1XRm1ZVEF4T1RjMllXWmxNalEwWXpRMlpUa2lMQ0prWlhacFkyVkpaQ0k2SWpFeU16UTFOamM0T1RBaUxDSnBZWFFpT2pFM05URXhPRFV6TXpNc0luVnpaWEp1WVcxbElqb2lhWFJqYjNKbExtMWhjM1JsY2w5emRESkFkSEoyTG1OdkxtbGtJbjAuZGJ2bnZMTmpueWg5LUNQQUhFTmZMdUM2cUI5eklHZGtXTzBzTlNPVWNHayIsIm1lcmNoYW50IjoiZ2lpdGRfdHJhbnN2aXNpb24ifQ==
-https://cdnjkt913.transvision.co.id:1000/live/master/2/4028c685758bcfff01776bc7624307ab/manifest.mpd
+https://op-group1-swiftservehd-1.dens.tv/h/h223/index.m3u8
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_METROTV_2025_03_17_14_51_08.png",Metro TV
 https://cdn10jtedge.indihometv.com/atm/DASH/METRO_TV/manifest.mpd
 #EXTINF:-1 group-title="Local" tvg-logo="https://images.indihometv.com/assets/88_MOJI_2025_03_17_15_22_26.png",Moji
@@ -332,21 +329,6 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/AnimaxHD/mpd/AnimaxHD.mpd
 https://cdn08jtedge.indihometv.com/dassdvr/107/aniplus/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://iili.io/bEMPlR.png",Biznet Kids
 http://livestream.biznetvideo.net/biznet_kids/smil:kids.smil/manifest.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://cdnjkt913.transvision.co.id:1000/image/web/channel/4028c6858262bb8001827b65fa882be2/1aa82a2c32ca49698d23ddeec560c48c.jpg",Cartoon TV
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
-#KODIPROP:inputstream.adaptive.stream_headers=dt-custom-data=eyJ1c2VySWQiOiJpdGNvcmUubWFzdGVyX3N0MkB0cnYuY28uaWQiLCJzZXNzaW9uSWQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKamRYSnlaVzUwVTJWemMybHZia2xrSWpvaU16a3hPV1kzTlRjdFltWmpPUzAwTm1KaExXSmtaRGN0T0dGaU1XTmhOVEV4Tm1JMklpd2lZM1Z5Y21WdWRFUmxkbWxqWlZSNWNHVWlPaUpCSWl3aVkzVnljbVZ1ZEZCc1lYUm1iM0p0U1dRaU9pSTBNREk0WXpZNE5UYzBOVE0zWm1Oa01ERTNOR0ZtTmpjMU5tRTVOREk0T0NJc0luUnBiV1Y2YjI1bElqb2lSWFZ5YjNCbEwweHZibVJ2YmlJc0ltRjFkR2h2Y21sMGVTSTZJbEpQVEVWZlZWTkZVaUlzSW1WNGNDSTZNVGMxTVRJM01UY3pNeXdpZFhObGNrbGtJam9pTW1NNVpqaG1PRFk1TnpaaE1XRm1ZVEF4T1RjMllXWmxNalEwWXpRMlpUa2lMQ0prWlhacFkyVkpaQ0k2SWpFeU16UTFOamM0T1RBaUxDSnBZWFFpT2pFM05URXhPRFV6TXpNc0luVnpaWEp1WVcxbElqb2lhWFJqYjNKbExtMWhjM1JsY2w5emRESkFkSEoyTG1OdkxtbGtJbjAuZGJ2bnZMTmpueWg5LUNQQUhFTmZMdUM2cUI5eklHZGtXTzBzTlNPVWNHayIsIm1lcmNoYW50IjoiZ2lpdGRfdHJhbnN2aXNpb24ifQ==
-https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856c3db2cc016d144f21811dc9/manifest.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://cdnjkt913.transvision.co.id:1000/image/web/channel/4028c6858262bb8001827b64d0742be1/e00b58b6aaa1455c82d8980c3f90c98c.jpg",Cartoon TV Premium
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
-#KODIPROP:inputstream.adaptive.stream_headers=dt-custom-data=eyJ1c2VySWQiOiJpdGNvcmUubWFzdGVyX3N0MkB0cnYuY28uaWQiLCJzZXNzaW9uSWQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKamRYSnlaVzUwVTJWemMybHZia2xrSWpvaU16a3hPV1kzTlRjdFltWmpPUzAwTm1KaExXSmtaRGN0T0dGaU1XTmhOVEV4Tm1JMklpd2lZM1Z5Y21WdWRFUmxkbWxqWlZSNWNHVWlPaUpCSWl3aVkzVnljbVZ1ZEZCc1lYUm1iM0p0U1dRaU9pSTBNREk0WXpZNE5UYzBOVE0zWm1Oa01ERTNOR0ZtTmpjMU5tRTVOREk0T0NJc0luUnBiV1Y2YjI1bElqb2lSWFZ5YjNCbEwweHZibVJ2YmlJc0ltRjFkR2h2Y21sMGVTSTZJbEpQVEVWZlZWTkZVaUlzSW1WNGNDSTZNVGMxTVRJM01UY3pNeXdpZFhObGNrbGtJam9pTW1NNVpqaG1PRFk1TnpaaE1XRm1ZVEF4T1RjMllXWmxNalEwWXpRMlpUa2lMQ0prWlhacFkyVkpaQ0k2SWpFeU16UTFOamM0T1RBaUxDSnBZWFFpT2pFM05URXhPRFV6TXpNc0luVnpaWEp1WVcxbElqb2lhWFJqYjNKbExtMWhjM1JsY2w5emRESkFkSEoyTG1OdkxtbGtJbjAuZGJ2bnZMTmpueWg5LUNQQUhFTmZMdUM2cUI5eklHZGtXTzBzTlNPVWNHayIsIm1lcmNoYW50IjoiZ2lpdGRfdHJhbnN2aXNpb24ifQ==
-https://cdnjkt913.transvision.co.id:1000/live/master/5/4028c6856b8d2390016b9c47b6f01de1/manifest.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://cdnjkt913.transvision.co.id:1000/image/web/channel/4028c685840ff04901846166f4d93e5e/8e60b38dbec04327b6a595877c1e94b3.jpg",Cartoon TV Classic
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
-#KODIPROP:inputstream.adaptive.stream_headers=dt-custom-data=eyJ1c2VySWQiOiJpdGNvcmUubWFzdGVyX3N0MkB0cnYuY28uaWQiLCJzZXNzaW9uSWQiOiJleUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKamRYSnlaVzUwVTJWemMybHZia2xrSWpvaU16a3hPV1kzTlRjdFltWmpPUzAwTm1KaExXSmtaRGN0T0dGaU1XTmhOVEV4Tm1JMklpd2lZM1Z5Y21WdWRFUmxkbWxqWlZSNWNHVWlPaUpCSWl3aVkzVnljbVZ1ZEZCc1lYUm1iM0p0U1dRaU9pSTBNREk0WXpZNE5UYzBOVE0zWm1Oa01ERTNOR0ZtTmpjMU5tRTVOREk0T0NJc0luUnBiV1Y2YjI1bElqb2lSWFZ5YjNCbEwweHZibVJ2YmlJc0ltRjFkR2h2Y21sMGVTSTZJbEpQVEVWZlZWTkZVaUlzSW1WNGNDSTZNVGMxTVRJM01UY3pNeXdpZFhObGNrbGtJam9pTW1NNVpqaG1PRFk1TnpaaE1XRm1ZVEF4T1RjMllXWmxNalEwWXpRMlpUa2lMQ0prWlhacFkyVkpaQ0k2SWpFeU16UTFOamM0T1RBaUxDSnBZWFFpT2pFM05URXhPRFV6TXpNc0luVnpaWEp1WVcxbElqb2lhWFJqYjNKbExtMWhjM1JsY2w5emRESkFkSEoyTG1OdkxtbGtJbjAuZGJ2bnZMTmpueWg5LUNQQUhFTmZMdUM2cUI5eklHZGtXTzBzTlNPVWNHayIsIm1lcmNoYW50IjoiZ2lpdGRfdHJhbnN2aXNpb24ifQ==
-https://cdnjkt913.transvision.co.id:1000/live/master/100/4028c685840ff0490184560100c34363/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/assets/88_CARTOONNETWORK_2025_03_17_14_49_56.png",Cartoon Network
 https://cdn08jtedge.indihometv.com/dassdvr/194/cartoonnetwork/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://images.indihometv.com/assets/88_CARTOONITO_2025_03_17_14_46_33.png",Cartoonito
@@ -618,26 +600,6 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/SPOTV2HD/mpd/SPOTV2HD.mpd
 https://op-group1-swiftservesd-1.dens.tv/s/s107/index.m3u8
 #EXTINF:-1 group-title="Sports" tvg-logo="https://pic.dens.tv/tv_183x174/W-Sport_(Trial)_1.jpg",W-Sport
 https://op-group1-swiftservehd-1.dens.tv/h/h26/index.m3u8
-#EXTINF:-1 group-title="Sports" tvg-logo="https://i.pinimg.com/736x/1a/a3/31/1aa331ed48c9ac45612850f604eb830c.jpg", Champions TV 1
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://sweet-night-1d1d.worst.workers.dev/play?id=17938&type=drm
-https://sweet-night-1d1d.worst.workers.dev/play.mpd?id=17938&type=dash
-#EXTINF:-1 group-title="Sports" tvg-logo="https://i.pinimg.com/736x/1a/a3/31/1aa331ed48c9ac45612850f604eb830c.jpg", Champions TV 2
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://sweet-night-1d1d.worst.workers.dev/play?id=6686&type=drm
-https://sweet-night-1d1d.worst.workers.dev/play.mpd?id=6686&type=dash
-#EXTINF:-1 group-title="Sports" tvg-logo="https://i.pinimg.com/736x/1a/a3/31/1aa331ed48c9ac45612850f604eb830c.jpg", Champions TV 3
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://sweet-night-1d1d.worst.workers.dev/play?id=6786&type=drm
-https://sweet-night-1d1d.worst.workers.dev/play.mpd?id=6786&type=dash
-#EXTINF:-1 group-title="Sports" tvg-logo="https://i.pinimg.com/736x/1a/a3/31/1aa331ed48c9ac45612850f604eb830c.jpg", Champions TV 5
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://sweet-night-1d1d.worst.workers.dev/play?id=9182&type=drm
-https://sweet-night-1d1d.worst.workers.dev/play.mpd?id=9182&type=dash
-#EXTINF:-1 group-title="Sports" tvg-logo="https://i.pinimg.com/736x/1a/a3/31/1aa331ed48c9ac45612850f604eb830c.jpg", Champions TV 6
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://sweet-night-1d1d.worst.workers.dev/play?id=9183&type=drm
-https://sweet-night-1d1d.worst.workers.dev/play.mpd?id=9183&type=dash
 #EXTINF:-1 group-title="Religi" tvg-logo="https://images.indihometv.com/assets/88_ALQURANALKAREEM_(1)_2025_03_19_08_18_31.png",Al Quran Al Kareem
 https://cdn10jtedge.indihometv.com/atm/DASH/alquran/manifest.mpd
 #EXTINF:-1 group-title="Religi" tvg-logo="https://upload.wikimedia.org/wikipedia/id/c/c5/Citra_Muslim_Scm.jpeg?20230205014000",Citra Muslim
