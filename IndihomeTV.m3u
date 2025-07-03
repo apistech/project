@@ -476,8 +476,8 @@ https://raw.githubusercontent.com/AFDigitalTV/Channel/refs/heads/main/PL/vtv.m3u
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/8554b3cb938e44038093df2d65080932/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_22.png",Celestial Classic Movies
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
-#KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://colloriptvpro.my.id/vis/scc01.php?id=45
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=974d4fb195224f66a2271de806e62018:0e92ec1a28d59da80161c3541c6eb8eb
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/6bdbe6ce7f034807aba5f09bed048b05/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CELESTIALMOVIES_2025_03_17_14_52_15.png",Celestial Movies Indonesia
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
@@ -511,12 +511,8 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/HitsMoviesHD/mpd/HitsMoviesHD.mpd
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/65432a4c12ca4a52abf473a0e41d7c7e/index.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://pic.dens.tv/tv_183x174/My_Cinema_Europe_HD_1.jpg",My Cinema Europe
 https://op-group1-swiftservehd-1.dens.tv/h/h18/index.m3u8
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_mycinema_ver1.png",My Cinema
-https://op-group1-swiftservehd-1.dens.tv/h/h192/index.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_new-mycinemaasia_small.png",My Cinema Asia
 https://op-group1-swiftservehd-1.dens.tv/h/h193/index.m3u8
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_myfamily_ver2.png",My Family
-https://op-group1-swiftservehd-1.dens.tv/h/h194/index.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ROCKACTION_2025_03_17_14_48_54.png",Rock Action
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
