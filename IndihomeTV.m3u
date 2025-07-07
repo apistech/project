@@ -139,8 +139,6 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/1f05c642353a4a778d8a544837e1b49c/in
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/77641c37b4834a9db823ec5137774973/index.mpd
 #EXTINF:-1 group-title="Daerah" tvg-logo="https://pic.dens.tv/tv_183x174/Magna_Channel_1.jpg",Magna Channel
 https://op-group1-swiftservehd-1.dens.tv/h/h24/index.m3u8
-#EXTINF:-1 group-title="Daerah" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_RRINET_2025_03_17_15_02_40.png",RRI NET
-https://public-streaming.rri.co.id/memfs/a3a573d6-1ed3-4d6e-9f9f-e9a4e2cefd9d.m3u8
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ABCAUSTRALIA_2025_03_17_14_50_10.png",ABC Australia
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -268,8 +266,9 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/KIXHD/mpd/KIXHD.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_nhkworldpremium_small.png?v=2.0.0.13",NHK World Premium
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
-#KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/rcti_pluse/index.drm?id=162
+#KODIPROP:inputstream.adaptive.license_key=https://bintangstreaming.my.id/rcti_pluse/index.drm?id=76
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/85b02e02587747058c1940af6aa3d0fa/index.mpd
+
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ONE_2025_03_17_15_33_31.png",ONE
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
