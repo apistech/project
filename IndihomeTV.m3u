@@ -296,6 +296,8 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/AFNHD/mpd/AFNHD.mpd
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=34880f56627c11ee8c990242ac120002:c23677c829bb244b79a3dc09ffd88ca0
 https://qp-pldt-live-grp-09-prod.akamaized.net/out/u/cg_bbclifestyle.mpd
+#EXTINF:-1 group-title="Lifestyle" tvg-logo="http://www.biznetvideo.net/images/video/poster/bizlifestyle.jpg",Biznet Lifestyle
+http://livestream.biznetvideo.net/biznet_lifestyle/smil:lifestyle.smil/manifest.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_96.png",Celebrities TV
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -360,6 +362,8 @@ https://atemecdnbalancer-voe.sysln.id/live/eds/AnimalPlanetHD/mpd/AnimalPlanetHD
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=5709bc59805c4f23b000306efea48438:1772cf06c2f5dd3980a3245cd31fd356
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/4e5b2a283adf462c8b6b55b2ef059fac/index.mpd
+#EXTINF:-1 group-title="Knowledge" tvg-logo="http://www.biznetvideo.net/images/video/poster/adventure.jpg",Biznet Adventure
+http://livestream.biznetvideo.net/biznet_adventure/smil:adventure.smil/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CGTNDOC_2025_03_17_14_59_03.png",CGTN Documentary
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -417,7 +421,7 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/c169ca1dcbe249c5bf233aabc3db4a4f/in
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/ab3ef0f0e4144c3c8b7e60f1873a3bcc/index.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ANIPLUS_2025_03_17_14_53_54.png",Aniplus
 https://op-group1-swiftservehd-1.dens.tv/h/h201/index.m3u8
-#EXTINF:-1 group-title="Kids" tvg-logo="https://iili.io/bEMPlR.png",Biznet Kids
+#EXTINF:-1 group-title="Kids" tvg-logo="http://www.biznetvideo.net/images/video/poster/bizkids.jpg",Biznet Kids
 http://livestream.biznetvideo.net/biznet_kids/smil:kids.smil/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CARTOONNETWORK_2025_03_17_14_49_56.png",Cartoon Network
 #EXTVLCOPT:http-user-agent=ExoPlayerDemo/2.15.1
