@@ -184,6 +184,8 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/6f059cfe2653405aab54a7887f92ac39/in
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=2b095c9946d242cb9108e6a589a26072:8bc2cdfd0e86f7cfa935ef05978be229
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/456143d3b12140e1a872b25f067ddb62/index.mpd
+#EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CITRADRAMA_2025_03_17_14_49_15.png",Citra Drama
+https://cdn08jtedge.indihometv.com/dassdvr/130/cdrama/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_DUNIALAIN_2025_03_17_14_57_31.png",Dunia Lain
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
@@ -199,6 +201,8 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/a90cb773466446b08595007bab12b920/in
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=9e9d9ca2bb814de9bfd73d7c19bfe190:e8c178a885d1a1e042ca34ec5ea3b938
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/333a9658ed6a4424a92e319114fb7111/index.mpd
+#EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_HITSNOW_2025_03_17_15_25_11.png",HITS Now
+https://cdn08jtedge.indihometv.com/dassdvr/134/hitsnow/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_insert_small1.png?v=2.0.0.13",Insert
 #KODIPROP:inputstream.adaptive.license_type=com.widevine.alpha
 #KODIPROP:inputstream.adaptive.license_key=https://lic.drmtoday.com/license-proxy-widevine/cenc/?specConform=true
@@ -277,8 +281,12 @@ https://cdnjkt913.transvision.co.id:1000/live/master/4/4028c6856fd0d66d017034201
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=c263b43be6b94fb682b1d701e0aaf847:83491ecbe2968e91ed563ce2c41428dc
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/77d7eac1b90247ac9aa745bd2eb47fa8/index.mpd
+#EXTINF:-1 group-title="Lifestyle" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_LIFETIME_2025_03_17_14_54_15.png",Lifetime
+https://cdn08jtedge.indihometv.com/dassdvr/134/lifetime720/manifest.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://pic.dens.tv/tv_183x174/TV5MONDE_Style_HD_1.jpg",TV5Monde Style
 https://op-group1-swiftservehd-1.dens.tv/h/h216/index.m3u8
+#EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ANIMALPLANET_2025_03_17_15_27_22.png",Animal Planet
+https://cdn08jtedge.indihometv.com/dassdvr/194/animalplanet/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_461.png",BBC Earth
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -288,6 +296,10 @@ https://d84q7nw4qf3j3.cloudfront.net/out/v1/4e5b2a283adf462c8b6b55b2ef059fac/ind
 http://livestream.biznetvideo.net/biznet_adventure/smil:adventure.smil/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CGTNDOC_2025_03_17_14_59_03.png",CGTN Documentary
 https://op-group1-swiftservesd-1.dens.tv/s/s20/index.m3u8
+#EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_CURIOSITY_2025_03_17_15_29_20.png",Curiosity
+https://cdn08jtedge.indihometv.com/dassdvr/194/curiosity/manifest.mpd
+#EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_DISCOVERYASIA_2025_03_17_15_31_07.png",Discovery Asia
+https://cdn08jtedge.indihometv.com/dassdvr/194/discoveryasia/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://pic.dens.tv/tv_183x174/1701335366_square.jpg",Dens Knowledge
 https://op-group1-swiftservehd-1.dens.tv/h/h236/index.m3u8
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_462.png",Global Trekker
@@ -317,6 +329,10 @@ https://d2tjypxxy769fn.cloudfront.net/out/v1/c169ca1dcbe249c5bf233aabc3db4a4f/in
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/ab3ef0f0e4144c3c8b7e60f1873a3bcc/index.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ANIPLUS_2025_03_17_14_53_54.png",Aniplus
 https://op-group1-swiftservehd-1.dens.tv/h/h201/index.m3u8
+#EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_ANIPLUS_2025_03_17_14_53_54.png",Aniplus
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=f2c313fce55344e5a52389741d1f53f8:bae1e47db562b66895beb8fccdf2ad8a
+https://cdn08jtedge.indihometv.com/dassdvr/107/aniplus/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="http://www.biznetvideo.net/images/video/poster/bizkids.jpg",Biznet Kids
 http://livestream.biznetvideo.net/biznet_kids/smil:kids.smil/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://cdnjkt913.transvision.co.id:1000/image/web/channel/4028c6858262bb8001827b65fa882be2/1aa82a2c32ca49698d23ddeec560c48c.jpg",Cartoon TV
@@ -339,6 +355,10 @@ https://cdnjkt913.transvision.co.id:1000/live/master/5/4028c6856b8d2390016b9c47b
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=736777e5823249849d71a7d41ddc35aa:f831235372e07e24fb70f7336291c549
 https://d2xz2v5wuvgur6.cloudfront.net/out/v1/2a5668fb3b9f4e34ab7c02cdc6ef56db/index.mpd
+#EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_DAVINCI_2025_03_17_15_00_06.png",Da Vinci
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=69646b755f3130303030303030303030:e4a2359b05563399f1d9adfce641724a
+https://cdn08jtedge.indihometv.com/dassdvr/134/davinci720_dash/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_DREAMWORKS_2025_03_17_15_30_24.png",DreamWorks
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -352,14 +372,16 @@ https://cdnjkt913.transvision.co.id:1000/live/master/2/4028c6856c3db2cc016cdc32e
 #EXTINF:-1 group-title="Kids" tvg-logo="https://thumbor.prod.vidiocdn.com/EOkH5JDfHzAnCeGKEXiY12G36Qw=/230x230/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/7052/63032e.png",Hip Hip Horee!
 https://spacetv.my.id/index.m3u8?id=7052&type=hls
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_HOREEE!_2025_03_17_14_50_23.png",Horee!
-https://spacetv.my.id/index.m3u8?id=6397&type=hls
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=686f7265653030303030303030303030:fe3d39b39bd26f0ee274f60c397bf61a
+https://cdn08jtedge.indihometv.com/dassdvr/130/horee_dash/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_46.png",Kids TV
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=ec31647c5c3b490bbb5c840ca3e96c9e:a28271a4ba4d085efa1f7738e0f82ea1
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/9041826689ae4f9c9619576d411fa989/index.mpd
-#EXTINF:-1 group-title="Kids" tvg-logo="https://thumbor.prod.vidiocdn.com/6QPeY29WLHDHuOqtrJXXriADa3o=/64x64/filters:quality(70)/vidio-web-prod-livestreaming/uploads/livestreaming/square_image/8237/18585d.png",Mentari TV
-https://spacetv.my.id/index.m3u8?id=8237&type=hls
+#EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_MENTARITV_2025_03_17_15_21_21.png",Mentari TV
+https://cdn08jtedge.indihometv.com/dassdvr/134/mentaritv/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_MOONBUGKIDS_2025_03_17_15_10_52.png",Moonbug
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -422,6 +444,8 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/de93893d01e6446daaf052a7fec694fc/in
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=a04c73e95eeb411dabcba8c35a5a58e8:3f9195dc468d3372f69c6bec5bfa75bb
 https://d3b0v7fggu5zwm.cloudfront.net/out/v1/65432a4c12ca4a52abf473a0e41d7c7e/index.mpd
+#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/88_MAXSTREAM_2025_03_17_15_26_26.png",Maxstream
+https://cdn08jtedge.indihometv.com/dassdvr/194/maxstream/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://pic.dens.tv/tv_183x174/My_Cinema_Europe_HD_1.jpg",My Cinema Europe
 https://op-group1-swiftservehd-1.dens.tv/h/h18/index.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_new-mycinemaasia_small.png",My Cinema Asia
