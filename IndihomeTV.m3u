@@ -301,8 +301,6 @@ https://alibaba-cdn.cdnpub-maxstream.com/atm/DASH/kplus/manifest.mpd
 https://d2tjypxxy769fn.cloudfront.net/out/v1/7a50d44c0a154dd29880c3728fb49a56/index.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_kix.png",KIX
 https://alibaba-cdn.cdnpub-maxstream.com/atm/DASH/kix/manifest.mpd
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_kungfutv_small.png",Kungfu TV
-https://cdn08jtedge.indihometv.com/dassdvr/130/kungfutv/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_newtvcompre.png",New TV Comprehensive
 https://alibaba-cdn.cdnpub-maxstream.com/atm/DASH/newtvcomprehensive/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_newtvfinance.png",New TV Finance
@@ -715,6 +713,8 @@ https://d6m3sfa7e58z5.cloudfront.net/out/v1/fe4d00f07e2f43b789102b84b4d243a9/ind
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=aa00f320f06247dcaf8e3cea1fb07f44:6169dd042bb5e59d709272b614011bbb
 https://d2tjypxxy769fn.cloudfront.net/out/v1/73b7057c72da4615888a11b02a6cbb3c/index.mpd
+#EXTINF:-1 group-title="Sports" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_kungfutv_small.png",Kungfu TV
+https://cdn08jtedge.indihometv.com/dassdvr/130/kungfutv/manifest.mpd
 #EXTINF:-1 group-title="Sports" tvg-logo="https://pic.dens.tv/tv_183x174/Motorvision+_new%20logo183x174@3x.jpg",Motorvision
 https://op-group1-swiftservehd-1.dens.tv/h/h09/index.m3u8
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_420.png",Soccer Channel
