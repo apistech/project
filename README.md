@@ -2,9 +2,8 @@
 Personal Project
 
 📌 Koleksi file dan aset proyek pribadi untuk penggunaan internal.
-
-📌 Jika merasa terbantu, berikan star.
-
-📌 Gunakan OTT Navigator/Player/TV dan load url berikut pada playlist:
-
+📌 ANDROID : Gunakan OTT Navigator/Player/TV.
+📌 WINDOWS : Gunakan \[AuthoIPTV\](https://glitport.github.io/AuthoIPTV/) 
+ kemudian load url berikut pada playlist:
 https://bit.ly/IndihomeTV
+📌 Jika merasa terbantu, berikan stars.
