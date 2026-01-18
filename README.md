@@ -5,10 +5,10 @@ Personal Project
 
 📌 ANDROID : Gunakan OTT Navigator/Player/TV.
 
-📌 WINDOWS : Gunakan \[AuthoIPTV\](https://glitport.github.io/AuthoIPTV/)
+📌 WINDOWS : Gunakan \[AuthoIPTV\](https://glitport.github.io/AuthoIPTV/ "AuthoIPTV\")
 
  kemudian load url berikut pada playlist:
  
 https://bit.ly/IndihomeTV
 
-📌 Jika merasa terbantu, berikan stars.
+📌 Jika merasa terbantu, berikan stars. ⭐⭐
