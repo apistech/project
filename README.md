@@ -5,7 +5,7 @@ Personal Project
 
 📌 ANDROID : Gunakan OTT Navigator/Player/TV.
 
-📌 WINDOWS : Gunakan \[AuthoIPTV\](https://glitport.github.io/AuthoIPTV/ "AuthoIPTV\")
+📌 WINDOWS : Gunakan \(https://glitport.github.io/AuthoIPTV  "AuthoIPTV\")
 
  kemudian load url berikut pada playlist:
  
