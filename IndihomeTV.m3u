@@ -745,6 +745,8 @@ https://op-group1-swiftservehd-1.dens.tv/h/h09/index.m3u8
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=834ec3cbface4fe992e995a32d35f587:e0a97198d9f2dfcb0a0483cd4b04414b
 https://cdn08jtedge.indihometv.com/dassdvr/130/nba/manifest.mpd
+#EXTINF:-1 group-title="Sports" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/4YIBApo.png",Red Bull TV
+https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8
 #EXTINF:-1 group-title="Sports" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_420.png",Soccer Channel
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
