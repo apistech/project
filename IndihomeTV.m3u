@@ -233,6 +233,11 @@ https://cdn10jtedge.indihometv.com/atm/DASH/FRANCE_24/FRANCE_24-avc1_2500000=7-3
 https://d84q7nw4qf3j3.cloudfront.net/out/v1/8decf3562fe943e88872ef868d6fb6a5/index.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_nhkworldjapan.png",NHK World Japan
 https://cdn10jtedge.indihometv.com/atm/DASH/NHK_WORLD_JAPAN/NHK_WORLD_JAPAN-avc1_2500000=7-3277707030000000.mpd
+#EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_nhkworldpremium_small.png?v=2.0.0.13",NHK World Premium
+#EXTVLCOPT:http-referrer=https://www.visionplustv.id/
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=2f699274d40f479d89804912c134830d:352d8c910649b4d332047cf2833bb43f
+https://d2xz2v5wuvgur6.cloudfront.net/out/v1/85b02e02587747058c1940af6aa3d0fa/index.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_phoenixch.png",Phoenix Chinese
 https://cdn10jtedge.indihometv.com/atm/DASH/phoenixchinese/phoenixchinese-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="News" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_phoenixinfonews.png",Phoenix InfoNews
@@ -302,11 +307,6 @@ https://cdn10jtedge.indihometv.com/atm/DASH/newtvcomprehensive/newtvcomprehensiv
 https://cdn10jtedge.indihometv.com/atm/DASH/newtvfinance/newtvfinance-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_newtvvariety.png",New TV Variety
 https://cdn10jtedge.indihometv.com/atm/DASH/newtvvariety/newtvvariety-avc1_2500000=7-3277707030000000.mpd
-#EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/logo_nhkworldpremium_small.png?v=2.0.0.13",NHK World Premium
-#EXTVLCOPT:http-referrer=https://www.visionplustv.id/
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=2f699274d40f479d89804912c134830d:352d8c910649b4d332047cf2833bb43f
-https://d2xz2v5wuvgur6.cloudfront.net/out/v1/85b02e02587747058c1940af6aa3d0fa/index.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_sony_one.png",ONE
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
@@ -377,6 +377,8 @@ https://op-group1-swiftservehd-1.dens.tv/h/h248/index.m3u8
 https://op-group1-swiftservehd-1.dens.tv/h/h222/index.m3u8
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://pic.dens.tv/tv_183x174/1568359881_square.jpg",Dens Play
 https://op-group1-swiftservehd-1.dens.tv/h/h225/index.m3u8
+#EXTINF:-1 group-title="Lifestyle" tvg-logo="https://pic.dens.tv/tv_183x174/1591343514_square.jpg",Dens ShowBiz
+https://op-group1-swiftservehd-1.dens.tv/h/h203/index.m3u8
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_fashiontv.png",FashionTV
 https://cdn10jtedge.indihometv.com/atm/DASH/fashiontv/fashiontv-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_95.png",Food Travel
@@ -393,7 +395,9 @@ https://cdn10jtedge.indihometv.com/atm/DASH/maxeats/maxeats-avc1_2500000=7-32777
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_180x180_CLMAXStreak_2026_01_30_13_56_10.jpg",Max Streak
 https://cdn10jtedge.indihometv.com/atm/DASH/maxstreak/maxstreak-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Lifestyle" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_tlc.png",TLC
-https://cdn10jtedge.indihometv.com/atm/DASH/tlc/tlc-avc1_2500000=7-3277707030000000.mpd
+#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
+#KODIPROP:inputstream.adaptive.license_key=0f437016dfa54cc584854609df0ca896:2775a3a5d969c8effa8f7a6a7b7c3243
+https://cdn08jtedge.indihometv.com/dassdvr/133/tlc/manifest.mpd
 #EXTINF:-1 group-title="Knowledge" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_animal%20planet.png",Animal Planet
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=436b69f987924fcbbc06d40a69c2799a:c63d5b0d7e52335b61aeba4f6537d54d
@@ -686,8 +690,6 @@ https://times-ott-live.akamaized.net/moviesnow_wv_drm/index.mpd
 https://times-ott-live.akamaized.net/romedynow_wv_drm/index.mpd
 #EXTINF:-1 group-title="Music" tvg-logo="https://pic.dens.tv/tv_183x174/1701423510_square.jpg",Dance TV
 https://op-group1-swiftservesd-1.dens.tv/s/s21/index.m3u8
-#EXTINF:-1 group-title="Music" tvg-logo="https://pic.dens.tv/tv_183x174/1591343514_square.jpg",Dens ShowBiz
-https://op-group1-swiftservehd-1.dens.tv/h/h203/index.m3u8
 #EXTINF:-1 group-title="Music" tvg-logo="https://www.mncvision.id/userfiles/image/channel/channel_111.png",Music TV
 #EXTVLCOPT:http-referrer=https://www.visionplustv.id/
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
