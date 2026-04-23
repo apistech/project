@@ -9,9 +9,12 @@
 
 📌 Koleksi file dan aset pribadi untuk penggunaan internal dan tidak diperjualbelikan.
 
-📌 Playlist URL&EPG: https://bit.ly/IndihomeTV
-
 📌 Jika merasa terbantu, berikan stars. ⭐⭐
+
+📌 Playlist URL with EPG:
+| Type | Link |
+| :--- | :--- |
+| **URL with EPG** | `https://bit.ly/IndihomeTV` |
 
 ---------------------------------------------
 
