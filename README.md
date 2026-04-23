@@ -16,13 +16,13 @@
 ---------------------------------------------
 
 🔗 **PLAYLIST SOURCE & EPG**
-- [CubMu] https://www.cubmu.com/live-tv
-- [DENS TV] https://www.dens.tv/tv-local
-- [MaxStream] https://maxstream.tv/tv-channels
-- [Vidio] https://www.vidio.com/live
-- [VisionPlus] https://www.visionplus.id/webclient/
+- [CubMu](https://www.cubmu.com/live-tv)
+- [DENS TV](https://www.dens.tv/tv-local)
+- [MaxStream](https://maxstream.tv/tv-channels)
+- [Vidio](https://www.vidio.com/live)
+- [VisionPlus](https://www.visionplus.id/webclient/)
 
 🔗 **RESOURCES**
-- [Awesome IPTV] https://github.com/iptv-org/awesome-iptv
+- [Awesome IPTV](https://github.com/iptv-org/awesome-iptv)
 
 ---------------------------------------------
