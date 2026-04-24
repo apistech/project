@@ -333,9 +333,8 @@ https://cdn10jtedge.indihometv.com/atm/DASH/hits/hits-avc1_2500000=7-32777070300
 #KODIPROP:inputstream.adaptive.license_key=cbb146383a484f0ba375fadd797d548d:da513424b31b49c2bb98fc839f70af25
 https://cdnjktbpid22.transvision.co.id/riutx01-f7ca1246e8344b1555401d2624b19de4b9490ad4cd8adfa11a9dc0c802f6653d/dash/IW5zZXJ0/manifest.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_kbsworld.png",KBS World
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/S0JTIFdvcmxk/manifest.mpd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+http://103.58.160.157:8278/720-KBSWORLD/playlist.m3u8
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_kplus.png",K-Plus
 https://cdn10jtedge.indihometv.com/atm/DASH/kplus/kplus-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Entertainment" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_kix.png",KIX
@@ -536,9 +535,8 @@ https://cdn08jtedge.indihometv.com/dassdvr/134/aniplus/manifest_wuseetv.mpd
 #EXTVLCOPT:http-user-agent=Mozilla/5.0
 http://livestream.biznetvideo.net/biznet_kids/smil:kids.smil/manifest.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_cartoonnetwork.png",Cartoon Network
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/Q2FydG9vbiBOZXR3b3Jr/manifest.mpd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+http://103.58.160.157:8278/720-CARTOONNETWORK/playlist.m3u8
 #EXTINF:-1 group-title="Kids" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_cartoonito.png",Cartoonito
 https://cdn10jtedge.indihometv.com/atm/DASH/boomerang/boomerang-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Kids" tvg-logo="https://servicebuss.transvision.co.id/hospitality/v1/files/channel_image/9e422d53-5c00-49ea-8422-e2a3f1e03f70.jpg",Cartoon TV
@@ -636,9 +634,8 @@ https://d2xz2v5wuvgur6.cloudfront.net/out/v1/fd25e662b7154c60a94f7c061573ba2d/in
 #KODIPROP:inputstream.adaptive.license_key=cbb146383a484f0ba375fadd797d548d:da513424b31b49c2bb98fc839f70af25
 https://cdnjktbpid22.transvision.co.id/riutx01-f7ca1246e8344b1555401d2624b19de4b9490ad4cd8adfa11a9dc0c802f6653d/dash/Q2VsZXN0aWFsIE1vdmllcw/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_cinemaworld.png",Cinema World
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/Q2luZW1hIFdvcmxk/manifest.mpd
+#EXTVLCOPT:http-user-agent=Mozilla/5.0
+http://103.58.160.157:8278/720-CINEMAWORLD/playlist.m3u8
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/image_ch_flik.png",Flik
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=79698301a95740009531b1d53e3ad5fe:7240a4a29a54e6089b108fbcb95cb265
@@ -746,26 +743,6 @@ https://cdn10jtedge.indihometv.com/atm/DASH/hbofamily/hbofamily-avc1_2500000=7-3
 https://cdn10jtedge.indihometv.com/atm/DASH/hbohits/hbohits-avc1_2500000=7-3277707030000000.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_HBO-Signature-180x180_2025_11_05_12_57_49.jpg",HBO Signature
 https://cdn10jtedge.indihometv.com/atm/DASH/hbosignature/hbosignature-avc1_2500000=7-3277707030000000.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_Cinemax-180x180_2025_11_05_13_11_15.jpg",CINEMAX
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/Q2luZW1heA/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_HBO-180x180_2025_11_05_11_21_29.jpg",HBO
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/SEJPLW15/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_HBO-Familly-180x180_2025_11_05_11_14_46.jpg",HBO Family
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/SEJPLUZhbWlseS1teQ/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_HBO-Hits-180x180_2025_11_05_11_23_20.jpg",HBO Hits
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/SEJPIEhpdHM/manifest.mpd
-#EXTINF:-1 group-title="Movies" tvg-logo="https://raw.githubusercontent.com/apistech/project/refs/heads/main/logo/imageCir_HBO-Signature-180x180_2025_11_05_12_57_49.jpg",HBO Signature
-#KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
-#KODIPROP:inputstream.adaptive.license_key=358a37472fa84a358d0f3ebbb487b68e:b0b8780b7bb849ef9c3dff1eef3d862e
-https://cdnjktbpid22.transvision.co.id/riutx01-0681484a1863a68bfefa9dfcfc688708fa0f50df6e07d7ca8bdeb75ae899a65c/dash/SEJPLVNpZ25hdHVyZS1teQ/manifest.mpd
 #EXTINF:-1 group-title="Movies" tvg-logo="https://d229kpbsb5jevy.cloudfront.net/timesplay/content/common/logos/channel/logos/leazcc.jpeg",MN+
 #KODIPROP:inputstream.adaptive.license_type=org.w3.clearkey
 #KODIPROP:inputstream.adaptive.license_key=40f019b86241d23ef075633fd7f1e927:058dec845bd340178a388edd104a015e
