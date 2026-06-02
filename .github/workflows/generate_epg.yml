@@ -1,0 +1,139 @@
+name: Generate Master EPG Pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'epgs/custom.channels.xml'
+      - 'generate_epg.py'
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+jobs:
+  build-epg:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Ambil full history agar pengecekan author commit terakhir akurat
+
+      - name: Setup Node.js (Fungsi 1)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Set up Python (Fungsi 2 & Generator Indeks)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install requests
+          mkdir -p epgs
+
+      # ========================================================
+      # LANGKAH 1: Jalankan Fungsi 1 (iptv-org/epg)
+      # ========================================================
+      - name: Clone IPTV-ORG EPG tool
+        run: git clone --depth 1 https://github.com/iptv-org/epg.git epg-tool
+
+      - name: Install Node dependencies
+        working-directory: epg-tool
+        run: npm ci
+
+      - name: Copy custom channels file
+        run: cp epgs/custom.channels.xml epg-tool/sites/custom.channels.xml
+
+      - name: Generate Base EPG (Fungsi 1)
+        working-directory: epg-tool
+        run: |
+          npm run grab -- \
+            --channels=sites/custom.channels.xml \
+            --output=../epgs/guide.xml \
+            --maxConnections=8
+
+      # ========================================================
+      # LANGKAH 2: Jalankan Fungsi 2 (generate_epg.py)
+      # ========================================================
+      - name: Run EPG Scraper & Merger (Fungsi 2)
+        env:
+          M3U_URL: ${{ secrets.M3U_URL }}
+        run: python generate_epg.py
+
+      # ========================================================
+      # LANGKAH 3: Validasi & Pembuatan Indeks channels.txt
+      # ========================================================
+      - name: Verify Unified EPG Output
+        run: |
+          if [ ! -f "epgs/guide.xml" ]; then
+            echo "Unified guide.xml missing!"
+            exit 1
+          fi
+          echo "==== Unified EPG Stats ===="
+          echo "Total Channels: $(grep -c '<channel ' epgs/guide.xml || echo '0')"
+          echo "Total Programmes: $(grep -c '<programme ' epgs/guide.xml || echo '0')"
+
+      - name: Generate channels.txt Index
+        run: |
+          python3 << 'PY'
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          src = Path("epgs/custom.channels.xml")
+          out = Path("epgs/channels.txt")
+
+          tree = ET.parse(src)
+          root = tree.getroot()
+
+          entries = []
+          for channel in root.findall("channel"):
+              tvg_id = channel.attrib.get("xmltv_id", "").strip()
+              name = (channel.text or "").strip()
+              if tvg_id:
+                  entries.append(f'{tvg_id} "{name}"')
+
+          entries = sorted(set(entries), key=lambda x: x.lower())
+          out.write_text("\n".join(entries), encoding="utf-8")
+          print(f"✅ Generated channels.txt index with {len(entries)} items.")
+          PY
+
+      # ========================================================
+      # LANGKAH 4: Push Bersih Tanpa Merusak Commit Utama
+      # ========================================================
+      - name: Commit and Smart Push (Safe Anti-Bloat)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          mkdir -p epgs
+          git add -A epgs/
+
+          if git diff --cached --quiet; then
+            echo "No changes detected, skipping commit."
+          else
+            COMMIT_MSG="🔄 Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            
+            # Cek author commit terakhir di GitHub
+            LAST_AUTHOR=$(git log -1 --format='%ae')
+            if [ "$LAST_AUTHOR" = "41898282+github-actions[bot]@users.noreply.github.com" ]; then
+              echo "Last commit was by the bot. Amending commit to prevent history bloat..."
+              git commit --amend -m "$COMMIT_MSG"
+              git push --force origin main
+            else
+              echo "Last commit was by user. Creating a new standard commit..."
+              git commit -m "$COMMIT_MSG"
+              git push origin main
+            fi
+          fi

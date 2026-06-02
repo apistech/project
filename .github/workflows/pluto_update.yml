@@ -1,0 +1,58 @@
+name: Generate Pluto Playlists
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Update Regional Playlists
+        run: |
+          for region in us ca gb; do
+            export PLUTO_REGION=$region
+            python pluto_update.py
+          done
+
+      - name: Generate Master Playlist
+        run: python pluto_update.py --merge
+
+      - name: Commit and Smart Push (Safe Anti-Bloat)
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          mkdir -p playlists
+          git add -A playlists/
+
+          if git diff --cached --quiet; then
+            echo "No changes detected, skipping commit."
+          else
+            COMMIT_MSG="🔄 Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            
+            # Cek author commit terakhir di GitHub
+            LAST_AUTHOR=$(git log -1 --format='%ae')
+            if [ "$LAST_AUTHOR" = "41898282+github-actions[bot]@users.noreply.github.com" ]; then
+              echo "Last commit was by the bot. Amending commit to prevent history bloat..."
+              git commit --amend -m "$COMMIT_MSG"
+              git push --force origin main
+            else
+              echo "Last commit was by user. Creating a new standard commit..."
+              git commit -m "$COMMIT_MSG"
+              git push origin main
+            fi
+          fi
