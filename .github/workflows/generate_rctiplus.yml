@@ -1,0 +1,58 @@
+name: Generate RCTI+ Playlists
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths: 
+      - 'generate_rctiplus.py'
+      - '.github/workflows/generate_rctiplus.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-m3u:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: 📦 Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests
+
+      - name: 🚀 Run RCTI+ Generator
+        run: python generate_rctiplus.py
+
+      - name: Commit and Push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          mkdir -p playlists
+          git add -A playlists/
+
+          if git diff --cached --quiet; then
+            echo "No changes detected, skipping commit."
+          exit 0
+            fi
+            
+            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin main
