@@ -27,7 +27,7 @@ DEFAULT_GROUPS = os.getenv('GROUPS', 'Anime,Anime & Gaming,Kids,Movies,Sci-fi & 
 INCLUDE_DRM = os.getenv('INCLUDE_DRM', 'false').lower() == 'true'
 START_CHNO = int(os.getenv('START_CHNO', '1'))  # Starting channel number
 SORT_BY = os.getenv('SORT_BY', 'chno')  # 'chno' or 'name'
-SKIP_EPG = os.getenv('SKIP_EPG', 'true').lower() == 'true'
+SKIP_EPG = os.getenv('SKIP_EPG', 'false').lower() == 'true'
 
 def download_and_decompress(url):
     """Download and decompress gzipped content from URL"""
@@ -74,7 +74,7 @@ def generate_m3u_playlist(data, channels):
     """Generate M3U playlist content"""
     lines = ['#EXTM3U']
     
-    # Sort channels: group first, then by name or chno
+    # Sort channels
     if SORT_BY == 'name':
         sorted_channels = sorted(channels.items(), key=lambda x: (x[1].get('group', '').lower(), x[1]['name'].strip().lower()))
     else:
