@@ -1,4 +1,4 @@
-name: Generate FAST Service Playlist
+name: Generate Pluto Playlists
 
 on:
   schedule:
@@ -7,23 +7,15 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'generate_playlists.py'
-      - '.github/workflows/generate_playlists.yml'
-
-permissions:
-  contents: write
+    paths: 
+      - 'generate_pluto.py'
+      - '.github/workflows/generate_pluto.yml'
 
 jobs:
-  build-playlists:
+  build:
     runs-on: ubuntu-latest
-
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true
-
     steps:
-      - name: Checkout Repository
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
@@ -33,17 +25,18 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 lxml urllib3
+      - name: Install dependencies
+        run: pip install requests
 
-      - name: Run Playlist Generation Script
-        run: python generate_playlists.py
-        env:
-          ROKU_GROUP_FILTER: "all"   # ganti sesuai kebutuhan
-          ROKU_GROUP_METHOD: "hybrid"   # ganti ke "api" atau "chno" kalo mau
-          TCL_CATEGORY_FILTER: "all" # ganti sesuai kategori TCL
+      - name: Update Regional Playlists
+        run: |
+          for region in us ca gb; do
+            export PLUTO_REGION=$region
+            python generate_pluto.py
+          done
+
+      - name: Generate Master Playlist
+        run: python generate_pluto.py --merge
 
       - name: Commit and Push
         run: |

@@ -8,8 +8,9 @@ on:
     branches:
       - main
     paths:
-      - 'epgs/custom.channels.xml'
       - 'generate_epg.py'
+      - 'epgs/custom.channels.xml'
+      - '.github/workflows/generate_epg.yml'
 
 permissions:
   contents: write
@@ -26,7 +27,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Ambil full history agar pengecekan author commit terakhir akurat
+          fetch-depth: 0
 
       - name: Setup Node.js (Fungsi 1)
         uses: actions/setup-node@v4
@@ -125,6 +126,6 @@ jobs:
           exit 0
             fi
             
-            git commit -m "🔄 Update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
             git pull --rebase origin main
             git push origin main
