@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
 
       - name: 📦 Install Dependencies
         run: |
@@ -50,9 +49,9 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No changes detected, skipping commit."
-          exit 0
-            fi
-            
-            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git pull --rebase origin main
-            git push origin main
+            exit 0
+          fi
+          
+          git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase origin main
+          git push origin main
