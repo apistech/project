@@ -39,6 +39,9 @@ jobs:
       - name: 🚀 Run RCTI+ Generator
         run: python generate_rctiplus.py
 
+      - name: 🔗 Merge to IndihomeTV.m3u
+        run: python merge_playlists.py
+
       - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
