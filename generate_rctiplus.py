@@ -103,7 +103,7 @@ def generate_m3u_content(channels_data):
     lines.append('')
     
     for ch in channels_data:
-        lines.append(f'#EXTINF:-1 tvg-id="{ch["name"]}" tvg-name="{ch["name"]}" tvg-logo="{ch["logo"]}" group-title="Nasional", {ch["name"]}')
+        lines.append(f'#EXTINF:-1 tvg-id="{ch["name"]}" group-title="Nasional" tvg-logo="{ch["logo"]}",{ch["name"]}')
         lines.append(f'#EXTVLCOPT:http-referrer={BASE_URL}/')
         lines.append(f'#EXTVLCOPT:http-user-agent={USER_AGENT}')
         lines.append(ch["stream_url"])
