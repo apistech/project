@@ -112,7 +112,7 @@ jobs:
       # ========================================================
       # LANGKAH 4: Push Bersih Tanpa Merusak Commit Utama
       # ========================================================
-      - name: Commit and Smart Push (Safe Anti-Bloat)
+      - name: Commit and Push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -122,18 +122,9 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No changes detected, skipping commit."
-          else
-            COMMIT_MSG="🔄 Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
-            
-            # Cek author commit terakhir di GitHub
-            LAST_AUTHOR=$(git log -1 --format='%ae')
-            if [ "$LAST_AUTHOR" = "41898282+github-actions[bot]@users.noreply.github.com" ]; then
-              echo "Last commit was by the bot. Amending commit to prevent history bloat..."
-              git commit --amend -m "$COMMIT_MSG"
-              git push --force origin main
-            else
-              echo "Last commit was by user. Creating a new standard commit..."
-              git commit -m "$COMMIT_MSG"
-              git push origin main
+          exit 0
             fi
-          fi
+            
+            git commit -m "🔄 Update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin main
