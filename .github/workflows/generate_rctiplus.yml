@@ -18,7 +18,7 @@ permissions:
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: 📥 Checkout Repository
@@ -48,28 +48,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Add both locations
           mkdir -p playlists
-          git add playlists/
-          git add IndihomeTV.m3u
-
-          # Stash dulu biar aman
-          git stash --include-untracked
-
-          # Pull changes (kalo ada)
-          git pull origin main --rebase || true
-
-          # Unstash
-          git stash pop || true
-
-          # Re-add (in case stash brought changes)
-          git add playlists/
+          git add -A playlists/
           git add IndihomeTV.m3u
 
           if git diff --cached --quiet; then
-            echo "📭 No changes detected, skipping commit."
+            echo "No changes detected, skipping commit."
             exit 0
           fi
-          
+
           git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push origin main --force-with-lease
+          git pull --rebase origin main
+          git push origin main

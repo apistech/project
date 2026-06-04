@@ -11,9 +11,13 @@ on:
       - 'generate_samsungtv.py'
       - '.github/workflows/generate_samsungtv.yml'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
