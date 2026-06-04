@@ -9,6 +9,7 @@ on:
       - main
     paths: 
       - 'generate_rctiplus.py'
+      - 'merge_playlists.py'
       - '.github/workflows/generate_rctiplus.yml'
 
 permissions:
