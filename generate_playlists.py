@@ -99,6 +99,27 @@ def generate_roku_m3u():
         logger.error("Failed to fetch Roku channel data")
         return
 
+    logger.info("=== ROKU API DEBUG ===")
+    logger.info(f"Total channels: {len(data.get('channels', {}))}")
+    
+    # Tampilkan 3 channel pertama
+    channels = data.get('channels', {})
+    for i, (ch_id, ch) in enumerate(list(channels.items())[:3]):
+        logger.info(f"\nChannel {i+1}:")
+        logger.info(f"  ID: {ch_id}")
+        logger.info(f"  Name: {ch.get('name')}")
+        logger.info(f"  Ch No: {ch.get('chno')}")
+        logger.info(f"  Groups: {ch.get('groups')}")
+        logger.info(f"  Logo: {ch.get('logo')}")
+        logger.info(f"  All fields: {list(ch.keys())}")
+    
+    # Tampilkan semua unique groups yang ada
+    all_groups = set()
+    for ch in channels.values():
+        all_groups.update(ch.get('groups', []))
+    logger.info(f"\nAll unique groups in API: {sorted(all_groups)}")
+    logger.info("======================")
+
     # ========== KONFIGURASI HYBRID ==========
     # Metode: 'api', 'chno', atau 'hybrid' (default)
     ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid')
