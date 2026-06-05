@@ -99,26 +99,18 @@ def generate_roku_m3u():
         logger.error("Failed to fetch Roku channel data")
         return
 
-    logger.info("=== ROKU API DEBUG ===")
-    logger.info(f"Total channels: {len(data.get('channels', {}))}")
-    
-    # Tampilkan 3 channel pertama
+    # === DEBUG: Tampilkan semua group API ===
     channels = data.get('channels', {})
-    for i, (ch_id, ch) in enumerate(list(channels.items())[:3]):
-        logger.info(f"\nChannel {i+1}:")
-        logger.info(f"  ID: {ch_id}")
-        logger.info(f"  Name: {ch.get('name')}")
-        logger.info(f"  Ch No: {ch.get('chno')}")
-        logger.info(f"  Groups: {ch.get('groups')}")
-        logger.info(f"  Logo: {ch.get('logo')}")
-        logger.info(f"  All fields: {list(ch.keys())}")
-    
-    # Tampilkan semua unique groups yang ada
     all_groups = set()
     for ch in channels.values():
         all_groups.update(ch.get('groups', []))
-    logger.info(f"\nAll unique groups in API: {sorted(all_groups)}")
-    logger.info("======================")
+    
+    print("\nAll ROKU API: [")
+    for group in sorted(all_groups):
+        print(f"\t'{group}',")
+    print("]")
+    print(f"Total unique groups: {len(all_groups)}\n")
+    # =====================================
 
     # ========== KONFIGURASI HYBRID ==========
     # Metode: 'api', 'chno', atau 'hybrid' (default)
@@ -126,7 +118,7 @@ def generate_roku_m3u():
     
     # Manual override untuk channel yang sering salah
     ROKU_GROUP_OVERRIDE = {
-        '82bd10ceb52152a7adb6bdc5d776e794': 'Sports',  # NHRA TV
+        '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
         '2deae9b4e83550f88f6776c45df08315': 'Movies', # Hi-YAH!
         '5e73572a69bcac238ce1a9a705050a30': 'Movies', # Hong Kong Fight Club
         '834e2a09799752b3be7ecaab726b7242': 'Movies', # Maverick Black Cinema
