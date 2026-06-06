@@ -17,23 +17,16 @@ REQUEST_TIMEOUT = 30
 
 # Filter groups dari environment variable
 # Format: "Anime,Kids,Movies" atau "all" (default)
-ROKU_GROUP_FILTER = os.getenv('ROKU_GROUP_FILTER', 'all')
+ROKU_GROUP_FILTER = os.getenv('ROKU_GROUP_FILTER', 'all').strip()
 if ROKU_GROUP_FILTER != 'all':
     ROKU_GROUP_FILTER = [g.strip() for g in ROKU_GROUP_FILTER.split(',')]
 
-TCL_CATEGORY_FILTER = os.getenv('TCL_CATEGORY_FILTER', 'all')
+# Metode: 'api', 'chno', atau 'hybrid' (default)
+ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid').strip()
+
+TCL_CATEGORY_FILTER = os.getenv('TCL_CATEGORY_FILTER', 'all').strip()
 if TCL_CATEGORY_FILTER != 'all':
     TCL_CATEGORY_FILTER = [c.strip() for c in TCL_CATEGORY_FILTER.split(',')]
-
-REGION_MAP = {
-    'us': 'United States', 'gb': 'United Kingdom', 'ca': 'Canada',
-    'de': 'Germany', 'at': 'Austria', 'ch': 'Switzerland',
-    'es': 'Spain', 'fr': 'France', 'it': 'Italy', 'br': 'Brazil',
-    'mx': 'Mexico', 'ar': 'Argentina', 'cl': 'Chile', 'co': 'Colombia',
-    'pe': 'Peru', 'se': 'Sweden', 'no': 'Norway', 'dk': 'Denmark',
-    'in': 'India', 'jp': 'Japan', 'kr': 'South Korea', 'au': 'Australia'
-}
-TOP_REGIONS = ['United States', 'Canada', 'United Kingdom']
 
 # TCL Specific Config
 TCL_COUNTRY_CODE = 'US'
@@ -99,23 +92,6 @@ def generate_roku_m3u():
         logger.error("Failed to fetch Roku channel data")
         return
 
-    # === DEBUG: Tampilkan semua group API ===
-    channels = data.get('channels', {})
-    all_groups = set()
-    for ch in channels.values():
-        all_groups.update(ch.get('groups', []))
-    
-    print("\nAll ROKU API: [")
-    for group in sorted(all_groups):
-        print(f"\t'{group}',")
-    print("]")
-    print(f"Total unique groups: {len(all_groups)}\n")
-    # =====================================
-
-    # ========== KONFIGURASI HYBRID ==========
-    # Metode: 'api', 'chno', atau 'hybrid' (default)
-    ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid')
-    
     # Manual override untuk channel yang sering salah
     ROKU_GROUP_OVERRIDE = {
         '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
@@ -330,9 +306,18 @@ def generate_roku_m3u():
             return api_group if api_group != 'Special' else 'Special'
         
         return 'Special'
-    # ========== AKHIR KONFIGURASI ==========
 
     channels = data.get('channels', {})
+
+    # === DEBUG: Tampilkan semua group dari Roku API ===
+    all_groups = set()
+    for ch in channels.values():
+        all_groups.update(ch.get('groups', []))
+    logger.info(f"All Roku API groups ({len(all_groups)} unique):")
+    for group in sorted(all_groups):
+        logger.info(f"  '{group}'")
+    # =================================================
+
     group_map = {}
     
     for c_id, ch in channels.items():
