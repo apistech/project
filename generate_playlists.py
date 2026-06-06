@@ -183,7 +183,6 @@ def generate_roku_m3u():
         'Motorsports': 'Sports',
         'Mountain Biking': 'Sports',
         'Olympics': 'Sports',
-        'Outdoors': 'Sports',
         'Rodeo': 'Sports',
         'Rugby': 'Sports',
         'Skateboarding': 'Sports',
@@ -197,38 +196,43 @@ def generate_roku_m3u():
         'Tennis': 'Sports',
         'Volleyball': 'Sports',
         'Wrestling': 'Sports',
-        
+
         # Special
         'Special': 'Special',
         
-        # Crime
-        'Law': 'Crime',
-        'Crime Drama': 'Crime',
-        'Crime': 'Crime',
-        
-        # Drama
-        'Comedy Drama': 'Drama',
-        'Docudrama': 'Drama',
-        'Drama': 'Drama',
-        'Romance': 'Drama',
-        'Romantic Comedy': 'Drama',
+        # Crime & Drama
+        'Comedy Drama': 'Crime & Drama',
+        'Comedy': 'Crime & Drama',
+        'Crime Drama': 'Crime & Drama',
+        'Crime': 'Crime & Drama',
+        'Docudrama': 'Crime & Drama',
+        'Drama': 'Crime & Drama',
+        'Romance': 'Crime & Drama',
+        'Romantic Comedy': 'Crime & Drama',
 
         # News
+        'Law': 'News',
         'News': 'News',
         'Newsmagazine': 'News',
         'Politics': 'News',
         'Weather': 'Weather',
         
         # Documentary
+        'Adventure': 'Documentary',
         'Animals': 'Documentary',
         'Biography': 'Documentary',
+        'Computers': 'Documentary',
         'Documentary': 'Documentary',
+        'Fishing': 'Documentary',
+        'Gaming': 'Documentary',
         'History': 'Documentary',
+        'Hunting': 'Documentary',
         'Nature': 'Documentary',
+        'Outdoors': 'Documentary',
         'Science': 'Documentary',
-        
+        'Technology': 'Documentary',
+
         # Lifestyle
-        'Adventure': 'Lifestyle',
         'Art': 'Lifestyle',
         'Auction': 'Lifestyle',
         'Bus./Financial': 'Lifestyle',
@@ -236,13 +240,11 @@ def generate_roku_m3u():
         'Educational': 'Lifestyle',
         'Environment': 'Lifestyle',
         'Fashion': 'Lifestyle',
-        'Fishing': 'Lifestyle',
         'Food': 'Lifestyle',
         'Health': 'Lifestyle',
         'Home Improvement': 'Lifestyle',
         'House/Garden': 'Lifestyle',
         'How-To': 'Lifestyle',
-        'Hunting': 'Lifestyle',
         'Medical': 'Lifestyle',
         'Shopping': 'Lifestyle',
         'Travel': 'Lifestyle',
@@ -257,18 +259,14 @@ def generate_roku_m3u():
         'Religious': 'Faith & Family',
         
         # Entertainment
-        'Comedy': 'Entertainment',
-        'Computers': 'Entertainment',
         'Entertainment': 'Entertainment',
         'Game Show': 'Entertainment',
-        'Gaming': 'Entertainment',
         'Interview': 'Entertainment',
         'Reality': 'Entertainment',
         'Sitcom': 'Entertainment',
         'Soap': 'Entertainment',
         'Standup': 'Entertainment',
         'Talk': 'Entertainment',
-        'Technology': 'Entertainment',
     }
     
     # Mapping range channel number ke kategori (fallback)
