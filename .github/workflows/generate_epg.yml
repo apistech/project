@@ -111,7 +111,7 @@ jobs:
       # ========================================================
       # LANGKAH 4: Push Bersih Tanpa Merusak Commit Utama
       # ========================================================
-      - name: Commit and Push
+      - name: Commit and Push (Keep History Clean)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -119,10 +119,20 @@ jobs:
           mkdir -p epgs
           git add -A epgs/
 
-          if git diff --cached --quiet; then
-            echo "No changes detected, skipping commit."
+          if git diff-index --quiet HEAD --; then
+            echo "No changes detected. Skipping commit."
+            exit 0
+          fi
+
+          LAST_AUTHOR=$(git log -1 --format='%ae')
+          BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
+            echo "Last commit was by bot. Amending last commit..."
+            git commit --amend --no-edit
+            git push origin main --force
           else
+            echo "Last commit was by user. Creating new bot commit..."
             git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git pull --rebase origin main
             git push origin main
           fi
