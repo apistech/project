@@ -200,18 +200,17 @@ def generate_roku_m3u():
         # Special
         'Special': 'Special',
         
-        # Crime & Drama
-        'Comedy Drama': 'Crime & Drama',
-        'Comedy': 'Crime & Drama',
-        'Crime Drama': 'Crime & Drama',
-        'Crime': 'Crime & Drama',
-        'Docudrama': 'Crime & Drama',
-        'Drama': 'Crime & Drama',
-        'Romance': 'Crime & Drama',
-        'Romantic Comedy': 'Crime & Drama',
+        # Drama
+        'Comedy Drama': 'Drama',
+        'Crime Drama': 'Drama',
+        'Docudrama': 'Drama',
+        'Drama': 'Drama',
+        'Romance': 'Drama',
+        'Romantic Comedy': 'Drama',
 
         # News
-        'Law': 'News',
+        'Crime': 'Crime',
+        'Law': 'Crime',
         'News': 'News',
         'Newsmagazine': 'News',
         'Politics': 'News',
@@ -259,6 +258,7 @@ def generate_roku_m3u():
         'Religious': 'Faith & Family',
         
         # Entertainment
+        'Comedy': 'Entertainment',
         'Entertainment': 'Entertainment',
         'Game Show': 'Entertainment',
         'Interview': 'Entertainment',
