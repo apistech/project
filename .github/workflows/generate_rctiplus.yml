@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 jobs:
-  update-m3u:
+  build-playlists:
     runs-on: ubuntu-latest
     timeout-minutes: 15
 
@@ -54,9 +54,8 @@ jobs:
 
           if git diff --cached --quiet; then
             echo "No changes detected, skipping commit."
-            exit 0
+          else
+            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main
+            git push origin main
           fi
-
-          git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git pull --rebase origin main
-          git push origin main
