@@ -48,6 +48,8 @@ jobs:
           TCL_CATEGORY_FILTER: "all"                # "all" atau nama kategori TCL
           PLUTO_REGION_FILTER: "us,gb,ca"           # "us" / "us,gb,ca" / "all"
           PLUTO_GROUP_FILTER: "Anime,Kids,Movies"   # "all" atau "Movies,Kids,Sports"
+          SAMSUNG_REGION_FILTER: "us,gb,ca"         # "us" / "us,gb,ca" / "all"
+          SAMSUNG_GROUP_FILTER: "Anime,Anime & Gaming,Kids,Movies,Sci-fi & Horror"    # "all" atau "Movies,Kids,Sports"
 
       - name: Commit and Push (Keep History Clean)
         run: |

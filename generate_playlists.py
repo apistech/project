@@ -28,8 +28,8 @@ TCL_CATEGORY_FILTER = os.getenv('TCL_CATEGORY_FILTER', 'all').strip()
 if TCL_CATEGORY_FILTER != 'all':
     TCL_CATEGORY_FILTER = [c.strip() for c in TCL_CATEGORY_FILTER.split(',')]
 
-# Format: "us" / "us,gb,ca" / "all" (default: "all")
-PLUTO_REGION_FILTER = os.getenv('PLUTO_REGION_FILTER', 'all').strip()
+# Format: "us" / "us,gb,ca" / "all" (default: "us")
+PLUTO_REGION_FILTER = os.getenv('PLUTO_REGION_FILTER', 'us').strip()
 if PLUTO_REGION_FILTER != 'all':
     PLUTO_REGION_FILTER = [r.strip().lower() for r in PLUTO_REGION_FILTER.split(',')]
 
@@ -37,6 +37,16 @@ if PLUTO_REGION_FILTER != 'all':
 PLUTO_GROUP_FILTER = os.getenv('PLUTO_GROUP_FILTER', 'all').strip()
 if PLUTO_GROUP_FILTER != 'all':
     PLUTO_GROUP_FILTER = [g.strip() for g in PLUTO_GROUP_FILTER.split(',')]
+
+# Format: "us" / "us,gb,ca" / "all" (default: "us")
+SAMSUNG_REGION_FILTER = os.getenv('SAMSUNG_REGION_FILTER', 'us').strip()
+if SAMSUNG_REGION_FILTER != 'all':
+    SAMSUNG_REGION_FILTER = [r.strip().lower() for r in SAMSUNG_REGION_FILTER.split(',')]
+
+# Format: "Movies,Kids" / "all" (default: "all")
+SAMSUNG_GROUP_FILTER = os.getenv('SAMSUNG_GROUP_FILTER', 'all').strip()
+if SAMSUNG_GROUP_FILTER != 'all':
+    SAMSUNG_GROUP_FILTER = [g.strip() for g in SAMSUNG_GROUP_FILTER.split(',')]
 
 # TCL Specific Config
 TCL_COUNTRY_CODE = 'US'
@@ -599,9 +609,76 @@ def generate_pluto_m3u():
     logger.info(f"Pluto: {len(sorted_channels)} channels → {filename}")
     logger.info(f"  Regions: {selected_regions}, Group filter: {PLUTO_GROUP_FILTER}")
 
+# --- SamsungTV+ Scraping Logic ---
+def generate_samsungtvplus_m3u():
+    data = fetch_url('https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/SamsungTVPlus/.channels.json.gz', is_json=True, is_gzipped=True)
+    if not data or 'regions' not in data: return
+    slug_template = data.get('slug', '{id}.m3u8')
+
+    available_regions = list(data['regions'].keys())
+
+    if SAMSUNG_REGION_FILTER == 'all':
+        selected_regions = available_regions
+    else:
+        selected_regions = [r for r in SAMSUNG_REGION_FILTER if r in data['regions']]
+        invalid = [r for r in SAMSUNG_REGION_FILTER if r not in data['regions']]
+        if invalid:
+            logger.warning(f"Samsung: region tidak ditemukan dan dilewati: {invalid}")
+        if not selected_regions:
+            logger.error("Samsung: tidak ada region valid, skip.")
+            return
+
+    # US duluan, sisanya alfabetis
+    us_first = sorted(selected_regions, key=lambda r: (0 if r == 'us' else 1, r))
+
+    channels = {}  # c_id -> channel dict (deduped, US wins)
+    for r_code in us_first:
+        for c_id, c_info in data['regions'][r_code].get('channels', {}).items():
+            if c_id not in channels:
+                channels[c_id] = {
+                    **c_info,
+                    'original_id': c_id,
+                    'service_group': c_info.get('group', 'Other')
+                }
+
+    if SAMSUNG_GROUP_FILTER != 'all':
+        before = len(channels)
+        channels = {k: v for k, v in channels.items() if v['service_group'] in SAMSUNG_GROUP_FILTER}
+        logger.info(f"Samsung: group filter '{SAMSUNG_GROUP_FILTER}' — {len(channels)} dari {before} channel")
+
+    sorted_channels = sorted(
+        channels.items(),
+        key=lambda x: (x[1]['service_group'].lower(), x[1].get('name', '').lower())
+    )
+
+    region_slug = selected_regions[0] if len(selected_regions) == 1 else 'all'
+    filename = f"samsungtvplus_{region_slug}.m3u"
+
+    epg_region = selected_regions[0] if len(selected_regions) == 1 else 'all'
+    output_lines = [f'#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/master/SamsungTVPlus/{epg_region}.xml.gz"\n']
+
+    for c_id, ch in sorted_channels:
+        output_lines.extend([
+            format_extinf(
+                c_id,
+                ch['original_id'],
+                ch.get('chno'),
+                ch['name'],
+                ch['logo'],
+                ch['service_group'],
+                ch['name']
+            ),
+            f"https://jmp2.uk/{slug_template.replace('{id}', ch['original_id'])}\n"
+        ])
+
+    write_m3u_file(filename, "".join(output_lines))
+    logger.info(f"Samsung: {len(sorted_channels)} channels → {filename}")
+    logger.info(f"  Regions: {selected_regions}, Group filter: {SAMSUNG_GROUP_FILTER}")
+
 # --- Execution ---
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     generate_roku_m3u()
     generate_tcl_m3u()
     generate_pluto_m3u()
+    generate_samsungtvplus_m3u()
