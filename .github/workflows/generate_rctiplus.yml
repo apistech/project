@@ -21,26 +21,26 @@ jobs:
     timeout-minutes: 15
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           persist-credentials: true
 
-      - name: 🐍 Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: 📦 Install Dependencies
+      - name: Install Dependencies
         run: |
           pip install --upgrade pip
           pip install requests
 
-      - name: 🚀 Run RCTI+ Generator
+      - name: Run RCTI+ Generator
         run: python generate_rctiplus.py
 
-      - name: 🔗 Merge to IndihomeTV.m3u
+      - name: Merge to IndihomeTV.m3u
         run: python merge_playlists.py
           
       - name: Commit and Push (Keep History Clean)

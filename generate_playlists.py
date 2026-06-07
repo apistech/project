@@ -114,14 +114,14 @@ def generate_roku_m3u():
 
     # Manual override untuk channel yang sering salah
     ROKU_GROUP_OVERRIDE = {
-        '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
-        '2deae9b4e83550f88f6776c45df08315': 'Movies', # Hi-YAH!
-        '5e73572a69bcac238ce1a9a705050a30': 'Movies', # Hong Kong Fight Club
-        '834e2a09799752b3be7ecaab726b7242': 'Movies', # Maverick Black Cinema
-        '40d73ba5be775428a377908b02033b4c': 'Kids',   # BABY SHARK TV
-        'c0de867f29485305b9197b14cd08240f': 'Kids',   # Like Nastya
-        'b5cde121f98257329346020e2a60295a': 'Kids',   # Moonbug Kids
-        '8e0ba996e9985beb9c5e7f7f994ddc2e': 'Kids',   # Toony Planet
+    #    '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
+    #    '2deae9b4e83550f88f6776c45df08315': 'Movies', # Hi-YAH!
+    #    '5e73572a69bcac238ce1a9a705050a30': 'Movies', # Hong Kong Fight Club
+    #    '834e2a09799752b3be7ecaab726b7242': 'Movies', # Maverick Black Cinema
+    #    '40d73ba5be775428a377908b02033b4c': 'Kids',   # BABY SHARK TV
+    #    'c0de867f29485305b9197b14cd08240f': 'Kids',   # Like Nastya
+    #    'b5cde121f98257329346020e2a60295a': 'Kids',   # Moonbug Kids
+    #    '8e0ba996e9985beb9c5e7f7f994ddc2e': 'Kids',   # Toony Planet
     }
     
     # ROKU_GROUP_MAP harus didefinisikan SEBELUM dipake
