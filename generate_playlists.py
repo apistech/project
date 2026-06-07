@@ -15,17 +15,6 @@ OUTPUT_DIR = "playlists"
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 REQUEST_TIMEOUT = 30 
 
-REGION_MAP = {
-    'us': 'United States', 'gb': 'United Kingdom', 'ca': 'Canada',
-    'de': 'Germany', 'at': 'Austria', 'ch': 'Switzerland',
-    'es': 'Spain', 'fr': 'France', 'it': 'Italy', 'br': 'Brazil',
-    'mx': 'Mexico', 'ar': 'Argentina', 'cl': 'Chile', 'co': 'Colombia',
-    'pe': 'Peru', 'se': 'Sweden', 'no': 'Norway', 'dk': 'Denmark',
-    'in': 'India', 'jp': 'Japan', 'kr': 'South Korea', 'au': 'Australia'
-}
-
-TOP_REGIONS = ['United States', 'Canada', 'United Kingdom']
-
 # Filter groups dari environment variable
 # Format: "Anime,Kids,Movies" atau "all" (default)
 ROKU_GROUP_FILTER = os.getenv('ROKU_GROUP_FILTER', 'all').strip()
@@ -38,6 +27,16 @@ ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid').strip()
 TCL_CATEGORY_FILTER = os.getenv('TCL_CATEGORY_FILTER', 'all').strip()
 if TCL_CATEGORY_FILTER != 'all':
     TCL_CATEGORY_FILTER = [c.strip() for c in TCL_CATEGORY_FILTER.split(',')]
+
+# Format: "us" / "us,gb,ca" / "all" (default: "all")
+PLUTO_REGION_FILTER = os.getenv('PLUTO_REGION_FILTER', 'all').strip()
+if PLUTO_REGION_FILTER != 'all':
+    PLUTO_REGION_FILTER = [r.strip().lower() for r in PLUTO_REGION_FILTER.split(',')]
+
+# Format: "Movies,Kids" / "all" (default: "all")
+PLUTO_GROUP_FILTER = os.getenv('PLUTO_GROUP_FILTER', 'all').strip()
+if PLUTO_GROUP_FILTER != 'all':
+    PLUTO_GROUP_FILTER = [g.strip() for g in PLUTO_GROUP_FILTER.split(',')]
 
 # TCL Specific Config
 TCL_COUNTRY_CODE = 'US'
@@ -530,54 +529,79 @@ def generate_pluto_m3u():
     data = fetch_url('https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/PlutoTV/.channels.json.gz', is_json=True, is_gzipped=True)
     if not data or 'regions' not in data: return
 
-    for region in list(data['regions'].keys()) + ['all']:
-        is_all = region == 'all'
-        output_lines = [f'#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/master/PlutoTV/{region}.xml.gz"\n']
-        channels = {}
+    available_regions = list(data['regions'].keys())
 
-        if is_all:
-            for r_code, r_data in data['regions'].items():
-                country_name = REGION_MAP.get(r_code.lower(), r_code.upper())
-                for c_id, c_info in r_data.get('channels', {}).items():
-                    channels[f"{c_id}-{r_code}"] = {
-                        **c_info,
-                        'original_id': c_id,
-                        'country_group': country_name,
-                        'service_group': c_info.get('group', 'Other')
-                    }
-        else:
-            region_data = data['regions'].get(region, {}).get('channels', {})
-            country_name = REGION_MAP.get(region.lower(), region.upper())
-            for c_id, c_info in region_data.items():
+    # Tentukan region yang akan diproses
+    if PLUTO_REGION_FILTER == 'all':
+        selected_regions = available_regions
+    else:
+        selected_regions = [r for r in PLUTO_REGION_FILTER if r in data['regions']]
+        invalid = [r for r in PLUTO_REGION_FILTER if r not in data['regions']]
+        if invalid:
+            logger.warning(f"Pluto: region tidak ditemukan dan dilewati: {invalid}")
+        if not selected_regions:
+            logger.error("Pluto: tidak ada region valid, skip.")
+            return
+
+    # Dedupe by c_id, US diprioritaskan
+    # Iterasi region: US duluan jika ada, sisanya alfabetis
+    us_first = sorted(selected_regions, key=lambda r: (0 if r == 'us' else 1, r))
+
+    channels = {}  # c_id -> channel dict (deduped, US wins)
+    for r_code in us_first:
+        for c_id, c_info in data['regions'][r_code].get('channels', {}).items():
+            if c_id not in channels:  # US sudah masuk duluan, skip duplikat
                 channels[c_id] = {
                     **c_info,
                     'original_id': c_id,
-                    'country_group': country_name,
                     'service_group': c_info.get('group', 'Other')
                 }
 
-        sorted_channels = sorted(
-            channels.items(),
-            key=lambda x: (0 if x[1]['country_group'] in TOP_REGIONS else 1, x[1].get('name', ''))
-        )
+    # Filter group
+    if PLUTO_GROUP_FILTER != 'all':
+        before = len(channels)
+        channels = {k: v for k, v in channels.items() if v['service_group'] in PLUTO_GROUP_FILTER}
+        logger.info(f"Pluto: group filter '{PLUTO_GROUP_FILTER}' — {len(channels)} dari {before} channel")
 
-        for c_id, ch in sorted_channels:
-            group_title = ch['country_group'] if is_all else ch['service_group']
+    # Sort: group name → channel name
+    sorted_channels = sorted(
+        channels.items(),
+        key=lambda x: (x[1]['service_group'].lower(), x[1].get('name', '').lower())
+    )
 
-            output_lines.extend([
-                format_extinf(
-                    c_id,
-                    ch['original_id'],
-                    ch.get('chno'),
-                    ch['name'],
-                    ch['logo'],
-                    group_title,
-                    ch['name']
-                ),
-                f"https://jmp2.uk/plu-{ch['original_id']}.m3u8\n"
-            ])
+    # Tentukan nama file
+    if PLUTO_REGION_FILTER == 'all':
+        region_slug = 'all'
+    else:
+        region_slug = "_".join(sorted(selected_regions))
 
-        write_m3u_file(f"plutotv_{region}.m3u", "".join(output_lines))
+    if PLUTO_GROUP_FILTER == 'all':
+        filename = f"plutotv_{region_slug}.m3u"
+    else:
+        group_slug = "_".join(g.lower().replace(" ", "-") for g in PLUTO_GROUP_FILTER)
+        filename = f"plutotv_{region_slug}_{group_slug}.m3u"
+
+    # EPG URL: pakai region pertama jika single, 'all' jika multi
+    epg_region = selected_regions[0] if len(selected_regions) == 1 else 'all'
+    output_lines = [f'#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/master/PlutoTV/{epg_region}.xml.gz"\n']
+
+    for c_id, ch in sorted_channels:
+        output_lines.extend([
+            format_extinf(
+                c_id,
+                ch['original_id'],
+                ch.get('chno'),
+                ch['name'],
+                ch['logo'],
+                ch['service_group'],
+                ch['name']
+            ),
+            f"https://jmp2.uk/plu-{ch['original_id']}.m3u8\n"
+        ])
+
+    write_m3u_file(filename, "".join(output_lines))
+    logger.info(f"Pluto: {len(sorted_channels)} channels → {filename}")
+    logger.info(f"  Regions: {selected_regions}, Group filter: {PLUTO_GROUP_FILTER}")
 
 # --- Execution ---
 if __name__ == "__main__":

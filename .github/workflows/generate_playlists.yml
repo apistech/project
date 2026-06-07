@@ -43,9 +43,11 @@ jobs:
       - name: Run Playlist Generation Script
         run: python generate_playlists.py
         env:
-          ROKU_GROUP_FILTER: "all"   # ganti sesuai kebutuhan
-          ROKU_GROUP_METHOD: "hybrid"   # ganti ke "api" atau "chno" kalo mau
-          TCL_CATEGORY_FILTER: "all" # ganti sesuai kategori TCL
+          ROKU_GROUP_FILTER: "all"          # "all" atau "Movies,Kids,Sports"
+          ROKU_GROUP_METHOD: "hybrid"       # "api" / "chno" / "hybrid"
+          TCL_CATEGORY_FILTER: "all"        # "all" atau nama kategori TCL
+          PLUTO_REGION_FILTER: "us,gb,ca"   # "us" / "us,gb,ca" / "all"
+          PLUTO_GROUP_FILTER: "all"         # "all" atau "Movies,Kids,Sports"
 
       - name: Commit and Push (Keep History Clean)
         run: |
