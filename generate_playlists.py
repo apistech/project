@@ -570,16 +570,12 @@ def generate_pluto_m3u():
     )
 
     # Tentukan nama file
-    if PLUTO_REGION_FILTER == 'all':
+    if len(selected_regions) == 1:
+        region_slug = selected_regions[0]
+    else:
         region_slug = 'all'
-    else:
-        region_slug = "_".join(sorted(selected_regions))
 
-    if PLUTO_GROUP_FILTER == 'all':
-        filename = f"plutotv_{region_slug}.m3u"
-    else:
-        group_slug = "_".join(g.lower().replace(" ", "-") for g in PLUTO_GROUP_FILTER)
-        filename = f"plutotv_{region_slug}_{group_slug}.m3u"
+    filename = f"plutotv_{region_slug}.m3u"
 
     # EPG URL: pakai region pertama jika single, 'all' jika multi
     epg_region = selected_regions[0] if len(selected_regions) == 1 else 'all'
