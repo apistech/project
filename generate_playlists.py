@@ -514,8 +514,63 @@ def generate_tcl_m3u():
     ET.ElementTree(root).write(os.path.join(OUTPUT_DIR, "tcl_epg.xml"), encoding="utf-8", xml_declaration=True)
     logger.info("=== TCL Scraper completed successfully ===")
 
+# --- Pluto Scraping Logic ---
+def generate_pluto_m3u():
+    data = fetch_url('https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/PlutoTV/.channels.json.gz', is_json=True, is_gzipped=True)
+    if not data or 'regions' not in data: return
+
+    for region in list(data['regions'].keys()) + ['all']:
+        is_all = region == 'all'
+        output_lines = [f'#EXTM3U url-tvg="https://github.com/matthuisman/i.mjh.nz/raw/master/PlutoTV/{region}.xml.gz"\n']
+        channels = {}
+
+        if is_all:
+            for r_code, r_data in data['regions'].items():
+                country_name = REGION_MAP.get(r_code.lower(), r_code.upper())
+                for c_id, c_info in r_data.get('channels', {}).items():
+                    channels[f"{c_id}-{r_code}"] = {
+                        **c_info,
+                        'original_id': c_id,
+                        'country_group': country_name,
+                        'service_group': c_info.get('group', 'Other')
+                    }
+        else:
+            region_data = data['regions'].get(region, {}).get('channels', {})
+            country_name = REGION_MAP.get(region.lower(), region.upper())
+            for c_id, c_info in region_data.items():
+                channels[c_id] = {
+                    **c_info,
+                    'original_id': c_id,
+                    'country_group': country_name,
+                    'service_group': c_info.get('group', 'Other')
+                }
+
+        sorted_channels = sorted(
+            channels.items(),
+            key=lambda x: (0 if x[1]['country_group'] in TOP_REGIONS else 1, x[1].get('name', ''))
+        )
+
+        for c_id, ch in sorted_channels:
+            group_title = ch['country_group'] if is_all else ch['service_group']
+
+            output_lines.extend([
+                format_extinf(
+                    c_id,
+                    ch['original_id'],
+                    ch.get('chno'),
+                    ch['name'],
+                    ch['logo'],
+                    group_title,
+                    ch['name']
+                ),
+                f"https://jmp2.uk/plu-{ch['original_id']}.m3u8\n"
+            ])
+
+        write_m3u_file(f"plutotv_{region}.m3u", "".join(output_lines))
+
 # --- Execution ---
 if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
     generate_roku_m3u()
     generate_tcl_m3u()
+    generate_pluto_m3u()
