@@ -24,9 +24,9 @@ if ROKU_GROUP_FILTER != 'all':
 # Metode: 'api', 'chno', atau 'hybrid' (default)
 ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid').strip()
 
-TCL_CATEGORY_FILTER = os.getenv('TCL_CATEGORY_FILTER', 'all').strip()
-if TCL_CATEGORY_FILTER != 'all':
-    TCL_CATEGORY_FILTER = [c.strip() for c in TCL_CATEGORY_FILTER.split(',')]
+TCL_GROUP_FILTER = os.getenv('TCL_GROUP_FILTER', 'all').strip()
+if TCL_GROUP_FILTER != 'all':
+    TCL_GROUP_FILTER = [c.strip() for c in TCL_GROUP_FILTER.split(',')]
 
 # Format: "us" / "us,gb,ca" / "all" (default: "us")
 PLUTO_REGION_FILTER = os.getenv('PLUTO_REGION_FILTER', 'us').strip()
@@ -114,14 +114,15 @@ def generate_roku_m3u():
 
     # Manual override untuk channel yang sering salah
     ROKU_GROUP_OVERRIDE = {
-    #    '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
-    #    '2deae9b4e83550f88f6776c45df08315': 'Movies', # Hi-YAH!
-    #    '5e73572a69bcac238ce1a9a705050a30': 'Movies', # Hong Kong Fight Club
-    #    '834e2a09799752b3be7ecaab726b7242': 'Movies', # Maverick Black Cinema
-    #    '40d73ba5be775428a377908b02033b4c': 'Kids',   # BABY SHARK TV
-    #    'c0de867f29485305b9197b14cd08240f': 'Kids',   # Like Nastya
-    #    'b5cde121f98257329346020e2a60295a': 'Kids',   # Moonbug Kids
-    #    '8e0ba996e9985beb9c5e7f7f994ddc2e': 'Kids',   # Toony Planet
+        '82bd10ceb52152a7adb6bdc5d776e794': 'Sports', # NHRA TV
+        '182b6ef4e015e33d0f34d53fbc4524cc': 'Lifestyle', # GrowthDay Network
+        '40d73ba5be775428a377908b02033b4c': 'Kids',   # BABY SHARK TV
+        'c0de867f29485305b9197b14cd08240f': 'Kids',   # Like Nastya
+        'b5cde121f98257329346020e2a60295a': 'Kids',   # Moonbug Kids
+        '9dd23031622757d1944e4782b2a192ef': 'Kids',   # Ninja Kidz TV
+        'd8b7e94b7edc53918e6afa251822df14': 'Kids',   # Pocket.watch Game-On
+        'd1bfe824cfee5369a493d7a8bbd96ec1': 'Kids',   # Ryan and Friends
+        '8e0ba996e9985beb9c5e7f7f994ddc2e': 'Kids',   # Toony Planet
     }
     
     # ROKU_GROUP_MAP harus didefinisikan SEBELUM dipake
@@ -464,13 +465,13 @@ def generate_tcl_m3u():
 
     # Filter channels berdasarkan kategori
     all_channels = list(channels_map.values())
-    if TCL_CATEGORY_FILTER == 'all':
+    if TCL_GROUP_FILTER == 'all':
         filtered_channels = all_channels
         filter_slug = "all"
     else:
-        filtered_channels = [ch for ch in all_channels if ch['category'] in TCL_CATEGORY_FILTER]
-        filter_slug = "_".join(TCL_CATEGORY_FILTER).lower()
-        logger.info(f"TCL: filtered {len(filtered_channels)} from {len(all_channels)} channels, categories: {TCL_CATEGORY_FILTER}")
+        filtered_channels = [ch for ch in all_channels if ch['category'] in TCL_GROUP_FILTER]
+        filter_slug = "_".join(TCL_GROUP_FILTER).lower()
+        logger.info(f"TCL: filtered {len(filtered_channels)} from {len(all_channels)} channels, categories: {TCL_GROUP_FILTER}")
 
     # Write M3U8 (filtered)
     sorted_channels = sorted(filtered_channels, key=lambda x: (x["category"].lower(), x["name"].lower()))
