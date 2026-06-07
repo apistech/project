@@ -575,7 +575,7 @@ def generate_pluto_m3u():
     else:
         region_slug = 'all'
 
-    filename = f"plutotv_{region_slug}.m3u"
+    filename = f"pluto_{region_slug}.m3u"
 
     # EPG URL: pakai region pertama jika single, 'all' jika multi
     epg_region = selected_regions[0] if len(selected_regions) == 1 else 'all'
