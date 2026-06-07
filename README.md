@@ -14,8 +14,6 @@ Koleksi playlist IPTV, EPG guide, dan script otomasi untuk keperluan pribadi.
 |---|---|
 | **IndihomeTV** | `https://github.com/apistech/project/raw/refs/heads/main/IndihomeTV.m3u` |
 | **Shortlink** | `https://bit.ly/IndihomeTV` |
-| **Pluto TV** | `https://github.com/apistech/project/raw/refs/heads/main/playlists/pluto_all.m3u` |
-| **Shortlink** | `https://bit.ly/pluto_all` |
 
 > Paste URL di atas langsung ke aplikasi IPTV Player (TiviMate, Kodi, VLC, dll).
 
@@ -23,27 +21,18 @@ Koleksi playlist IPTV, EPG guide, dan script otomasi untuk keperluan pribadi.
 
 ## ⚙️ Script
 
-### `update_epg.py` — EPG Aggregator
+### `generate_playlists.py` FAST Service playlists generator
+
+Generate playlists pada FAST services (Pluto TV, TCL, SAMSUNG TVPLUS, ROKU, dll)
+
+### `generate_epg.py` — EPG Aggregator
 
 Mengambil EPG dari beberapa sumber, filter berdasarkan `tvg-id` yang ada di playlist aktif, lalu merge menjadi satu file `guide.xml`.
 
 **Sumber EPG:**
-- iptv-org — Indonesia channel (CubMu, DensTV, MaxStream, Vidio, VisionPlus)
-- BuddyChewChew — TCL & Xumo EPG
-- matthuisman/i.mjh.nz — Pluto TV (GB/US), Roku, Samsung TV Plus
-
-**Alur kerja:**
-1. Fetch `tvg-id` dari playlist M3U aktif (via env `M3U_URL`)
-2. Load base EPG lokal jika sudah ada
-3. Fetch & parse setiap sumber EPG remote (streaming, support `.gz`)
-4. Merge dengan deduplication channel ID
-5. Simpan ke `epgs/guide.xml` + `epgs/guide.xml.gz`
-
-**Environment variable:**
-
-| Variable | Keterangan |
-|---|---|
-| `M3U_URL` | URL playlist M3U aktif (wajib, simpan sebagai GitHub Secret) |
+- iptv-org — Indonesia channel
+- BuddyChewChew — FAST Service channel
+- matthuisman/i.mjh.nz — FAST Service channel
 
 ---
 
