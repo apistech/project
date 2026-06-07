@@ -15,6 +15,17 @@ OUTPUT_DIR = "playlists"
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 REQUEST_TIMEOUT = 30 
 
+REGION_MAP = {
+    'us': 'United States', 'gb': 'United Kingdom', 'ca': 'Canada',
+    'de': 'Germany', 'at': 'Austria', 'ch': 'Switzerland',
+    'es': 'Spain', 'fr': 'France', 'it': 'Italy', 'br': 'Brazil',
+    'mx': 'Mexico', 'ar': 'Argentina', 'cl': 'Chile', 'co': 'Colombia',
+    'pe': 'Peru', 'se': 'Sweden', 'no': 'Norway', 'dk': 'Denmark',
+    'in': 'India', 'jp': 'Japan', 'kr': 'South Korea', 'au': 'Australia'
+}
+
+TOP_REGIONS = ['United States', 'Canada', 'United Kingdom']
+
 # Filter groups dari environment variable
 # Format: "Anime,Kids,Movies" atau "all" (default)
 ROKU_GROUP_FILTER = os.getenv('ROKU_GROUP_FILTER', 'all').strip()
