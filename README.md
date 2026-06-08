@@ -8,11 +8,11 @@ Koleksi playlist IPTV, EPG guide, dan script otomasi untuk keperluan pribadi.
 
 ---
 
-## 🔗 Playlist & EPG
+## 🔗 Master Playlist & EPG
 
 | Jenis | URL |
 |---|---|
-| **IndihomeTV** | `https://github.com/apistech/project/raw/refs/heads/main/IndihomeTV.m3u` |
+| **Playlist** | `https://github.com/apistech/project/raw/refs/heads/main/IndihomeTV.m3u` |
 | **Shortlink** | `https://bit.ly/IndihomeTV` |
 
 > Paste URL di atas langsung ke aplikasi IPTV Player (TiviMate, Kodi, VLC, dll).
