@@ -43,13 +43,13 @@ jobs:
       - name: Run Playlist Generation Script
         run: python generate_playlists.py
         env:
-          ROKU_GROUP_FILTER: "all"			# "all" atau "Movies,Kids,Sports"
-          ROKU_GROUP_METHOD: "api"			# "api" / "chno" / "hybrid"
-          TCL_GROUP_FILTER: "all"			# "all" atau "Movies,Kids,Sports"
-          PLUTO_REGION_FILTER: "us,gb,ca"		# "us" / "us,gb,ca" / "all"
-          PLUTO_GROUP_FILTER: "all"			# "all" atau "Movies,Kids,Sports"
-          SAMSUNG_REGION_FILTER: "us,gb,ca"		# "us" / "us,gb,ca" / "all"
-          SAMSUNG_GROUP_FILTER: "all"			# "all" atau "Movies,Kids,Sports"
+          ROKU_GROUP_FILTER: "all"          # "all" atau "Movies,Kids,Sports"
+          ROKU_GROUP_METHOD: "api"          # "api" / "chno" / "hybrid"
+          TCL_GROUP_FILTER: "all"           # "all" atau "Movies,Kids,Sports"
+          PLUTO_REGION_FILTER: "us,gb"      # "all" / "us,gb,ca" / "all"
+          PLUTO_GROUP_FILTER: "all"         # "all" atau "Movies,Kids,Sports"
+          SAMSUNG_REGION_FILTER: "us,gb"    # "all" / "us,gb,ca" / "all"
+          SAMSUNG_GROUP_FILTER: "all"       # "all" atau "Movies,Kids,Sports"
 
       - name: Commit and Push (Keep History Clean)
         run: |
