@@ -359,11 +359,7 @@ def generate_roku_m3u():
                 f"https://jmp2.uk/rok-{c_id}.m3u8\n"
             ])
     
-    if ROKU_GROUP_FILTER == 'all':
-        write_m3u_file("roku_all.m3u", "".join(output_lines))
-    else:
-        filter_slug = "_".join(ROKU_GROUP_FILTER).lower()
-        write_m3u_file(f"roku_{filter_slug}.m3u", "".join(output_lines))
+    write_m3u_file("roku.m3u", "".join(output_lines))
     
     logger.info(f"Roku: generated {len(output_lines)-1} lines")
     logger.info(f"  Method: {ROKU_GROUP_METHOD}, Filter: {ROKU_GROUP_FILTER}")
@@ -467,15 +463,13 @@ def generate_tcl_m3u():
     all_channels = list(channels_map.values())
     if TCL_GROUP_FILTER == 'all':
         filtered_channels = all_channels
-        filter_slug = "all"
     else:
         filtered_channels = [ch for ch in all_channels if ch['category'] in TCL_GROUP_FILTER]
-        filter_slug = "_".join(TCL_GROUP_FILTER).lower()
         logger.info(f"TCL: filtered {len(filtered_channels)} from {len(all_channels)} channels, categories: {TCL_GROUP_FILTER}")
 
     # Write M3U8 (filtered)
     sorted_channels = sorted(filtered_channels, key=lambda x: (x["category"].lower(), x["name"].lower()))
-    m3u_filename = f"tcl_{filter_slug}.m3u8" if filter_slug != "all" else "tcl.m3u8"
+    m3u_filename = "tcl.m3u"
     
     with open(os.path.join(OUTPUT_DIR, m3u_filename), "w", encoding="utf-8") as f:
         f.write(f'#EXTM3U x-tvg-url="{TCL_EPG_URL}"\n')
