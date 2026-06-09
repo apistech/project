@@ -30,15 +30,19 @@ def fetch_channels() -> list[dict]:
 
 def build_m3u(channels: list[dict]) -> str:
     lines = ["#EXTM3U\n"]
-    for ch in channels:
+
+    valid = [ch for ch in channels if ch.get("source_url", "")]
+    sorted_channels = sorted(
+        valid,
+        key=lambda ch: (ch.get("category", "General").title().lower(), ch.get("name", "").lower())
+    )
+
+    for ch in sorted_channels:
         ch_id  = ch.get("id", "")
         name   = ch.get("name", "Unknown")
         logo   = ch.get("logo_url", "")
         group  = ch.get("category", "General").title()
         stream = ch.get("source_url", "")
-
-        if not stream:
-            continue
 
         lines.append(
             f'#EXTINF:-1 tvg-id="{ch_id}" tvg-name="{name}" '
