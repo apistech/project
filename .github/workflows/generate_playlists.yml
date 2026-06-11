@@ -45,7 +45,7 @@ jobs:
         env:
           ROKU_GROUP_FILTER: "Kids,Movies"                          # "all" atau "Movies,Kids,Sports"
           ROKU_GROUP_METHOD: "api"                                  # "api" / "chno" / "hybrid"
-          TCL_GROUP_FILTER: "Anime,Family & Kids,Movies,Tcl Top 15" # "all" atau "Movies,Kids,Sports"
+          TCL_GROUP_FILTER: "Anime,Family & Kids,Movies,TCL Top 15" # "all" atau "Movies,Kids,Sports"
           PLUTO_REGION_FILTER: "us,gb,ca"                           # "all" / "us,gb,ca" / "all"
           PLUTO_GROUP_FILTER: "Anime,Kids,Movies"                   # "all" atau "Movies,Kids,Sports"
           SAMSUNG_REGION_FILTER: "us,gb,ca"                         # "all" / "us,gb,ca" / "all"
