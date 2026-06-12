@@ -21,8 +21,7 @@ param(
     [int]$TimeoutSec  = 8,
     [int]$MaxParallel = 32,
     [int]$DoCheck     = 1,
-    [int]$ScanMode    = 1,
-    
+
     [ValidateSet("1", "2")]
     [string]$SortMode = "1"
 )
@@ -273,22 +272,30 @@ function Test-UrlsParallel {
     param(
         [array]$Entries,
         [int]$TimeoutSec,
-        [int]$MaxParallel,
-        [int]$ScanMode
+        [int]$MaxParallel
     )
     
-    $modeName = if ($ScanMode -eq 1) { "Normal" } else { "Fast Geo" }
-    Write-Host "Memeriksa URL... (mode: $modeName, timeout: ${TimeoutSec}s, parallel: $MaxParallel)" -ForegroundColor Yellow
+    Write-Host "Memeriksa URL... (mode: Fast Geo, timeout: ${TimeoutSec}s, parallel: $MaxParallel)" -ForegroundColor Yellow
 
     $liveList = [System.Collections.Concurrent.ConcurrentBag[object]]::new()
     $deadList = [System.Collections.Concurrent.ConcurrentBag[object]]::new()
     $geoBlockedList = [System.Collections.Concurrent.ConcurrentBag[object]]::new()
     $domainLatencies = [System.Collections.Concurrent.ConcurrentDictionary[string, [System.Collections.Generic.List[long]]]]::new()
 
+    $geoKeywords = @(
+        'not available in your region', 'not available in your country',
+        'geo-block', 'geoblocked', 'geo restricted',
+        'only available in', 'outside your region', 'location restricted',
+        'unavailable in your area', 'not available where you are',
+        'your current location', 'streaming rights',
+        'access denied', 'forbidden'
+    )
+
     $results = $Entries | ForEach-Object -Parallel {
         $entry = $_
         $timeoutSec = $using:TimeoutSec
-        $scanMode = $using:ScanMode
+        $geoKeywords = $using:geoKeywords
+        
         $alive = $false
         $isGeoBlocked = $false
         $latencyMs = -1L
@@ -296,7 +303,9 @@ function Test-UrlsParallel {
         try {
             $handler = [System.Net.Http.SocketsHttpHandler]::new()
             $handler.AllowAutoRedirect = $true
-            $handler.PooledConnectionLifetime = [TimeSpan]::FromMinutes(2)
+            $handler.MaxAutomaticRedirections = 3
+            $handler.PooledConnectionLifetime = [TimeSpan]::FromSeconds(30)
+            $handler.ConnectTimeout = [TimeSpan]::FromSeconds(3)
 
             $client = [System.Net.Http.HttpClient]::new($handler)
             $client.Timeout = [TimeSpan]::FromSeconds($timeoutSec)
@@ -307,68 +316,47 @@ function Test-UrlsParallel {
             }
 
             $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+
             $req = [System.Net.Http.HttpRequestMessage]::new([System.Net.Http.HttpMethod]::Get, $entry.Url)
             $resp = $client.SendAsync($req, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
-            $stopwatch.Stop()
             $code = [int]$resp.StatusCode
+            $stopwatch.Stop()
 
             if ($code -ge 200 -and $code -lt 300) {
-                $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
-                $buf = New-Object byte[] 8192
-                $bytesRead = $stream.Read($buf, 0, 8192)
-                
-                if ($bytesRead -gt 0) {
-                    $previewText = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
-                    
-                    # Geo-block detection
-                    $geoKeywords = @(
-                        'not available in your region', 'not available in your country',
-                        'geo-block', 'geoblocked', 'geo restricted',
-                        'only available in', 'outside your region', 'location restricted'
-                    )
-                    $isGeo = $false
-                    foreach ($kw in $geoKeywords) {
-                        if ($previewText.ToLower().Contains($kw)) {
-                            $isGeo = $true
-                            break
-                        }
-                    }
-                    
-                    if ($isGeo) {
-                        $isGeoBlocked = $true
-                    } else {
-                        $alive = $true
-                    }
-                } else {
+                $latencyMs = $stopwatch.ElapsedMilliseconds
+
+                $contentType = $resp.Content.Headers.ContentType?.MediaType
+                $isStream = $contentType -match '^(application/vnd\.apple\.mpegurl|audio/|video/|application/x-mpegURL)'
+
+                if ($isStream) {
                     $alive = $true
+                } else {
+                    try {
+                        $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
+                        $buf = New-Object byte[] 8192
+                        $bytesRead = $stream.Read($buf, 0, 8192)
+                        if ($bytesRead -gt 0) {
+                            $previewText = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
+                            foreach ($kw in $geoKeywords) {
+                                if ($previewText.ToLower().Contains($kw)) { $isGeoBlocked = $true; break }
+                            }
+                        }
+                        $stream.Dispose()
+                    } catch { }
+                    $alive = -not $isGeoBlocked
                 }
-                if ($alive) { $latencyMs = $stopwatch.ElapsedMilliseconds }
-                $resp.Dispose()
             }
-            elseif ($code -eq 403 -or $code -eq 451) {
+            elseif ($code -eq 401 -or $code -eq 403 -or $code -eq 451) {
                 $isGeoBlocked = $true
-                $resp.Dispose()
             }
-            else { 
+
                 $resp.Dispose()
-            }
-            
+                $req.Dispose()
             $client.Dispose()
             $handler.Dispose()
         }
         catch {
-            # Fallback HEAD
-            try {
-                $handler = [System.Net.Http.SocketsHttpHandler]::new()
-                $client = [System.Net.Http.HttpClient]::new($handler)
-                $client.Timeout = [TimeSpan]::FromSeconds($timeoutSec)
-                $req = [System.Net.Http.HttpRequestMessage]::new([System.Net.Http.HttpMethod]::Head, $entry.Url)
-                $resp = $client.SendAsync($req).GetAwaiter().GetResult()
-                if ([int]$resp.StatusCode -eq 200) { $alive = $true }
-                $resp.Dispose()
-                $client.Dispose()
-                $handler.Dispose()
-            } catch {}
+            # Silent fail
         }
 
         [PSCustomObject]@{ 
@@ -464,7 +452,7 @@ if ($extension -eq ".txt") {
                 $dlPath = Join-Path $dir $dlName
                 try {
                     Invoke-WebRequest -Uri $url -OutFile $dlPath -TimeoutSec 30 -ErrorAction Stop
-                    & $PSCommandPath -InputFile $dlPath -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel -DoCheck $DoCheck -ScanMode $ScanMode -SortMode $SortMode
+                    & $PSCommandPath -InputFile $dlPath -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel -DoCheck $DoCheck -SortMode $SortMode
                 } catch { continue }
             }
             exit 0
@@ -486,7 +474,7 @@ $geoBlockedList = @()
 $domainLatencies = @{}
 
 if ($DoCheck -eq 1) {
-    $liveEntries, $deadList, $geoBlockedList, $domainLatencies = Test-UrlsParallel -Entries $entries -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel -ScanMode $ScanMode
+    $liveEntries, $deadList, $geoBlockedList, $domainLatencies = Test-UrlsParallel -Entries $entries -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel
     
     if ($domainLatencies.Count -gt 0) {
         $rankingFile = Join-Path $dir "${baseName}_cdn_ranking.txt"

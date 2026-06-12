@@ -59,35 +59,6 @@ set /p "DO_CHECK=Periksa URL live? (1=ya / 0=tidak) [default: 1]: "
 if "!DO_CHECK!"=="" set "DO_CHECK=1"
 
 :: ========================================
-:: SCAN MODE (HANYA JIKA DO_CHECK=1)
-:: ========================================
-set "SCAN_MODE=1"
-
-if "!DO_CHECK!"=="1" (
-    goto ask_scan
-) else (
-    goto scan_done
-)
-
-:ask_scan
-echo.
-echo ==========================================
-echo   Pilih mode scanning URL:
-echo     [1] Normal   - Cepat (HEAD + GET fallback)
-echo     [2] Fast Geo - Deteksi geo-block (lebih lambat 2-3x)
-echo ==========================================
-echo.
-
-set /p "SCAN_MODE=Pilih angka (1-2) [default: 1]: "
-if "!SCAN_MODE!"=="" set "SCAN_MODE=1"
-if "!SCAN_MODE!"=="1" goto scan_done
-if "!SCAN_MODE!"=="2" goto scan_done
-echo [ERROR] Pilihan tidak valid. Gunakan angka 1-2.
-goto ask_scan
-
-:scan_done
-
-:: ========================================
 :: MENU SORTING
 :: ========================================
 :ask_sort
@@ -118,9 +89,6 @@ echo --------------------------------------
 echo   Gabungkan file : !DO_COMBINE!
 echo   Backup asli    : !DO_BACKUP!
 echo   Periksa URL    : !DO_CHECK!
-if "!DO_CHECK!"=="1" (
-    echo   Scan mode      : !SCAN_MODE! (1=Normal, 2=Fast Geo)
-)
 echo   Mode sorting   : !SORT_MODE! (1=Group, 2=None)
 echo   Timeout        : !TIMEOUT!s
 echo   Worker         : !PARALLEL!
@@ -196,7 +164,6 @@ if "!DO_BACKUP!"=="1" (
     -File "%~dp0Convert-Clean.ps1" ^
     -InputFile "!COMBINED_FILE!" ^
     -DoCheck !DO_CHECK! ^
-    -ScanMode !SCAN_MODE! ^
     -SortMode !SORT_MODE! ^
     -TimeoutSec !TIMEOUT! ^
     -MaxParallel !PARALLEL!
@@ -228,7 +195,6 @@ if "!DO_BACKUP!"=="1" (
     -File "%~dp0Convert-Clean.ps1" ^
     -InputFile "%~f1" ^
     -DoCheck !DO_CHECK! ^
-    -ScanMode !SCAN_MODE! ^
     -SortMode !SORT_MODE! ^
     -TimeoutSec !TIMEOUT! ^
     -MaxParallel !PARALLEL!
