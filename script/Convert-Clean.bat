@@ -39,6 +39,7 @@ for %%a in (%*) do (
     set "ext=%%~xa"
     if /i "!ext!"==".m3u"  set /a FILE_COUNT+=1
     if /i "!ext!"==".m3u8" set /a FILE_COUNT+=1
+    if /i "!ext!"==".txt"  set /a FILE_COUNT+=1
 )
 
 :: ========================================
@@ -46,7 +47,7 @@ for %%a in (%*) do (
 :: ========================================
 set "DO_COMBINE=0"
 if !FILE_COUNT! gtr 1 (
-    echo [!FILE_COUNT! file M3U/M3U8 terdeteksi]
+    echo [!FILE_COUNT! file terdeteksi]
     set /p "DO_COMBINE=Gabungkan semua file menjadi satu playlist? (1=ya / 0=tidak) [default: 0]: "
     if "!DO_COMBINE!"=="" set "DO_COMBINE=0"
     echo.
@@ -78,11 +79,23 @@ echo [ERROR] Pilihan tidak valid. Gunakan angka 1-2.
 goto :ask_sort
 
 :valid_sort
+:ask_timeout
 set /p "TIMEOUT=Timeout (detik) [default: 8]: "
 if "!TIMEOUT!"=="" set "TIMEOUT=8"
+echo !TIMEOUT!| findstr /r "^[0-9][0-9]*$" >nul
+if errorlevel 1 (
+    echo [ERROR] Masukkan angka valid.
+    goto :ask_timeout
+)
 
+:ask_parallel
 set /p "PARALLEL=Jumlah worker parallel [default: 32]: "
 if "!PARALLEL!"=="" set "PARALLEL=32"
+echo !PARALLEL!| findstr /r "^[0-9][0-9]*$" >nul
+if errorlevel 1 (
+    echo [ERROR] Masukkan angka valid.
+    goto :ask_parallel
+)
 
 echo.
 echo --------------------------------------
@@ -101,11 +114,11 @@ if "!DO_COMBINE!"=="1" goto combine_mode
 goto normal_mode
 
 :: ========================================
-:: MODE GABUNG FILE (HANYA .m3u/.m3u8)
+:: MODE GABUNG FILE
 :: ========================================
 :combine_mode
 echo.
-echo [MODE GABUNG] Mengumpulkan file M3U/M3U8...
+echo [MODE GABUNG] Mengumpulkan file...
 
 set "COMBINED_FILE=%~dp0playlist_combined.m3u"
 set "FILE_LIST="
@@ -129,11 +142,20 @@ for %%a in (%*) do (
                 set "FILE_LIST=!FILE_LIST!|%%~fa"
             )
         )
+    ) else if /i "!ext!"==".txt" (
+        if exist "%%~fa" (
+            echo   + %%~nxa
+            if "!FILE_LIST!"=="" (
+                set "FILE_LIST=%%~fa"
+            ) else (
+                set "FILE_LIST=!FILE_LIST!|%%~fa"
+            )
+        )
     )
 )
 
 if "!FILE_LIST!"=="" (
-    echo [ERROR] Tidak ada file .m3u/.m3u8 valid untuk digabung.
+    echo [ERROR] Tidak ada file valid untuk digabung.
     goto done
 )
 
@@ -176,7 +198,7 @@ if %errorlevel% neq 0 (
 goto done
 
 :: ========================================
-:: MODE NORMAL (PS1 akan deteksi sendiri jenis file)
+:: MODE NORMAL
 :: ========================================
 :normal_mode
 if "%~1"=="" goto done

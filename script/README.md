@@ -1,167 +1,164 @@
-# 📺 IPTV Convert & Clean
+# Convert & Clean IPTV
 
-Tool all-in-one untuk membersihkan, mengkonversi, dan memvalidasi playlist IPTV — drag-and-drop ready, berbasis PowerShell 7.
+Toolset PowerShell + Batch untuk membersihkan, memvalidasi, dan mengorganisir playlist IPTV format M3U/M3U8/TXT.
 
----
+## Requirements
 
-## ✨ Fitur
-
-- **Konversi otomatis** — TXT (format channel/genre) → M3U yang valid
-- **Cleaning** — hapus duplikat URL, normalisasi grup, strip komentar & baris kosong
-- **URL checker parallel** — validasi live/mati dengan HTTP GET + fallback HEAD
-- **Deteksi geo-block** — identifikasi channel yang diblokir berdasarkan region (HTTP 403/451 + keyword body)
-- **CDN latency ranking** — ukur median latency per domain, simpan ke file ranking
-- **Gabung playlist** — merge beberapa file M3U/M3U8 menjadi satu sebelum diproses
-- **Sorting fleksibel** — urutkan berdasarkan group+title, atau pertahankan urutan asli
-- **Backup otomatis** — simpan salinan file asli sebelum dimodifikasi
-- **Dead log** — catat semua URL mati ke file `.log` terpisah
-- **Encoding-aware** — deteksi dan baca UTF-8, UTF-16LE/BE, UTF-32
+- Windows 10/11
+- PowerShell 7+ (`pwsh`) — [Download](https://github.com/PowerShell/PowerShell/releases)
 
 ---
 
-## 📁 Struktur File
+## File
 
-```
-Convert-Clean.bat     ← Launcher utama (drag-and-drop di sini)
-Convert-Clean.ps1     ← Engine utama (konversi, clean, check)
-Combine-M3U.ps1       ← Helper penggabung file M3U
-```
-
----
-
-## ⚙️ Requirement
-
-- **PowerShell 7+** (`pwsh`) — wajib, harus ada di PATH
-- Windows (tested), bisa jalan di Linux/macOS via pwsh langsung
+| File | Fungsi |
+|---|---|
+| `Convert-Clean.bat` | Launcher utama, drag-and-drop interface |
+| `Convert-Clean.ps1` | Core engine: parse, validasi URL, dedup, sort, output |
+| `Combine-M3U.ps1` | Menggabungkan beberapa file playlist menjadi satu |
 
 ---
 
-## 🚀 Cara Pakai
+## Cara Penggunaan
 
-### Cara 1 — Drag & Drop (termudah)
+### Drag & Drop (Recommended)
 
-Seret satu atau lebih file `.m3u`, `.m3u8`, atau `.txt` ke atas `Convert-Clean.bat`.
+1. Pilih satu atau beberapa file `.m3u`, `.m3u8`, atau `.txt`
+2. Drag ke `Convert-Clean.bat`
+3. Ikuti menu interaktif di terminal
 
-### Cara 2 — Command Line
-
-```bat
-Convert-Clean.bat "C:\playlist\channels.m3u"
-```
-
-Multi-file:
-```bat
-Convert-Clean.bat "file1.m3u" "file2.m3u8" "file3.txt"
-```
-
-### Cara 3 — Langsung via PowerShell
+### Via PowerShell langsung
 
 ```powershell
 pwsh -File Convert-Clean.ps1 -InputFile "playlist.m3u"
 ```
 
-Dengan semua parameter:
+Parameter opsional:
+
 ```powershell
 pwsh -File Convert-Clean.ps1 `
-    -InputFile "playlist.m3u" `
-    -DoCheck 1 `
-    -ScanMode 2 `
-    -SortMode 1 `
-    -TimeoutSec 8 `
+    -InputFile   "playlist.m3u" `
+    -DoCheck     1  `
+    -SortMode    1  `
+    -TimeoutSec  8  `
     -MaxParallel 32
 ```
 
----
-
-## 🎛️ Parameter `Convert-Clean.ps1`
-
 | Parameter | Default | Keterangan |
 |---|---|---|
-| `-InputFile` | *(wajib)* | Path ke file input (.m3u/.m3u8/.txt) |
-| `-DoCheck` | `1` | `1` = periksa URL, `0` = skip |
-| `-ScanMode` | `1` | `1` = Normal, `2` = Fast Geo (deteksi geo-block) |
-| `-SortMode` | `1` | `1` = Sort by group+title, `2` = urutan asli |
-| `-TimeoutSec` | `8` | Timeout per URL (detik) |
-| `-MaxParallel` | `32` | Jumlah worker parallel untuk URL checking |
+| `-InputFile` | *(wajib)* | Path file input |
+| `-DoCheck` | `1` | `1` = periksa URL live, `0` = skip |
+| `-SortMode` | `1` | `1` = sort by group+title, `2` = urutan asli |
+| `-TimeoutSec` | `8` | Timeout per URL check (detik) |
+| `-MaxParallel` | `32` | Jumlah worker paralel |
 
 ---
 
-## 📋 Format Input yang Didukung
+## Format Input yang Didukung
 
 ### M3U / M3U8
-Format standar IPTV, langsung dibersihkan.
-
-### TXT — format channel/genre
+Format playlist standar IPTV:
 ```
-Indonesia,#genre#
-RCTI,https://stream.example.com/rcti.m3u8
-SCTV,https://stream.example.com/sctv.m3u8
+#EXTM3U
+#EXTINF:-1 group-title="News",CNN International
+http://example.com/stream/cnn.m3u8
+```
+
+### TXT (channel/genre)
+Format daftar channel dengan penanda group:
+```
+News,#genre#
+CNN International,http://example.com/stream/cnn.m3u8
+BBC World News,http://example.com/stream/bbc.m3u8
 
 Sports,#genre#
-beIN Sports 1,https://stream.example.com/bein1.m3u8
+ESPN,http://example.com/stream/espn.m3u8
 ```
 
-### TXT — daftar URL
-Satu URL per baris. Script akan mengunduh tiap URL lalu memprosesnya.
+### TXT (daftar URL)
+Daftar URL playlist yang akan didownload lalu diproses:
 ```
-https://example.com/playlist1.m3u
-https://example.com/playlist2.m3u8
+http://example.com/playlist1.m3u
+http://example.com/playlist2.m3u8
 ```
 
 ---
 
-## 📂 Output yang Dihasilkan
+## Fitur
+
+### Validasi URL Live
+Setiap URL dicek secara paralel dengan logika klasifikasi:
+
+| Status | Klasifikasi | Keterangan |
+|---|---|---|
+| HTTP 2xx + stream content | **Live** | Masuk output |
+| HTTP 2xx + DRM markers | **Live + DRM** | Masuk output, dicatat di log |
+| HTTP 200 + HTML + geo keyword | **Blocked (geo)** | Dibuang, dicatat di log |
+| HTTP 403 + geo keyword di body | **Blocked (geo)** | Dibuang, dicatat di log |
+| HTTP 403 tanpa geo keyword | **Blocked (auth)** | Dibuang, dicatat di log |
+| HTTP 401 | **Blocked (auth)** | Dibuang, dicatat di log |
+| HTTP 451 | **Blocked (geo)** | Dibuang, dicatat di log |
+| Timeout / connection error / 5xx | **Dead** | Dibuang, dicatat di log |
+
+### Deteksi DRM
+Channel dengan proteksi DRM tetap dipertahankan di output (tidak dibuang), hanya dicatat di log terpisah. Deteksi dilakukan via:
+- `#EXT-X-KEY:METHOD=` (HLS, kecuali `METHOD=NONE`)
+- `KEYFORMAT="urn:uuid:edef8ba9..."` (Widevine UUID)
+- `skd://` (FairPlay key URI)
+- `<ContentProtection>` di DASH MPD
+- `#KODIPROP:inputstream.adaptive.license` di metadata playlist
+
+### Deduplication
+URL identik dihapus, channel pertama yang ditemukan dipertahankan.
+
+### Sorting
+- **Mode 1** — Sort by group (A-Z), lalu title dengan natural alphanumeric sort (misal: Ch 1, Ch 2, ... Ch 10, bukan Ch 1, Ch 10, Ch 2)
+- **Mode 2** — Urutan asli dipertahankan
+
+### CDN Latency Ranking
+Setelah URL check, median latency per domain dihitung dan diranking. Berguna untuk mengetahui CDN mana yang paling responsif dari lokasi kamu.
+
+### Encoding Detection
+File input dideteksi encoding-nya secara otomatis: UTF-8, UTF-8 BOM, UTF-16 LE/BE, UTF-32 LE/BE.
+
+### Gabung Playlist
+Jika drag lebih dari satu file, tersedia opsi untuk menggabungkan semua menjadi satu file `playlist_combined.m3u` sebelum diproses.
+
+---
+
+## Output
+
+Semua file output disimpan di folder yang sama dengan file input.
 
 | File | Keterangan |
 |---|---|
-| `(nama_file).m3u` | Playlist bersih hasil proses |
-| `(nama_file).m3u.bak` | Backup file asli (jika backup aktif) |
-| `(nama_file)_dead.log` | Daftar URL yang tidak aktif |
-| `(nama_file)_geoblocked.log` | Daftar URL yang terdeteksi geo-block |
-| `(nama_file)_cdn_ranking.txt` | Ranking CDN berdasarkan median latency |
-| `playlist_combined.m3u` | Hasil gabungan (mode combine) |
+| `<nama>.m3u` | Playlist hasil (overwrite file input) |
+| `<nama>_dead.log` | URL yang tidak aktif |
+| `<nama>_blocked.log` | URL yang diblokir, dengan tag `[GEO]` atau `[AUTH]` |
+| `<nama>_drm.log` | Channel yang terdeteksi DRM (tetap ada di playlist) |
+| `<nama>_cdn_ranking.txt` | Ranking domain berdasarkan median latency |
+| `<nama>.m3u.bak` | Backup file asli (jika opsi backup diaktifkan) |
 
----
-
-## 🔄 Mode Gabung File
-
-Kalau drag lebih dari satu file `.m3u`/`.m3u8`, script akan menawarkan opsi untuk menggabungkannya dulu menjadi satu playlist sebelum dibersihkan.
-
+### Contoh `_blocked.log`
 ```
-[2 file M3U/M3U8 terdeteksi]
-Gabungkan semua file menjadi satu playlist? (1=ya / 0=tidak) [default: 0]:
+[GEO]  [News] BBC World News | http://example.com/stream/bbc.m3u8
+[AUTH] [Sports] ESPN Premium  | http://example.com/stream/espn.m3u8
 ```
 
----
-
-## 🌍 Deteksi Geo-Block
-
-**Mode Normal** — cek HTTP status code:
-- 403 / 451 → dianggap geo-blocked
-
-**Mode Fast Geo** (`ScanMode=2`) — baca 8KB pertama dari response body, cari keyword:
-- `not available in your region`, `geo-block`, `only available in`, `location restricted`, dll.
-
-Channel geo-blocked **tidak dihapus dari playlist**, tapi dicatat terpisah di `_geoblocked.log`.
-
----
-
-## 📊 CDN Ranking
-
-Setelah URL check selesai, script menghitung **median latency** per root domain dan menyimpannya ke `_cdn_ranking.txt`:
-
+### Contoh `_cdn_ranking.txt`
 ```
-# CDN Latency Ranking - 2025-06-15 14:23:01
+# CDN Latency Ranking - 2025-01-15 14:32:00
 
-akamaized.net   | 142 ms  | 38 samples
-fastly.net      | 187 ms  | 12 samples
-cdnstream.io    | 320 ms  | 7 samples
+akamai.net      | 112 ms  | 45 samples
+cloudfront.net  | 158 ms  | 30 samples
+fastly.net      | 203 ms  | 12 samples
 ```
 
 ---
 
-## ⚡ Tips
+## Tips
 
-- Naikkan `-MaxParallel` (misal 64) untuk playlist besar agar lebih cepat
-- Turunkan `-TimeoutSec` (misal 5) kalau banyak URL lambat yang ingin cepat-cepat dianggap mati
-- Gunakan `ScanMode=2` hanya kalau perlu tahu mana yang geo-blocked; lebih lambat 2-3x
-- `SortMode=2` (no sort) berguna kalau urutan channel sudah diatur manual
+- **Playlist besar** — naikkan `-MaxParallel` ke 50-64 untuk mempercepat, tapi perhatikan beban CPU dan network
+- **Koneksi lambat** — naikkan `-TimeoutSec` ke 15-20 supaya channel dengan stream lambat tidak salah diklasifikasikan sebagai dead
+- **Skip validasi** — gunakan `-DoCheck 0` kalau hanya ingin convert format atau gabung file tanpa cek URL
+- **File TXT gabungan** — kalau drag campuran `.txt` dan `.m3u` dengan opsi gabung, semua akan di-merge dulu lalu diproses sebagai satu playlist
