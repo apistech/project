@@ -130,7 +130,7 @@ jobs:
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
             echo "Last commit was by bot. Amending last commit..."
             git commit --amend --no-edit
-            git push origin main --force
+            git push origin main --force-with-lease
           else
             echo "Last commit was by user. Creating new bot commit..."
             git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
