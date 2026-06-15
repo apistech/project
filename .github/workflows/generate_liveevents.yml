@@ -36,17 +36,14 @@ jobs:
           pip install --upgrade pip
           pip install requests
 
-      - name: Scraping Live Events
-        run: |
-          curl -L -f -o events.m3u8 https://raw.githubusercontent.com/doms9/iptv/refs/heads/default/M3U8/events.m3u8 || exit 1
-          python3 generate_liveevents.py events.m3u8 playlists/live_events.m3u
+      - name: Generate Playlists
+        run: python3 generate_liveevents.py
 
       - name: Commit and Push (Keep History Clean)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          mkdir -p playlists
           git add -A playlists/
 
           if git diff-index --quiet HEAD --; then

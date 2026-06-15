@@ -6,6 +6,26 @@ import requests
 
 TIMEOUT = 10
 MAX_WORKERS = 16
+OUTPUT_DIR = Path("playlists")
+
+EPG_URL = "https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
+
+# ====================================================================
+# DAFTAR SUMBER PLAYLIST
+# Tambah/ubah entry di sini untuk custom source.
+#   name   -> nama file output (tanpa ekstensi), hasil: playlists/<name>.m3u
+#   url    -> link raw M3U/M3U8 source
+# ====================================================================
+SOURCES = [
+    {
+        "name": "live_events",
+        "url": "https://github.com/doms9/iptv/raw/refs/heads/default/M3U8/events.m3u8",
+    },
+    # {
+    #     "name": "sports",
+    #     "url": "https://example.com/sports.m3u8",
+    # },
+]
 
 VALID_CONTENT_TYPES = {
     "application/dash+xml",
@@ -20,8 +40,6 @@ VALID_CONTENT_TYPES = {
     "video/webm",
     "video/x-flv",
 }
-
-EPG_URL = "https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
 
 
 def is_stream_playable(url: str, headers: dict = None) -> bool:
@@ -136,12 +154,36 @@ def parse_m3u(lines: list[str]) -> list[dict]:
     return entries
 
 
-def filter_m3u_playlist(input_path: str, output_path: str):
-    with open(input_path, "r", encoding="utf-8") as f:
-        lines = [line.rstrip() for line in f]
+def fetch_playlist(url: str) -> list[str] | None:
+    """Download playlist source, return list of lines or None on failure."""
+    try:
+        response = requests.get(url, timeout=30)
+        response.raise_for_status()
+        return [line.rstrip() for line in response.text.splitlines()]
+    except requests.RequestException as e:
+        print(f"  [ERROR] Gagal fetch source: {e}")
+        return None
+
+
+def process_source(name: str, url: str) -> bool:
+    """Process single source: fetch -> check -> write output. Return True if success."""
+    print(f"\n{'=' * 60}")
+    print(f"Source: {name}")
+    print(f"URL   : {url}")
+    print(f"{'=' * 60}")
+
+    lines = fetch_playlist(url)
+    if lines is None:
+        print(f"[SKIP] {name}: source tidak bisa di-fetch")
+        return False
 
     entries = parse_m3u(lines)
     print(f"Total entries: {len(entries)}")
+
+    if not entries:
+        print(f"[SKIP] {name}: tidak ada entry valid")
+        return False
+
     print(f"Checking with {MAX_WORKERS} parallel workers...\n")
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
@@ -173,23 +215,40 @@ def filter_m3u_playlist(input_path: str, output_path: str):
             output_lines.append(entry["url"])
             playable_count += 1
 
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path = OUTPUT_DIR / f"{name}.m3u"
+
     with open(output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output_lines) + "\n")
 
     print(f"\nPlayable: {playable_count}/{len(entries)}")
-    print(f"Saved filtered playlist to: {output_path}")
+    print(f"Saved -> {output_path}")
+    return True
+
+
+def main():
+    if not SOURCES:
+        print("[ERROR] SOURCES kosong. Tambahkan minimal satu source di SOURCES.")
+        sys.exit(1)
+
+    results = {}
+    for source in SOURCES:
+        name = source["name"]
+        url = source["url"]
+        results[name] = process_source(name, url)
+
+    print(f"\n{'=' * 60}")
+    print("SUMMARY")
+    print(f"{'=' * 60}")
+    for name, success in results.items():
+        status = "OK" if success else "FAILED/SKIPPED"
+        print(f"  {name}: {status}")
+
+    # Exit 1 hanya kalau SEMUA source gagal
+    if not any(results.values()):
+        print("\n[ERROR] Semua source gagal diproses.")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
-    if len(sys.argv) != 3:
-        print("Usage: python generate_liveevents.py input.m3u output.m3u")
-        sys.exit(1)
-
-    input_m3u = sys.argv[1]
-    output_m3u = sys.argv[2]
-
-    if not Path(input_m3u).exists():
-        print(f"Input file {input_m3u} does not exist.")
-        sys.exit(1)
-
-    filter_m3u_playlist(input_m3u, output_m3u)
+    main()
