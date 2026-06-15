@@ -154,6 +154,21 @@ def parse_m3u(lines: list[str]) -> list[dict]:
     return entries
 
 
+def dedup_entries(entries: list[dict]) -> tuple[list[dict], int]:
+    """Remove entries with duplicate URL, keep first occurrence."""
+    seen_urls = set()
+    unique_entries = []
+
+    for entry in entries:
+        url = entry["url"]
+        if url not in seen_urls:
+            seen_urls.add(url)
+            unique_entries.append(entry)
+
+    removed = len(entries) - len(unique_entries)
+    return unique_entries, removed
+
+
 def fetch_playlist(url: str) -> list[str] | None:
     """Download playlist source, return list of lines or None on failure."""
     try:
@@ -166,7 +181,7 @@ def fetch_playlist(url: str) -> list[str] | None:
 
 
 def process_source(name: str, url: str) -> bool:
-    """Process single source: fetch -> check -> write output. Return True if success."""
+    """Process single source: fetch -> dedup -> check -> write output. Return True if success."""
     print(f"\n{'=' * 60}")
     print(f"Source: {name}")
     print(f"URL   : {url}")
@@ -183,6 +198,12 @@ def process_source(name: str, url: str) -> bool:
     if not entries:
         print(f"[SKIP] {name}: tidak ada entry valid")
         return False
+
+    # Dedup by URL sebelum check (hemat request)
+    entries, dup_removed = dedup_entries(entries)
+    if dup_removed > 0:
+        print(f"Duplikat      : {dup_removed} dihapus (berdasarkan URL)")
+    print(f"Unique entries: {len(entries)}")
 
     print(f"Checking with {MAX_WORKERS} parallel workers...\n")
 
