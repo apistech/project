@@ -4,30 +4,39 @@ on:
   schedule:
     - cron: '0 */4 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths: 
+      - 'generate_liveevents.py'
+      - '.github/workflows/generate_liveevents.yml'
 
 permissions:
   contents: write
 
 jobs:
-  scrape:
+  build-playlists:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
-      - name: 📥 Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
 
-      - name: 🐍 Set up Python 3.11
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-          cache: 'pip'
+          python-version: '3.12'
 
-      - name: 📦 Install dependencies
-        run: pip3 install requests
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests
 
-      - name: 🎯 Run scraping script
+      - name: Scraping Live Events
         run: |
           curl -L -f -o events.m3u8 https://raw.githubusercontent.com/doms9/iptv/refs/heads/default/M3U8/events.m3u8 || exit 1
           mkdir -p playlists
