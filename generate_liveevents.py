@@ -21,10 +21,10 @@ SOURCES = [
         "name": "live_events",
         "url": "https://github.com/doms9/iptv/raw/refs/heads/default/M3U8/events.m3u8",
     },
-    # {
-    #     "name": "sports",
-    #     "url": "https://example.com/sports.m3u8",
-    # },
+    {
+        "name": "wc2026",
+        "url": "https://github.com/sm-monirulislam/SM-Live-TV/raw/refs/heads/main/World_Cup.m3u",
+    },
 ]
 
 VALID_CONTENT_TYPES = {
