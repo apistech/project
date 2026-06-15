@@ -8,10 +8,11 @@ TIMEOUT = 10
 MAX_WORKERS = 16
 
 VALID_CONTENT_TYPES = {
+    "application/octet-stream",
     "application/vnd.apple.mpegurl",
     "application/x-mpegurl",
-    "video/mp4",
     "audio/mpeg",
+    "video/mp4",
     "video/ts",
     "video/x-flv",
 }
