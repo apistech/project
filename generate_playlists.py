@@ -28,10 +28,10 @@ PLUTO_GROUP_FILTER = ('Anime', 'Kids', 'Movies')
 SAMSUNG_REGION_FILTER = ('us', 'gb', 'ca')
 SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 
+TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
+
 ROKU_GROUP_METHOD = ('api')
 ROKU_GROUP_FILTER = ('Kids', 'Movies')
-
-TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
 # ===================================================================
 
