@@ -8,9 +8,9 @@ on:
     branches:
       - main
     paths: 
+      - '.github/workflows/generate_rctiplus.yml'
       - 'generate_rctiplus.py'
       - 'merge_playlists.py'
-      - '.github/workflows/generate_rctiplus.yml'
 
 permissions:
   contents: write
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           persist-credentials: true
 
       - name: Set up Python
@@ -36,6 +36,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install requests
+          mkdir -p playlists
 
       - name: Run RCTI+ Generator
         run: python generate_rctiplus.py
@@ -48,7 +49,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          mkdir -p playlists
           git add -A playlists/
           git add IndihomeTV.m3u
 

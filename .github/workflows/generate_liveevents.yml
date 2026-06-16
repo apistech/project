@@ -8,8 +8,8 @@ on:
     branches:
       - main
     paths:
-      - 'generate_liveevents.py'
       - '.github/workflows/generate_liveevents.yml'
+      - 'generate_liveevents.py'
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 1
           persist-credentials: true
 
       - name: Set up Python
@@ -35,6 +35,7 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install requests
+          mkdir -p playlists
 
       - name: Generate Playlists
         run: python3 generate_liveevents.py
