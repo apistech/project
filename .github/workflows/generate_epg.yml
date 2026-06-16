@@ -15,6 +15,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: generate-epg
+  cancel-in-progress: false
+
 jobs:
   build-epg:
     runs-on: ubuntu-latest
@@ -24,7 +28,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 2
           persist-credentials: true
 
       - name: Setup Node.js
@@ -133,5 +137,20 @@ jobs:
           else
             echo "Last commit was by user. Creating new bot commit..."
             git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push origin main
+
+            for i in 1 2 3; do
+              if git push origin main; then
+                echo "Push berhasil."
+                break
+              fi
+
+              echo "Push gagal (attempt $i/3), fetch + rebase..."
+              git fetch origin main
+              git rebase origin/main
+
+              if [ $i -eq 3 ]; then
+                echo "[ERROR] Push gagal setelah 3x percobaan."
+                exit 1
+              fi
+            done
           fi
