@@ -18,20 +18,20 @@ REQUEST_TIMEOUT = 30
 # ===================================================================
 # CONFIG FILTER & METHOD
 # ===================================================================
-# REGIONS: Pilih region ["us", "gb", "ca", dll] atau ["all"]
-# GROUP_FILTER: Isi dengan list kategori, atau [] jika ingin "all"
+# REGION_FILTER: Pilih region ('us', 'gb', 'ca') atau ('all')
+# GROUP_FILTER: Isi dengan list kategori, atau ('all')
 # GROUP_METHOD: "api" / "chno" / "hybrid" (Hanya untuk ROKU)
 
 PLUTO_REGION_FILTER = ('us', 'gb', 'ca')
-PLUTO_GROUP_FILTER = ('all')
+PLUTO_GROUP_FILTER = ('Anime', 'Kids', 'Movies')
 
 SAMSUNG_REGION_FILTER = ('us', 'gb', 'ca')
-SAMSUNG_GROUP_FILTER = ('all')
+SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 
 ROKU_GROUP_METHOD = ('api')
-ROKU_GROUP_FILTER = ('all')
+ROKU_GROUP_FILTER = ('Kids', 'Movies')
 
-TCL_GROUP_FILTER = ('all')
+TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
 # ===================================================================
 
