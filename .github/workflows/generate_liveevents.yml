@@ -15,7 +15,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: generate-liveevents
+  group: git-write-lock
   cancel-in-progress: false
 
 jobs:

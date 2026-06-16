@@ -16,7 +16,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: generate-epg
+  group: git-write-lock
   cancel-in-progress: false
 
 jobs:

@@ -15,38 +15,30 @@ OUTPUT_DIR = "playlists"
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
 REQUEST_TIMEOUT = 30 
 
-# Filter groups dari environment variable
-# Format: "Anime,Kids,Movies" atau "all" (default)
-ROKU_GROUP_FILTER = os.getenv('ROKU_GROUP_FILTER', 'all').strip()
-if ROKU_GROUP_FILTER != 'all':
-    ROKU_GROUP_FILTER = [g.strip() for g in ROKU_GROUP_FILTER.split(',')]
+# ===================================================================
+# CONFIG FILTER & METHOD
+# ===================================================================
+# REGIONS: Pilih region ["us", "gb", "ca", dll] atau ["all"]
+# GROUP_FILTER: Isi dengan list kategori, atau [] jika ingin "all"
+# GROUP_METHOD: "api" / "chno" / "hybrid" (Hanya untuk ROKU)
 
-# Metode: 'api', 'chno', atau 'hybrid' (default)
-ROKU_GROUP_METHOD = os.getenv('ROKU_GROUP_METHOD', 'hybrid').strip()
+PLUTO_REGION_FILTER = ["us", "gb", "ca"]
+PLUTO_GROUP_FILTER = ["all"]
 
-TCL_GROUP_FILTER = os.getenv('TCL_GROUP_FILTER', 'all').strip()
-if TCL_GROUP_FILTER != 'all':
-    TCL_GROUP_FILTER = [c.strip() for c in TCL_GROUP_FILTER.split(',')]
+SAMSUNG_REGION_FILTER = ["us", "gb", "ca"]
+SAMSUNG_GROUP_FILTER = ["all"]
 
-# Format: "us" / "us,gb,ca" / "all" (default: "us")
-PLUTO_REGION_FILTER = os.getenv('PLUTO_REGION_FILTER', 'us').strip()
-if PLUTO_REGION_FILTER != 'all':
-    PLUTO_REGION_FILTER = [r.strip().lower() for r in PLUTO_REGION_FILTER.split(',')]
+ROKU_GROUP_METHOD = ["api"]
+ROKU_GROUP_FILTER = ["all"]
 
-# Format: "Movies,Kids" / "all" (default: "all")
-PLUTO_GROUP_FILTER = os.getenv('PLUTO_GROUP_FILTER', 'all').strip()
-if PLUTO_GROUP_FILTER != 'all':
-    PLUTO_GROUP_FILTER = [g.strip() for g in PLUTO_GROUP_FILTER.split(',')]
+TCL_GROUP_FILTER = ["all"]
 
-# Format: "us" / "us,gb,ca" / "all" (default: "us")
-SAMSUNG_REGION_FILTER = os.getenv('SAMSUNG_REGION_FILTER', 'us').strip()
-if SAMSUNG_REGION_FILTER != 'all':
-    SAMSUNG_REGION_FILTER = [r.strip().lower() for r in SAMSUNG_REGION_FILTER.split(',')]
+# ===================================================================
 
-# Format: "Movies,Kids" / "all" (default: "all")
-SAMSUNG_GROUP_FILTER = os.getenv('SAMSUNG_GROUP_FILTER', 'all').strip()
-if SAMSUNG_GROUP_FILTER != 'all':
-    SAMSUNG_GROUP_FILTER = [g.strip() for g in SAMSUNG_GROUP_FILTER.split(',')]
+if not PLUTO_GROUP_FILTER: PLUTO_GROUP_FILTER = 'all'
+if not SAMSUNG_GROUP_FILTER: SAMSUNG_GROUP_FILTER = 'all'
+if not ROKU_GROUP_FILTER: ROKU_GROUP_FILTER = 'all'
+if not TCL_GROUP_FILTER: TCL_GROUP_FILTER = 'all'
 
 # TCL Specific Config
 TCL_COUNTRY_CODE = 'US'
