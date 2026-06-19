@@ -66,7 +66,7 @@ jobs:
           M3U_URL: ${{ secrets.M3U_URL }}
         run: python generate_epg.py
 
-- name: Verify & Generate Index
+      - name: Verify & Generate Index
         run: |
           if [ ! -f "epgs/guide.xml" ]; then
             echo "Unified guide.xml missing!" && exit 1
