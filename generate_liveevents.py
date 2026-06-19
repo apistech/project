@@ -106,7 +106,6 @@ def is_stream_playable(url: str, headers: dict = None) -> bool:
 
 
 def parse_m3u(lines: list[str]) -> list[dict]:
-    """Parse M3U lines into structured entries, preserving all tag types."""
     entries = []
     buffer_extinf = []
     buffer_other = []
@@ -119,6 +118,8 @@ def parse_m3u(lines: list[str]) -> list[dict]:
             buffer_extinf.append(line)
         elif line.startswith("#EXTVLCOPT"):
             buffer_vlcopt.append(line)
+        elif stripped.startswith("#EXTM3U"):
+            continue
         elif stripped.startswith("#"):
             buffer_other.append(line)
         elif stripped and not stripped.startswith("#"):
