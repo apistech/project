@@ -29,32 +29,33 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: 'npm'
-          cache-dependency-path: 'epg-tool/package-lock.json'
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-          cache: 'pip'
 
-      - name: Clone IPTV-ORG EPG tool
+      - name: Install Python Dependencies
         run: |
-          if [ ! -d "epg-tool" ]; then
-            git clone --depth 1 https://github.com/iptv-org/epg.git epg-tool
-          fi
-
-      - name: Install Dependencies
-        run: |
-          python -m pip install --upgrade pip
           pip install requests
           mkdir -p epgs
-          cd epg-tool && npm ci
+
+      # 1️⃣ Clone dulu agar file package-lock.json tersedia di runner
+      - name: Clone IPTV-ORG EPG tool
+        run: git clone --depth 1 https://github.com/iptv-org/epg.git epg-tool
+
+      # 2️⃣ Baru setup Node dan arahkan path cache-nya ke folder epg-tool
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+          cache-dependency-path: 'epg-tool/package-lock.json' # ⭐ Krusial agar tidak error
+
+      - name: Install Node dependencies
+        working-directory: epg-tool
+        run: npm ci
 
       - name: Generate Base EPG (Fungsi 1)
         run: |
