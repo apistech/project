@@ -41,11 +41,9 @@ jobs:
           pip install requests
           mkdir -p epgs
 
-      # 1️⃣ Clone dulu agar file package-lock.json tersedia di runner
       - name: Clone IPTV-ORG EPG tool
         run: git clone --depth 1 https://github.com/iptv-org/epg.git epg-tool
 
-      # 2️⃣ Baru setup Node dan arahkan path cache-nya ke folder epg-tool
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -79,8 +77,9 @@ jobs:
           src, out = Path("epgs/custom.channels.xml"), Path("epgs/channels.txt")
           if src.exists():
               root = ET.parse(src).getroot()
-              entries = sorted(set(f#"{c.attrib[\"xmltv_id\"].strip()} \"{(c.text or \"\").strip()}\"" for c in root.findall("channel") if c.attrib.get("xmltv_id")), key=lambda x: x.lower())
+              entries = sorted(set(f"{c.attrib[\"xmltv_id\"].strip()} \"{(c.text or \"\").strip()}\"" for c in root.findall("channel") if c.attrib.get("xmltv_id")), key=lambda x: x.lower())
               out.write_text("\n".join(entries), encoding="utf-8")
+              print(f"✅ Generated channels.txt index with {len(entries)} items.")
           '
 
       - name: Auto Commit Changes
