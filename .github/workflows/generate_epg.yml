@@ -35,15 +35,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install Python Dependencies
         run: |
-          pip install requests
+          pip install -r requirements.txt
           mkdir -p epgs
 
       # ========================================================
