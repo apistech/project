@@ -38,7 +38,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           mkdir -p playlists
 
@@ -62,26 +62,37 @@ jobs:
             echo "❌ Rebase failed. Aborting."
             git rebase --abort
             exit 1
-         }
+          }
 
           LAST_AUTHOR=$(git log -1 --format='%ae')
           BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
           TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+          IS_AMEND=false
 
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
             echo "🔄 Last commit by bot. Amending..."
             git commit --amend --no-edit --date="$TIMESTAMP"
+            IS_AMEND=true
           else
             echo "🆕 Last commit by user. Creating new commit..."
             git commit -m "🔄 Auto-Update $TIMESTAMP"
           fi
 
           for i in 1 2 3; do
-          if git push origin main; then
-            echo "✅ Push berhasil."
-            exit 0
-          fi
-            echo "⚠️ Push gagal (attempt $i/3). Fetching & rebasing..."
+            echo "🚀 Push attempt $i/3..."
+            
+            if [ "$IS_AMEND" = true ]; then
+              PUSH_CMD="git push origin main --force-with-lease"
+            else
+              PUSH_CMD="git push origin main"
+            fi
+
+            if $PUSH_CMD; then
+              echo "✅ Push berhasil."
+              exit 0
+            fi
+
+            echo "⚠️ Push gagal. Fetching & rebasing..."
             git fetch origin main
             git rebase origin/main || { git rebase --abort; exit 1; }
           done
