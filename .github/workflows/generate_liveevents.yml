@@ -50,25 +50,22 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          # 1. Masukkan hasil generate ke staging index
           git add -A playlists/
 
+          # 2. Cek apakah ada perubahan nyata
           if git diff-index --quiet HEAD --; then
             echo "✅ No changes detected. Skipping commit."
             exit 0
           fi
 
+          # 3. Kumpulkan metadata commit sebelum melakukan operasi git remote
           LAST_AUTHOR=$(git log -1 --format='%ae')
           BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
           TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
           IS_AMEND=false
 
-          git fetch origin main
-          git rebase origin/main || {
-            echo "❌ Rebase failed. Aborting."
-            git rebase --abort
-            exit 1
-          }
-
+          # 4. Buat commit TERLEBIH DAHULU agar index kembali bersih
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
             echo "🔄 Last commit by bot. Amending..."
             git commit --amend --no-edit --date="$TIMESTAMP"
@@ -78,9 +75,19 @@ jobs:
             git commit -m "🔄 Auto-Update $TIMESTAMP"
           fi
 
+          # 5. Loop sinkronisasi ke remote repo (handling race condition)
           for i in 1 2 3; do
-            echo "🚀 Push attempt $i/3..."
+            echo "🚀 Syncing with remote (Attempt $i/3)..."
+            git fetch origin main
             
+            # Gunakan -Xtheirs agar jika ada konflik, file hasil script python kita yang menang
+            if ! git rebase origin/main -Xtheirs; then
+              echo "⚠️ Rebase failed. Aborting."
+              git rebase --abort
+              exit 1
+            fi
+
+            echo "📤 Pushing changes..."
             if [ "$IS_AMEND" = true ]; then
               PUSH_CMD="git push origin main --force-with-lease"
             else
@@ -92,9 +99,8 @@ jobs:
               exit 0
             fi
 
-            echo "⚠️ Push gagal. Fetching & rebasing..."
-            git fetch origin main
-            git rebase origin/main || { git rebase --abort; exit 1; }
+            echo "⚠️ Push ditolak, mencoba rebase ulang di iterasi berikutnya..."
+            sleep 2
           done
 
           echo "❌ Push gagal setelah 3x percobaan."
