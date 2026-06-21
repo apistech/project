@@ -53,37 +53,49 @@ jobs:
           git add -A playlists/
 
           if git diff-index --quiet HEAD --; then
-            echo "No changes detected. Skipping commit."
+            echo "✅ No changes detected. Skipping commit."
             exit 0
           fi
 
           LAST_AUTHOR=$(git log -1 --format='%ae')
           BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
-
-          git fetch origin main
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+          IS_AMEND=false
 
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
-            echo "Last commit was by bot. Amending last commit..."
-            git reset --soft HEAD~1  # ⭐ unstage + keep changes
-            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-            git push origin main --force-with-lease
+            echo "🔄 Last commit by bot. Amending..."
+            git commit --amend --no-edit --date="$TIMESTAMP"
+            IS_AMEND=true
           else
-            echo "Last commit was by user. Creating new bot commit..."
-            git commit -m "🔄 Auto-Update $(date -u '+%Y-%m-%d %H:%M UTC')"
-
-            for i in 1 2 3; do
-              if git push origin main; then
-                echo "Push berhasil."
-                break
-              fi
-
-              echo "Push gagal (attempt $i/3), fetch + rebase..."
-              git fetch origin main
-              git rebase origin/main
-
-              if [ $i -eq 3 ]; then
-                echo "[ERROR] Push gagal setelah 3x percobaan."
-                exit 1
-              fi
-            done
+            echo "🆕 Last commit by user. Creating new commit..."
+            git commit -m "🔄 Auto-Update $TIMESTAMP"
           fi
+
+          for i in 1 2 3; do
+            echo "🚀 Syncing with remote (Attempt $i/3)..."
+            git fetch origin main
+            
+            if ! git rebase origin/main -Xtheirs; then
+              echo "⚠️ Rebase failed. Aborting."
+              git rebase --abort
+              exit 1
+            fi
+
+            echo "📤 Pushing changes..."
+            if [ "$IS_AMEND" = true ]; then
+              PUSH_CMD="git push origin main --force-with-lease"
+            else
+              PUSH_CMD="git push origin main"
+            fi
+
+            if $PUSH_CMD; then
+              echo "✅ Push berhasil."
+              exit 0
+            fi
+
+            echo "⚠️ Push ditolak, mencoba rebase ulang di iterasi berikutnya..."
+            sleep 2
+          done
+
+          echo "❌ Push gagal setelah 3x percobaan."
+          exit 1
