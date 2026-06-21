@@ -57,17 +57,17 @@ jobs:
             exit 0
           fi
 
+          LAST_AUTHOR=$(git log -1 --format='%ae')
+          BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+          IS_AMEND=false
+
           git fetch origin main
           git rebase origin/main || {
             echo "❌ Rebase failed. Aborting."
             git rebase --abort
             exit 1
           }
-
-          LAST_AUTHOR=$(git log -1 --format='%ae')
-          BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
-          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
-          IS_AMEND=false
 
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
             echo "🔄 Last commit by bot. Amending..."
