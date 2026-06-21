@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - main
-    paths: 
+    paths:
       - '.github/workflows/generate_rctiplus.yml'
       - 'generate_rctiplus.py'
       - 'merge_playlists.py'
@@ -39,11 +39,11 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           mkdir -p playlists
 
-      - name: Run RCTI+ Generator
+      - name: Generate RCTI+ Playlists
         run: python generate_rctiplus.py
 
       - name: Merge to IndihomeTV.m3u

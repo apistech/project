@@ -42,7 +42,7 @@ jobs:
           pip install -r requirements.txt
           mkdir -p playlists
 
-      - name: Run Playlist Generation Script
+      - name: Generate FAST Service Playlists
         run: python generate_playlists.py
 
       - name: Commit and Push (Keep History Clean)
