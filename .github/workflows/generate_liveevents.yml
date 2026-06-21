@@ -40,7 +40,6 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-          mkdir -p playlists
 
       - name: Generate Playlists
         run: python3 generate_liveevents.py
@@ -50,6 +49,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
+          mkdir -p playlists
           git add -A playlists/ 2>/dev/null || true
 
           if git diff-index --quiet HEAD --; then
