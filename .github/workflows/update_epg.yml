@@ -1,0 +1,90 @@
+name: Generate FAST Service EPG
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-epg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          pip install requests
+          pip install --upgrade pip
+
+      - name: Generate FAST Service EPG
+        env:
+          M3U_URL: ${{ secrets.M3U_URL }}
+        run: python update_epg.py
+
+      - name: Commit and Push (Keep History Clean)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A epgs/
+
+          if git diff-index --quiet HEAD --; then
+            echo "No changes detected. Skipping commit."
+            exit 0
+          fi
+
+          LAST_AUTHOR=$(git log -1 --format='%ae')
+          BOT_EMAIL="41898282+github-actions[bot]@users.noreply.github.com"
+          TIMESTAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+          IS_AMEND=false
+
+          if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
+            echo "Last commit by bot. Amending..."
+            git commit --amend --no-edit --date="$TIMESTAMP"
+            IS_AMEND=true
+          else
+            echo "Last commit by user. Creating new commit..."
+            git commit -m "Auto-Update $TIMESTAMP"
+          fi
+
+          for i in 1 2 3; do
+            echo "Syncing with remote (Attempt $i/3)..."
+            git fetch origin main
+
+            # NOTE: -Xtheirs sengaja dipilih supaya commit manual user di epgs/
+            # tidak ditimpa oleh hasil auto-generate kalau terjadi conflict.
+            if ! git rebase origin/main -Xtheirs; then
+              echo "Rebase failed. Aborting."
+              git rebase --abort
+              exit 1
+            fi
+
+            echo "Pushing changes..."
+            if [ "$IS_AMEND" = true ]; then
+              PUSH_CMD="git push origin main --force-with-lease"
+            else
+              PUSH_CMD="git push origin main"
+            fi
+
+            if $PUSH_CMD; then
+              echo "Push berhasil."
+              exit 0
+            fi
+
+            echo "Push ditolak, mencoba rebase ulang di iterasi berikutnya..."
+            sleep 2
+          done
+
+          echo "Push gagal setelah 3x percobaan."
+          exit 1
