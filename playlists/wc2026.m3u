@@ -3,7 +3,7 @@
 #=================================
 http://103.179.25.147:8181/FiFaaaaaah/index.m3u8
 #EXTINF:-1 tvg-logo="https://www.somoynews.tv/icon.png" , Somoy TV
-https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
+http://ubuntu.moonplex.net:8080/Somoy_TV/index.m3u8
 #EXTINF:-1 tvg-name="Football World Cup 2026 link hindi" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="Football World Cup 2026",Football World Cup
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/745195.ts
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/dd/Screenshot_2026-06-10_002618.png" ,Unite8 Sports 2 HD
@@ -21,7 +21,9 @@ https://sm-monirul.top/tof/live/toffee4/index.m3u8
 https://sm-monirul.top/tof/live/toffee5/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/X7qgs8BY/images-d47abaf70fb3ea50af7cdf455ccab5a6-goplay-bioscope-icon-transparent-app.png" ,Bioscope
 #====== Bioscope World Cup ============
-https://sm-monirul.top/ultra_restream/bioscope/index.m3u8
+#https://sm-monirul.top/ultra_restream/bioscope/index.m3u8
+#EXTVLCOPT:http-referrer=https://tulnit.com/
+https://fifa.keralive.workers.dev/out/v1/4e21d5a122c549289dd6feab259266e8/index.m3u8
 #EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/25/FOX_wordmark.svg" ,FOX ONE
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
 #EXTVLCOPT:http-referrer=https://streamcenter.xyz
