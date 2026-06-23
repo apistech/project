@@ -31,7 +31,7 @@ SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
 ROKU_GROUP_METHOD = ('hybrid')
-ROKU_GROUP_FILTER = ('all')
+ROKU_GROUP_FILTER = ('Kids' 'Movies')
 
 # ===================================================================
 
