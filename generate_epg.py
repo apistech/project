@@ -5,9 +5,14 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 import requests
-import io
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Optional
+
+try:
+    from lxml import etree as lxml_etree
+    HAS_LXML = True
+except ImportError:
+    HAS_LXML = False
 
 M3U_URL = os.getenv("M3U_URL")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -26,11 +31,7 @@ REMOTE_EPG_URLS = [
     "https://github.com/matthuisman/i.mjh.nz/raw/refs/heads/master/SamsungTVPlus/all.xml.gz",
 ]
 
-# Programme dengan stop time lebih lama dari ini akan di-prune saat load base EPG
 PRUNE_OLDER_THAN_HOURS = 6
-
-# Minimum jumlah programme yang dianggap "sehat" pasca-merge.
-# Kalau di bawah ini, anggap run gagal sebagian dan jangan overwrite output lama.
 MIN_PROGRAMME_SANITY_THRESHOLD = 50
 
 
@@ -51,12 +52,10 @@ def get_tvg_ids_from_m3u() -> Optional[set[str]]:
 
 
 def _parse_xmltv_time(value: str) -> Optional[datetime]:
-    """Parse format XMLTV: '20250622123000 +0000' -> aware datetime."""
     if not value:
         return None
     try:
         value = value.strip()
-        # XMLTV time selalu punya offset di akhir, dipisah spasi
         dt_part, _, tz_part = value.partition(" ")
         dt = datetime.strptime(dt_part, "%Y%m%d%H%M%S")
         if tz_part:
@@ -64,7 +63,6 @@ def _parse_xmltv_time(value: str) -> Optional[datetime]:
             hours = int(tz_part[1:3])
             minutes = int(tz_part[3:5])
             offset = sign * (hours * 3600 + minutes * 60)
-            from datetime import timedelta
             dt = dt - timedelta(seconds=offset)
         return dt.replace(tzinfo=timezone.utc)
     except Exception:
@@ -72,8 +70,6 @@ def _parse_xmltv_time(value: str) -> Optional[datetime]:
 
 
 def load_base_epg() -> ET.Element:
-    """Load guide.xml lama (kalau ada) dan prune programme yang sudah expired,
-    supaya file tidak bertumbuh tanpa batas tiap run (cron 6 jam, jalan terus)."""
     if not os.path.exists(OUTPUT_XML):
         return ET.Element("tv", {"generator-info-name": "BuddyChewChew-Combined-EPG"})
 
@@ -81,8 +77,7 @@ def load_base_epg() -> ET.Element:
     try:
         root = ET.parse(OUTPUT_XML).getroot()
         before = len(root.findall("programme"))
-        cutoff = datetime.now(timezone.utc)
-        cutoff = cutoff.replace(hour=cutoff.hour) - __import__("datetime").timedelta(hours=PRUNE_OLDER_THAN_HOURS)
+        cutoff = datetime.now(timezone.utc) - timedelta(hours=PRUNE_OLDER_THAN_HOURS)
 
         for prog in list(root.findall("programme")):
             stop = _parse_xmltv_time(prog.get("stop", ""))
@@ -98,6 +93,34 @@ def load_base_epg() -> ET.Element:
         return ET.Element("tv", {"generator-info-name": "BuddyChewChew-Combined-EPG"})
 
 
+def sanitize_xml_bytes(content: bytes) -> bytes:
+    """Strip bytes yang ilegal di XML 1.0 tapi pertahankan whitespace valid."""
+    return re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', b'', content)
+
+
+def parse_xml(content: bytes, label: str) -> Optional[ET.Element]:
+    """3-tier fallback: strict stdlib -> lxml recover -> sanitize + retry stdlib.
+    Sama seperti update_epg.py -- ini yang menyelamatkan source FAST channel
+    (i.mjh.nz) yang sering punya XML kurang strict."""
+    try:
+        return ET.fromstring(content)
+    except ET.ParseError:
+        pass
+
+    if HAS_LXML:
+        try:
+            root_lxml = lxml_etree.fromstring(content, parser=lxml_etree.XMLParser(recover=True))
+            return ET.fromstring(lxml_etree.tostring(root_lxml))
+        except Exception:
+            pass
+
+    try:
+        return ET.fromstring(sanitize_xml_bytes(content))
+    except ET.ParseError as e:
+        print(f"  ! Parse failed for {label}: {e}")
+        return None
+
+
 def fetch_epg_elements(url: str, valid_ids: set[str]) -> tuple[list[ET.Element], list[ET.Element]]:
     filename = url.split("/")[-1]
     print(f"Processing: {filename}")
@@ -106,42 +129,29 @@ def fetch_epg_elements(url: str, valid_ids: set[str]) -> tuple[list[ET.Element],
     programmes: list[ET.Element] = []
 
     try:
-        with requests.get(url, stream=True, timeout=60) as r:
-            r.raise_for_status()
+        r = requests.get(url, timeout=60)
+        r.raise_for_status()
+        content = r.content
+        if url.endswith(".gz"):
+            content = gzip.decompress(content)
 
-            bio = io.BytesIO()
-            for chunk in r.iter_content(chunk_size=65536):
-                bio.write(chunk)
-            bio.seek(0)
+        epg_root = parse_xml(content, filename)
+        if epg_root is None:
+            print(f"  ! Skipping {filename}: unparseable after all fallbacks.")
+            return channels, programmes
 
-        stream = gzip.GzipFile(fileobj=bio) if url.endswith(".gz") else bio
-        context = ET.iterparse(stream, events=("start", "end"))
+        for channel in epg_root.findall("channel"):
+            cid = channel.get("id")
+            if cid and cid in valid_ids:
+                channels.append(channel)
 
-        event, root = next(context)
-
-        for event, elem in context:
-            if event != "end":
-                continue
-
-            if elem.tag == "channel":
-                cid = elem.get("id")
-                if cid and cid in valid_ids:
-                    channels.append(elem)
-                    continue
-            elif elem.tag == "programme":
-                cname = elem.get("channel")
-                if cname and cname in valid_ids:
-                    _apply_title_rewrite(elem)
-                    programmes.append(elem)
-                    continue
-
-            # Hanya clear elemen yang TIDAK terpakai. Jangan root.clear() --
-            # itu akan mendetach elemen yang sudah di-append ke channels/programmes.
-            elem.clear()
+        for prog in epg_root.findall("programme"):
+            cname = prog.get("channel")
+            if cname and cname in valid_ids:
+                _apply_title_rewrite(prog)
+                programmes.append(prog)
 
         print(f"  -> +{len(channels)} channels, +{len(programmes)} programmes")
-    except StopIteration:
-        print(f"  ! Empty or invalid XML stream: {filename}")
     except Exception as e:
         print(f"  ! Error processing {filename}: {e}")
 
@@ -157,7 +167,7 @@ def _apply_title_rewrite(elem: ET.Element) -> None:
         return
     sub = elem.find("sub-title")
     if sub is not None and sub.text and sub.text.strip():
-        title.text = f"{cleaned_title} - {sub.text.strip()}"
+        title.text = f"{cleaned_title} {sub.text.strip()}"
 
 
 def merge_into_root(
@@ -210,7 +220,7 @@ def main() -> None:
     for url in REMOTE_EPG_URLS:
         channels, programmes = fetch_epg_elements(url, valid_ids)
         merge_into_root(master_root, channels, programmes, seen_channel_ids, seen_programme_keys)
-        time.sleep(1)  # sopan-sopan ke server remote, hindari rate-limit beruntun
+        time.sleep(1)
 
     final_channels = len(master_root.findall("channel"))
     final_programmes = len(master_root.findall("programme"))
@@ -218,8 +228,7 @@ def main() -> None:
     print("\nFinalizing...")
     if final_programmes < MIN_PROGRAMME_SANITY_THRESHOLD:
         print(f"  ! SANITY CHECK FAILED: only {final_programmes} programmes "
-              f"(threshold {MIN_PROGRAMME_SANITY_THRESHOLD}). Aborting save to avoid "
-              f"committing a degraded guide.xml.")
+              f"(threshold {MIN_PROGRAMME_SANITY_THRESHOLD}). Aborting save.")
         sys.exit(1)
 
     save_epg(master_root)
