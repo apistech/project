@@ -19,6 +19,12 @@ http://sm-monirul.top/tof/live/tunvsjap/index.m3u8
 https://sm-monirul.top/tof/live/toffee4/index.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee 5
 https://sm-monirul.top/tof/live/toffee5/index.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/X7qgs8BY/images-d47abaf70fb3ea50af7cdf455ccab5a6-goplay-bioscope-icon-transparent-app.png" ,Bioscope
+#====== Bioscope World Cup ============
+#https://sm-monirul.top/ultra_restream/bioscope/index.m3u8
+#https://bioscope.sm-monirulislam-exp.workers.dev/index.m3u8
+#EXTVLCOPT:http-referrer=https://tulnit.com/
+https://fifa.keralive.workers.dev/out/v1/4e21d5a122c549289dd6feab259266e8/index.m3u8
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/15/M6_1987_logo.svg" ,M6 Direct TV
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
