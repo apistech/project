@@ -287,16 +287,16 @@ def generate_roku_m3u():
         if ROKU_GROUP_METHOD == 'api':
             raw_group = raw_groups[0] if raw_groups else ''
             return ROKU_GROUP_MAP.get(raw_group, 'Special')
-        
+
         # 4. Mode Hybrid (default)
         if ROKU_GROUP_METHOD == 'hybrid':
             chno_group = get_group_by_chno(chno)
             if chno_group:
-            return chno_group
+                return chno_group
 
-            raw_group = raw_groups[0] if raw_groups else ''
-            api_group = ROKU_GROUP_MAP.get(raw_group, 'Special')
-            return api_group
+        raw_group = raw_groups[0] if raw_groups else ''
+        api_group = ROKU_GROUP_MAP.get(raw_group, 'Special')
+        return api_group
     
     channels = data.get('channels', {})
 
