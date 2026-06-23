@@ -31,7 +31,7 @@ SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
 ROKU_GROUP_METHOD = ('hybrid')
-ROKU_GROUP_FILTER = ('Kids' 'Movies')
+ROKU_GROUP_FILTER = ('Kids', 'Movies')
 
 # ===================================================================
 
@@ -290,18 +290,14 @@ def generate_roku_m3u():
         
         # 4. Mode Hybrid (default)
         if ROKU_GROUP_METHOD == 'hybrid':
+            chno_group = get_group_by_chno(chno)
+            if chno_group:
+            return chno_group
+
             raw_group = raw_groups[0] if raw_groups else ''
             api_group = ROKU_GROUP_MAP.get(raw_group, 'Special')
-            
-            if api_group == 'Special' or api_group == 'Entertainment':
-                chno_group = get_group_by_chno(chno)
-                if chno_group:
-                    return chno_group
-            
-            return api_group if api_group != 'Special' else 'Special'
-        
-        return 'Special'
-
+            return api_group
+    
     channels = data.get('channels', {})
 
     # === DEBUG: Tampilkan semua group dari Roku API ===
