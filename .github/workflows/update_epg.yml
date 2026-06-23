@@ -4,28 +4,43 @@ on:
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/update_epg.yml'
+      - 'update_epg.py'
 
 permissions:
   contents: write
 
+concurrency:
+  group: git-write-lock
+  cancel-in-progress: false
+
 jobs:
   build-epg:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
       - name: Install Dependencies
         run: |
-          pip install requests
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          mkdir -p epgs
 
       - name: Generate FAST Service EPG
         env:

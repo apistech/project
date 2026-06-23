@@ -22,7 +22,7 @@ concurrency:
 jobs:
   build-playlists:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout Repository
@@ -58,7 +58,7 @@ jobs:
           git add IndihomeTV.m3u
 
           if git diff-index --quiet HEAD --; then
-            echo "✅ No changes detected. Skipping commit."
+            echo "No changes detected. Skipping commit."
             exit 0
           fi
 
@@ -68,25 +68,27 @@ jobs:
           IS_AMEND=false
 
           if [ "$LAST_AUTHOR" = "$BOT_EMAIL" ]; then
-            echo "🔄 Last commit by bot. Amending..."
+            echo "Last commit by bot. Amending..."
             git commit --amend --no-edit --date="$TIMESTAMP"
             IS_AMEND=true
           else
-            echo "🆕 Last commit by user. Creating new commit..."
-            git commit -m "🔄 Auto-Update $TIMESTAMP"
+            echo "Last commit by user. Creating new commit..."
+            git commit -m "Auto-Update $TIMESTAMP"
           fi
 
           for i in 1 2 3; do
-            echo "🚀 Syncing with remote (Attempt $i/3)..."
+            echo "Syncing with remote (Attempt $i/3)..."
             git fetch origin main
-            
+
+            # NOTE: -Xtheirs sengaja dipilih supaya commit manual user di epgs/
+            # tidak ditimpa oleh hasil auto-generate kalau terjadi conflict.
             if ! git rebase origin/main -Xtheirs; then
-              echo "⚠️ Rebase failed. Aborting."
+              echo "Rebase failed. Aborting."
               git rebase --abort
               exit 1
             fi
 
-            echo "📤 Pushing changes..."
+            echo "Pushing changes..."
             if [ "$IS_AMEND" = true ]; then
               PUSH_CMD="git push origin main --force-with-lease"
             else
@@ -94,13 +96,13 @@ jobs:
             fi
 
             if $PUSH_CMD; then
-              echo "✅ Push berhasil."
+              echo "Push berhasil."
               exit 0
             fi
 
-            echo "⚠️ Push ditolak, mencoba rebase ulang di iterasi berikutnya..."
+            echo "Push ditolak, mencoba rebase ulang di iterasi berikutnya..."
             sleep 2
           done
 
-          echo "❌ Push gagal setelah 3x percobaan."
+          echo "Push gagal setelah 3x percobaan."
           exit 1
