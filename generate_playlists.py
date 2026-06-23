@@ -30,7 +30,7 @@ SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 
 TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
-ROKU_GROUP_METHOD = ('api')
+ROKU_GROUP_METHOD = ('hybrid')
 ROKU_GROUP_FILTER = ('all')
 
 # ===================================================================
@@ -260,26 +260,8 @@ def generate_roku_m3u():
     
     # Mapping range channel number ke kategori (fallback)
     CHNO_RANGE_MAP = [
-        (100, 199, 'News'),
-        (200, 270, 'Sports'),
-        (271, 280, 'Entertainment'),
-        (281, 325, 'Movies'),
-        (326, 335, 'Entertainment'),
-        (336, 361, 'Entertainment'),
-        (362, 368, 'Kids'),
-        (369, 390, 'Entertainment'),
-        (391, 400, 'Entertainment'),
-        (401, 436, 'Kids'),
-        (437, 467, 'Entertainment'),
-        (469, 499, 'Documentary'),
-        (500, 599, 'Entertainment'),
-        (600, 734, 'Entertainment'),
-        (744, 799, 'Horror'),
-        (800, 899, 'Entertainment'),
-        (900, 999, 'Latino'),
-        (1000, 1199, 'Music'),
-        (4000, 4999, 'News'),
-        (5000, 5999, 'Special'),
+        (900, 1200, 'Latino'),
+        (5000, 5500, 'Special'),
     ]
     
     def get_group_by_chno(chno):
