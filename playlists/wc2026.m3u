@@ -1,8 +1,6 @@
 #EXTM3U url-tvg="https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
 #EXTINF:-1 tvg-logo="https://www.somoynews.tv/icon.png" , Somoy TV
 http://ubuntu.moonplex.net:8080/Somoy_TV/index.m3u8
-#EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
-http://114.130.57.233:8080/BTV/video.m3u8?token=SkQuhAXZxgBan1
 #EXTINF:-1 tvg-name="Football World Cup 2026 link hindi" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="Football World Cup 2026",Football World Cup
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/745195.ts
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/dd/Screenshot_2026-06-10_002618.png" ,Unite8 Sports 2 HD
@@ -27,15 +25,6 @@ http://sm-monirul.top/ott/bioscope/index.m3u8
 http://sm-monirul.top/ott/bioscope1/index.m3u8
 #EXTINF:-1 tvg-logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMsc_j3e2KKQ18tD9XCM09UahrLonmSx15vdenZEnMrA&s=10" ,i screen
 http://sm-monirul.top/ott/iscreen/index.m3u8
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/2/25/FOX_wordmark.svg" ,FOX ONE
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
-#EXTVLCOPT:http-referrer=https://streamcenter.xyz
-https://mainstreams.pro/hls/24SDAZFcsqnj24.m3u8
-#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/d/da/Telemundo92.svg" ,TELEMUNDO HD
-#======  World Cup 1 ============
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
-#EXTVLCOPT:http-referrer=https://streamcenter.xyz
-https://edge2caster.pro/hls/eJmauBDCIf.m3u8
 #EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/1/15/M6_1987_logo.svg" ,M6 Direct TV
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
