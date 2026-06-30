@@ -8,18 +8,28 @@ Simple IPTV Playlist Validator
 """
 
 import sys
+import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from urllib.parse import urlparse
 
 import requests
+from requests.adapters import HTTPAdapter
 
 # =========================
 # CONFIGURATION
 # =========================
 TIMEOUT = 10
+FETCH_TIMEOUT = 30  # separate timeout for downloading the playlist itself
 MAX_WORKERS = 32
 OUTPUT_DIR = Path("playlists")
+
+DEFAULT_HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+        "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+    )
+}
 
 # Add your M3U URLs here
 SOURCES = [
@@ -40,17 +50,45 @@ VALID_CONTENT_TYPES = {
     "video/x-flv",
 }
 
+# =========================
+# SESSION POOLING
+# =========================
+# One Session per worker thread (Session is not thread-safe to share directly,
+# but the underlying connection pool benefits from reuse across requests made
+# by the same thread). Using thread-local storage avoids cross-thread races.
+_thread_local = threading.local()
+
+
+def get_session() -> requests.Session:
+    """Get (or create) a thread-local Session with a sized connection pool."""
+    sess = getattr(_thread_local, "session", None)
+    if sess is None:
+        sess = requests.Session()
+        adapter = HTTPAdapter(
+            pool_connections=MAX_WORKERS,
+            pool_maxsize=MAX_WORKERS,
+            max_retries=0,
+        )
+        sess.mount("http://", adapter)
+        sess.mount("https://", adapter)
+        sess.headers.update(DEFAULT_HEADERS)
+        _thread_local.session = sess
+    return sess
+
 
 # =========================
 # CORE FUNCTIONS
 # =========================
 def is_playable(url: str, headers: dict = None) -> bool:
     """Check if URL points to a valid stream."""
-    headers = headers or {}
+    # Per-entry headers (e.g. Referer/Origin from #EXTVLCOPT) override the
+    # session's default UA only if explicitly set.
+    req_headers = dict(headers) if headers else {}
+    sess = get_session()
 
     # 1. HEAD request (fast path)
     try:
-        resp = requests.head(url, headers=headers, timeout=TIMEOUT, allow_redirects=True)
+        resp = sess.head(url, headers=req_headers, timeout=TIMEOUT, allow_redirects=True)
         if resp.status_code < 400:
             ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
             if ct in VALID_CONTENT_TYPES:
@@ -60,8 +98,8 @@ def is_playable(url: str, headers: dict = None) -> bool:
 
     # 2. GET with body sniffing (fallback)
     try:
-        with requests.get(
-            url, headers=headers, timeout=TIMEOUT, stream=True, allow_redirects=True
+        with sess.get(
+            url, headers=req_headers, timeout=TIMEOUT, stream=True, allow_redirects=True
         ) as resp:
             if resp.status_code >= 400:
                 return False
@@ -177,7 +215,7 @@ def dedup_by_url(entries: list[dict]) -> tuple[list[dict], int]:
 def fetch_playlist(url: str) -> list[str] | None:
     """Download playlist content."""
     try:
-        resp = requests.get(url, timeout=30)
+        resp = get_session().get(url, timeout=FETCH_TIMEOUT)
         resp.raise_for_status()
         return resp.text.splitlines()
     except requests.RequestException as e:
@@ -190,17 +228,17 @@ def get_filename_from_url(url: str) -> str:
     parsed = urlparse(url)
     path = Path(parsed.path)
     filename = path.name
-    
+
     if not filename or filename == "/":
         return "playlist.m3u"
-    
+
     return filename
 
 
 def process_source(url: str) -> bool:
     """Process single source: fetch, parse, validate, save."""
     filename = get_filename_from_url(url)
-    
+
     print(f"\n{'=' * 60}")
     print(f"Processing: {filename}")
     print(f"URL: {url}")
@@ -259,7 +297,7 @@ def process_source(url: str) -> bool:
     # Save with original filename
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUTPUT_DIR / filename
-    
+
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output) + "\n")
 
