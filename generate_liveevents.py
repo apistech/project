@@ -1,260 +1,296 @@
-import os
+#!/usr/bin/env python3
+"""
+Simple IPTV Playlist Validator
+- Fetch M3U from sources
+- Dedup by URL
+- Check playability (HEAD + body-sniff)
+- Save valid streams
+"""
+
 import sys
-from contextlib import closing
-from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import requests
+from pathlib import Path
 from urllib.parse import urlparse
 
-# ====================================================================
+import requests
+
+# =========================
 # CONFIGURATION
-# ====================================================================
-TIMEOUT = 8
-MAX_WORKERS = 32
+# =========================
+TIMEOUT = 10
+MAX_WORKERS = 16
 OUTPUT_DIR = Path("playlists")
 
-# Cukup masukkan raw URL m3u/m3u8 di sini.
-# Output file akan otomatis disamakan dengan nama file di URL-nya.
-PLAYLIST_SOURCES = [
+# Add your M3U URLs here
+SOURCES = [
     "https://github.com/doms9/iptv/raw/refs/heads/default/M3U8/events.m3u8",
     "https://github.com/sm-monirulislam/SM-Live-TV/raw/refs/heads/main/World_Cup.m3u",
 ]
 
+# Stream content types (whitelist)
 VALID_CONTENT_TYPES = {
     "application/dash+xml",
     "application/vnd.apple.mpegurl",
     "application/x-mpegurl",
-    "video/m4s",
     "video/mp2t",
     "video/mp4",
     "video/mpeg",
     "video/ogg",
-    "video/ts",
     "video/webm",
     "video/x-flv",
 }
 
-def is_stream_playable(session: requests.Session, url: str, headers: dict = None) -> bool:
+
+# =========================
+# CORE FUNCTIONS
+# =========================
+def is_playable(url: str, headers: dict = None) -> bool:
+    """Check if URL points to a valid stream."""
     headers = headers or {}
-    headers.setdefault("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
 
-    # Ambil ekstensi untuk deteksi tipe DASH
-    parsed_url = urlparse(url)
-    is_dash = parsed_url.path.endswith(".mpd")
+    # 1. HEAD request (fast path)
+    try:
+        resp = requests.head(url, headers=headers, timeout=TIMEOUT, allow_redirects=True)
+        if resp.status_code < 400:
+            ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
+            if ct in VALID_CONTENT_TYPES:
+                return True
+    except requests.RequestException:
+        pass
 
-    # 1. HEAD Request (Fast Path) - Dilewati jika DASH karena DASH wajib body-sniff
-    if not is_dash:
-        try:
-            response = session.head(url, headers=headers, timeout=TIMEOUT, allow_redirects=True)
-            if 200 <= response.status_code < 300:
-                content_type = response.headers.get("Content-Type", "").split(";")[0].strip().lower()
-                if content_type in VALID_CONTENT_TYPES and content_type != "application/octet-stream":
-                    return True
-        except requests.exceptions.Timeout:
-            # Jika timeout pada HEAD, coba berikan kesempatan kedua di bawah (GET)
-            pass
-        except requests.RequestException:
-            return False
-
-    # 2. Fallback ke GET Stream + Body-sniff (Dengan 1x Retry khusus Timeout)
-    for attempt in range(2):
-        try:
-            with closing(
-                session.get(url, headers=headers, timeout=TIMEOUT, stream=True, allow_redirects=True)
-            ) as response:
-                if response.status_code >= 400:
-                    return False
-
-                content_type = response.headers.get("Content-Type", "").split(";")[0].strip().lower()
-                
-                # Baca chunk pertama (8KB agar lebih aman mencakup signature DRM/HTML)
-                try:
-                    chunk = next(response.iter_content(chunk_size=8192), b"")
-                except (StopIteration, requests.RequestException):
-                    return False
-
-                if not chunk:
-                    return False
-
-                preview = chunk.decode("utf-8", errors="ignore").lstrip()
-                preview_lower = preview.lower()
-
-                # Filter HTML page (Anti False Positive dari web error/geo-block)
-                if preview_lower.startswith("<html") or "<html" in preview_lower[:200]:
-                    return False
-
-                # Validasi DASH Manifest & Deteksi DRM
-                if is_dash or "application/dash+xml" in content_type:
-                    if "<ContentProtection" in preview:  # Terproteksi DRM
-                        return False
-                    return "<MPD" in preview or "main.mpd" in url
-
-                # Validasi M3U8/HLS Manifest & Deteksi DRM
-                if preview.startswith("#EXTM3U") or preview.startswith("#EXT-X-"):
-                    if "#EXT-X-KEY:METHOD=" in preview and "METHOD=NONE" not in preview:
-                        return False  # DRM Protected HLS
-                    return True
-
-                # Binary stream signatures
-                if chunk[:1] == b"\x47":  # MPEG-TS sync byte
-                    return True
-                if b"ftyp" in chunk[:32]:  # MP4 container
-                    return True
-                if chunk[:3] == b"ID3" or chunk[:2] == b"\xff\xfb":  # MP3/ID3
-                    return True
-
-                # Jika content-type valid tapi signature tidak dikenal, loloskan untuk hindari false-negative
-                if content_type in VALID_CONTENT_TYPES:
-                    return True
-
+    # 2. GET with body sniffing (fallback)
+    try:
+        with requests.get(
+            url, headers=headers, timeout=TIMEOUT, stream=True, allow_redirects=True
+        ) as resp:
+            if resp.status_code >= 400:
                 return False
 
-        except requests.exceptions.Timeout:
-            if attempt == 1:
-                return False  # Gagal setelah retry kedua
-        except requests.RequestException:
+            # Check Content-Type header
+            ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
+            if ct in VALID_CONTENT_TYPES:
+                return True
+
+            # Read first chunk for validation
+            chunk = next(resp.iter_content(chunk_size=2048), b"")
+            if not chunk:
+                return False
+
+            preview = chunk.decode("utf-8", errors="ignore").strip()
+
+            # HTML page -> not a stream
+            if preview.lower().startswith("<html") or "<html" in preview.lower()[:200]:
+                return False
+
+            # M3U8 manifest
+            if preview.startswith("#EXTM3U") or preview.startswith("#EXT-X-"):
+                return True
+
+            # Binary stream signatures
+            if chunk[0:1] == b"\x47":  # MPEG-TS sync byte
+                return True
+            if b"ftyp" in chunk[:32]:  # MP4 container
+                return True
+            if chunk[:3] == b"ID3" or chunk[:2] == b"\xff\xfb":  # MP3/ID3
+                return True
+
             return False
-            
-    return False
+
+    except requests.RequestException:
+        return False
+
 
 def parse_m3u(lines: list[str]) -> list[dict]:
+    """Parse M3U file into entries with metadata."""
     entries = []
-    buffer_extinf = []
-    buffer_other = []
-    buffer_vlcopt = []
+    extinf = []
+    other_tags = []
+    vlcopts = []
 
     for line in lines:
-        stripped = line.strip()
-        if line.startswith("#EXTINF"):
-            buffer_extinf.append(line)
-        elif line.startswith("#EXTVLCOPT"):
-            buffer_vlcopt.append(line)
-        elif stripped.startswith("#EXTM3U") or not stripped:
-            continue
-        elif stripped.startswith("#"):
-            buffer_other.append(line)
-        else:
-            url = stripped
-            headers = {}
-            for opt in buffer_vlcopt:
-                if opt.startswith("#EXTVLCOPT:"):
-                    key_value = opt[len("#EXTVLCOPT:"):].split("=", 1)
-                    if len(key_value) == 2:
-                        key, value = key_value[0].lower(), key_value[1]
-                        if key == "http-referrer": headers["Referer"] = value
-                        elif key == "http-origin": headers["Origin"] = value
-                        elif key == "http-user-agent": headers["User-Agent"] = value
+        line = line.strip()
 
-            entries.append({
-                "extinf": buffer_extinf,
-                "other": buffer_other,
-                "vlcopt": buffer_vlcopt,
+        if not line:
+            continue
+
+        if line.startswith("#EXTM3U"):
+            continue
+
+        if line.startswith("#EXTINF"):
+            extinf.append(line)
+            continue
+
+        if line.startswith("#EXTVLCOPT"):
+            vlcopts.append(line)
+            continue
+
+        if line.startswith("#"):
+            other_tags.append(line)
+            continue
+
+        # This is a URL
+        url = line
+
+        # Extract headers from VLC options
+        headers = {}
+        for opt in vlcopts:
+            if opt.startswith("#EXTVLCOPT:"):
+                kv = opt[len("#EXTVLCOPT:") :].split("=", 1)
+                if len(kv) == 2:
+                    key, val = kv
+                    if key.lower() == "http-referrer":
+                        headers["Referer"] = val
+                    elif key.lower() == "http-origin":
+                        headers["Origin"] = val
+                    elif key.lower() == "http-user-agent":
+                        headers["User-Agent"] = val
+
+        entries.append(
+            {
+                "extinf": extinf[:],
+                "other": other_tags[:],
+                "vlcopt": vlcopts[:],
                 "url": url,
                 "headers": headers,
-            })
-            buffer_extinf, buffer_other, buffer_vlcopt = [], [], []
+            }
+        )
+
+        extinf.clear()
+        other_tags.clear()
+        vlcopts.clear()
 
     return entries
 
-def process_source(session: requests.Session, url: str) -> bool:
-    # Otomatis ambil nama file asli dari URL sebagai nama output
-    filename = os.path.basename(urlparse(url).path)
-    if not filename or not filename.endswith((".m3u", ".m3u8")):
-        filename = "output_playlist.m3u"
 
-    print(f"\n{'=' * 60}\nProcessing : {filename}\nSource URL : {url}\n{'=' * 60}")
+def dedup_by_url(entries: list[dict]) -> tuple[list[dict], int]:
+    """Remove duplicate entries based on URL."""
+    seen = set()
+    unique = []
+    for entry in entries:
+        if entry["url"] not in seen:
+            seen.add(entry["url"])
+            unique.append(entry)
 
+    return unique, len(entries) - len(unique)
+
+
+def fetch_playlist(url: str) -> list[str] | None:
+    """Download playlist content."""
     try:
-        response = session.get(url, timeout=30)
-        response.raise_for_status()
-        lines = [line.rstrip() for line in response.text.splitlines()]
+        resp = requests.get(url, timeout=30)
+        resp.raise_for_status()
+        return resp.text.splitlines()
     except requests.RequestException as e:
-        print(f"[ERROR] Gagal mengunduh source: {e}")
+        print(f"  [ERROR] Failed to fetch: {e}")
+        return None
+
+
+def get_filename_from_url(url: str) -> str:
+    """Extract filename from URL."""
+    parsed = urlparse(url)
+    path = Path(parsed.path)
+    filename = path.name
+    
+    if not filename or filename == "/":
+        return "playlist"
+    
+    if filename.endswith(".m3u8"):
+        filename = filename[:-1]  # remove '8'
+    
+    return filename
+
+
+def process_source(url: str) -> bool:
+    """Process single source: fetch, parse, validate, save."""
+    filename = get_filename_from_url(url)
+    
+    print(f"\n{'=' * 60}")
+    print(f"Processing: {filename}")
+    print(f"URL: {url}")
+    print(f"{'=' * 60}")
+
+    # Fetch
+    lines = fetch_playlist(url)
+    if not lines:
+        print(f"[SKIP] {filename}: cannot fetch")
         return False
 
+    # Parse
     entries = parse_m3u(lines)
     if not entries:
-        print("[SKIP] Tidak ada entri channel yang valid.")
+        print(f"[SKIP] {filename}: no entries found")
         return False
+    print(f"Total entries: {len(entries)}")
 
-    # Deduplikasi berdasarkan URL (case-insensitive)
-    seen_urls = set()
-    unique_entries = []
-    for entry in entries:
-        lowered_url = entry["url"].lower()
-        if lowered_url not in seen_urls:
-            seen_urls.add(lowered_url)
-            unique_entries.append(entry)
+    # Dedup before checking (save resources)
+    entries, dup_count = dedup_by_url(entries)
+    if dup_count:
+        print(f"Duplicates removed: {dup_count}")
+    print(f"Unique entries: {len(entries)}")
 
-    print(f"Total: {len(entries)} | Unique: {len(unique_entries)}")
-    print(f"Checking streams dengan {MAX_WORKERS} parallel workers...\n")
+    # Check playability in parallel
+    print(f"Checking {len(entries)} URLs with {MAX_WORKERS} workers...\n")
 
     with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-        future_to_entry = {
-            executor.submit(is_stream_playable, session, entry["url"], entry["headers"]): entry
-            for entry in unique_entries
+        futures = {
+            executor.submit(is_playable, entry["url"], entry["headers"]): entry
+            for entry in entries
         }
 
-        done = 0
-        playable_count = 0
-        total = len(unique_entries)
-        
-        for future in as_completed(future_to_entry):
-            entry = future_to_entry[future]
+        for i, future in enumerate(as_completed(futures), 1):
+            entry = futures[future]
             try:
                 entry["playable"] = future.result()
             except Exception:
                 entry["playable"] = False
 
-            done += 1
-            if entry["playable"]:
-                playable_count += 1
-                status = "OK "
-            else:
-                status = "DEAD"
-            print(f"[{done}/{total}] {status} -> {entry['url']}")
+            status = "OK" if entry["playable"] else "DEAD"
+            print(f"[{i:>3}/{len(entries)}] {status} {entry['url'][:60]}")
 
-    # Build output m3u (Tanpa paksaan tag EPG custom)
-    output_lines = ["#EXTM3U"]
-    for entry in unique_entries:
+    # Build output
+    output = ["#EXTM3U"]
+    playable_count = 0
+
+    for entry in entries:
         if entry["playable"]:
-            output_lines.extend(entry["extinf"])
-            output_lines.extend(entry["other"])
-            output_lines.extend(entry["vlcopt"])
-            output_lines.append(entry["url"])
+            output.extend(entry["extinf"])
+            output.extend(entry["other"])
+            output.extend(entry["vlcopt"])
+            output.append(entry["url"])
+            playable_count += 1
 
+    # Save
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = OUTPUT_DIR / filename
+    out_path = OUTPUT_DIR / f"{filename}.m3u"
+    
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(output) + "\n")
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(output_lines) + "\n")
-
-    print(f"\nSaved -> {output_path} ({playable_count}/{total} Alive)")
+    print(f"\nPlayable: {playable_count}/{len(entries)}")
+    print(f"Saved: {out_path}")
     return True
 
+
 def main():
-    if not PLAYLIST_SOURCES:
-        print("[ERROR] PLAYLIST_SOURCES kosong.")
+    if not SOURCES:
+        print("[ERROR] SOURCES is empty. Add at least one URL.")
         sys.exit(1)
 
     results = {}
-    
-    # Inisialisasi Session untuk Connection Pooling secara global
-    with requests.Session() as session:
-        adapter = requests.adapters.HTTPAdapter(pool_connections=MAX_WORKERS, pool_maxsize=MAX_WORKERS)
-        session.mount("http://", adapter)
-        session.mount("https://", adapter)
+    for url in SOURCES:
+        filename = get_filename_from_url(url)
+        results[filename] = process_source(url)
 
-        for url in PLAYLIST_SOURCES:
-            filename = os.path.basename(urlparse(url).path) or url
-            results[filename] = process_source(session, url)
-
-    print(f"\n{'=' * 60}\nSUMMARY\n{'=' * 60}")
+    print(f"\n{'=' * 60}")
+    print("SUMMARY")
+    print(f"{'=' * 60}")
     for name, success in results.items():
-        print(f"  {name}: {'SUCCESS' if success else 'FAILED/SKIPPED'}")
+        print(f"  {name}: {'OK' if success else 'FAILED'}")
 
     if not any(results.values()):
+        print("\n[ERROR] All sources failed.")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
