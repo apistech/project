@@ -18,7 +18,7 @@ import requests
 # CONFIGURATION
 # =========================
 TIMEOUT = 10
-MAX_WORKERS = 16
+MAX_WORKERS = 32
 OUTPUT_DIR = Path("playlists")
 
 # Add your M3U URLs here
@@ -192,10 +192,7 @@ def get_filename_from_url(url: str) -> str:
     filename = path.name
     
     if not filename or filename == "/":
-        return "playlist"
-    
-    if filename.endswith(".m3u8"):
-        filename = filename[:-1]  # remove '8'
+        return "playlist.m3u"
     
     return filename
 
@@ -259,9 +256,9 @@ def process_source(url: str) -> bool:
             output.append(entry["url"])
             playable_count += 1
 
-    # Save
+    # Save with original filename
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = OUTPUT_DIR / f"{filename}.m3u"
+    out_path = OUTPUT_DIR / filename
     
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(output) + "\n")
