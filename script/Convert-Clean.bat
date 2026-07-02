@@ -45,19 +45,37 @@ for %%a in (%*) do (
 :: ========================================
 :: MENU INTERAKTIF
 :: ========================================
-set "DO_COMBINE=0"
+:ask_combine
 if !FILE_COUNT! gtr 1 (
     echo [!FILE_COUNT! file terdeteksi]
     set /p "DO_COMBINE=Gabungkan semua file menjadi satu playlist? (1=ya / 0=tidak) [default: 0]: "
     if "!DO_COMBINE!"=="" set "DO_COMBINE=0"
-    echo.
+    if "!DO_COMBINE!"=="0" goto :combine_ok
+    if "!DO_COMBINE!"=="1" goto :combine_ok
+    echo [ERROR] Masukkan 0 atau 1.
+    goto :ask_combine
 )
+set "DO_COMBINE=0"
+:combine_ok
+echo.
 
+:ask_backup
 set /p "DO_BACKUP=Backup file asli? (1=ya / 0=tidak) [default: 1]: "
 if "!DO_BACKUP!"=="" set "DO_BACKUP=1"
+if "!DO_BACKUP!"=="0" goto :backup_ok
+if "!DO_BACKUP!"=="1" goto :backup_ok
+echo [ERROR] Masukkan 0 atau 1.
+goto :ask_backup
+:backup_ok
 
+:ask_check
 set /p "DO_CHECK=Periksa URL live? (1=ya / 0=tidak) [default: 1]: "
 if "!DO_CHECK!"=="" set "DO_CHECK=1"
+if "!DO_CHECK!"=="0" goto :check_ok
+if "!DO_CHECK!"=="1" goto :check_ok
+echo [ERROR] Masukkan 0 atau 1.
+goto :ask_check
+:check_ok
 
 :: ========================================
 :: MENU SORTING

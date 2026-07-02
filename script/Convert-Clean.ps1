@@ -76,30 +76,6 @@ function Get-TxtFileType {
 }
 
 # =========================
-# CAPITALIZE NAMA GROUP
-# =========================
-function Convert-ToTitleCase {
-    param([string]$Text)
-
-    if ([string]::IsNullOrWhiteSpace($Text)) { return "Unknown" }
-
-    $acronyms = @("TV", "IPTV", "VOD", "SD", "HD", "4K", "FHD", "UHD")
-    $words = $Text.ToLower().Trim() -split '\s+'
-    $result = [System.Collections.Generic.List[string]]::new()
-
-    foreach ($word in $words) {
-        if ([string]::IsNullOrWhiteSpace($word)) { continue }
-        $wordUpper = $word.ToUpper()
-        if ($acronyms -contains $wordUpper) {
-            $result.Add($wordUpper)
-        } else {
-            $result.Add($word[0].ToString().ToUpper() + $word.Substring(1))
-        }
-    }
-    return ($result -join ' ')
-}
-
-# =========================
 # KONVERSI TXT KE M3U
 # =========================
 function Convert-TxtToM3U {
@@ -120,7 +96,7 @@ function Convert-TxtToM3U {
         if ($line -eq "") { continue }
         
         if ($line -match '^(.+),\s*#genre#\s*$') {
-            $currentGroup = Convert-ToTitleCase -Text $Matches[1].Trim()
+            $currentGroup = $Matches[1].Trim()
             continue
         }
         
@@ -231,12 +207,8 @@ function Parse-M3U {
         $extraTags = @($buffer | Where-Object { $_ -notlike '#EXTINF*' })
         
         $group = if ($info -match 'group-title="([^"]*)"') {
-            Convert-ToTitleCase -Text $Matches[1].Trim()
+            $Matches[1].Trim()
         } else { "Unknown" }
-
-        if ($info -match 'group-title="[^"]*"') {
-            $info = $info -replace 'group-title="[^"]*"', "group-title=`"$group`""
-        }
 
         $title = if ($info -match ',(.+)$') { $Matches[1].Trim() } else { "Untitled" }
 
@@ -334,136 +306,245 @@ function Test-UrlsParallel {
         $blockReason = $null    # 'geo' | 'auth' | $null
         $latencyMs   = -1L
 
-        $handler = $null
-        $client  = $null
-        $req     = $null
-        $resp    = $null
+        function Invoke-LiveCheck {
+            param(
+                [string]$Url,
+                [string]$Referrer,
+                [int]$TimeoutSec
+            )
 
-        try {
-            $handler = [System.Net.Http.SocketsHttpHandler]::new()
-            $handler.AllowAutoRedirect        = $true
-            $handler.MaxAutomaticRedirections = 3
-            $handler.PooledConnectionLifetime = [TimeSpan]::FromSeconds(30)
-            $handler.ConnectTimeout           = [TimeSpan]::FromSeconds(5)
+            $handler = $null
+            $client  = $null
+            $req     = $null
+            $resp    = $null
 
-            $client = [System.Net.Http.HttpClient]::new($handler)
-            $client.Timeout = [TimeSpan]::FromSeconds($timeoutSec)
-            $client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)") | Out-Null
+            try {
+                $handler = [System.Net.Http.SocketsHttpHandler]::new()
+                $handler.AllowAutoRedirect        = $true
+                $handler.MaxAutomaticRedirections = 3
+                $handler.PooledConnectionLifetime = [TimeSpan]::FromSeconds(30)
+                $handler.ConnectTimeout           = [TimeSpan]::FromSeconds(5)
 
-            if ($entry.Referrer) {
-                $client.DefaultRequestHeaders.TryAddWithoutValidation("Referer", $entry.Referrer) | Out-Null
-            }
+                $client = [System.Net.Http.HttpClient]::new($handler)
+                $client.Timeout = [TimeSpan]::FromSeconds($TimeoutSec)
+                $client.DefaultRequestHeaders.TryAddWithoutValidation("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)") | Out-Null
 
-            $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
-            $req  = [System.Net.Http.HttpRequestMessage]::new([System.Net.Http.HttpMethod]::Get, $entry.Url)
-            $resp = $client.SendAsync($req, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
-            $code = [int]$resp.StatusCode
-            $stopwatch.Stop()
-
-            if ($code -eq 451) {
-                # Legal/geo block
-                $blockReason = 'geo'
-            }
-            elseif ($code -eq 401) {
-                # Auth required
-                $blockReason = 'auth'
-            }
-            elseif ($code -eq 403) {
-                # Baca body: bedakan geo vs auth
-                $stream = $null
-                try {
-                    $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
-                    $buf = New-Object byte[] 4096
-                    $bytesRead = $stream.Read($buf, 0, 4096)
-                    if ($bytesRead -gt 0) {
-                        $previewLower = ([System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)).ToLower()
-                        $isGeo = $false
-                        foreach ($kw in $geoKeywords) {
-                            if ($previewLower.Contains($kw)) { $isGeo = $true; break }
-                        }
-                        $blockReason = if ($isGeo) { 'geo' } else { 'auth' }
-                    }
-                    else { $blockReason = 'auth' }
+                if ($Referrer) {
+                    $client.DefaultRequestHeaders.TryAddWithoutValidation("Referer", $Referrer) | Out-Null
                 }
-                catch { $blockReason = 'auth' }
-                finally { if ($null -ne $stream) { $stream.Dispose() } }
+
+                # =========================
+                # FAST PATH: coba HEAD dulu
+                # =========================
+                try {
+                    $headReq  = [System.Net.Http.HttpRequestMessage]::new([System.Net.Http.HttpMethod]::Head, $Url)
+                    $headSw   = [System.Diagnostics.Stopwatch]::StartNew()
+                    $headResp = $client.SendAsync($headReq, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
+                    $headSw.Stop()
+                    $headReq.Dispose()
+
+                    $headCode = [int]$headResp.StatusCode
+                    $headCT   = $headResp.Content.Headers.ContentType?.MediaType
+                    $headResp.Dispose()
+
+                    $isStreamCTHead = $headCT -match '^(application/vnd\.apple\.mpegurl|application/x-mpegurl|application/dash\+xml|audio/|video/|application/octet-stream)' `
+                                       -or $Url -match '\.(m3u8|ts|aac|mp3|mp4|mpd)(\?|$)'
+
+                    # HEAD sukses + content-type jelas + bukan DASH (DASH tetap perlu body-sniff utk DRM)
+                    # dan bukan content-type ambigu (octet-stream tetap lanjut ke GET utk verifikasi)
+                    if ($headCode -ge 200 -and $headCode -lt 300 -and $isStreamCTHead `
+                        -and $headCT -notmatch 'application/dash\+xml' -and $headCT -notmatch 'application/octet-stream') {
+                        $client.Dispose(); $handler.Dispose()
+                        return @{
+                            Success    = $true
+                            FastPath   = $true
+                            StatusCode = $headCode
+                            LatencyMs  = $headSw.ElapsedMilliseconds
+                        }
+                    }
+                    # HEAD ambigu/gagal/perlu body-sniff -> lanjut ke GET di bawah
+                }
+                catch {
+                    # HEAD gak didukung server / gagal -> lanjut ke GET, jangan dianggap fatal
+                }
+
+                # =========================
+                # GET stream (fallback / kasus butuh body-sniff)
+                # =========================
+                $stopwatch = [System.Diagnostics.Stopwatch]::StartNew()
+                $req  = [System.Net.Http.HttpRequestMessage]::new([System.Net.Http.HttpMethod]::Get, $Url)
+                $resp = $client.SendAsync($req, [System.Net.Http.HttpCompletionOption]::ResponseHeadersRead).GetAwaiter().GetResult()
+                $stopwatch.Stop()
+
+                # Sukses: kembalikan response (jangan dispose, biar caller bisa baca body)
+                return @{
+                    Success    = $true
+                    FastPath   = $false
+                    Response   = $resp
+                    StatusCode = [int]$resp.StatusCode
+                    LatencyMs  = $stopwatch.ElapsedMilliseconds
+                    Transient  = $false
+                    Client     = $client   # perlu tetap hidup selama body dibaca
+                    Handler    = $handler
+                }
             }
-            elseif ($code -ge 200 -and $code -lt 300) {
-                $latencyMs   = $stopwatch.ElapsedMilliseconds
-                $contentType = $resp.Content.Headers.ContentType?.MediaType
+            catch [System.Threading.Tasks.TaskCanceledException] {
+                # Timeout -> transient, layak diretry
+                if ($null -ne $client)  { $client.Dispose() }
+                if ($null -ne $handler) { $handler.Dispose() }
+                return @{ Success = $false; Transient = $true }
+            }
+            catch {
+                # DNS failure, connection refused, dll -> permanent, jangan retry
+                if ($null -ne $client)  { $client.Dispose() }
+                if ($null -ne $handler) { $handler.Dispose() }
+                return @{ Success = $false; Transient = $false }
+            }
+            finally {
+                if ($null -ne $req) { $req.Dispose() }
+            }
+        }
 
-                $isDashUrl  = $entry.Url -match '\.mpd(\?|$)'
-                $isDashCT   = $contentType -match 'application/dash\+xml'
-                $isStreamCT = $contentType -match '^(application/vnd\.apple\.mpegurl|application/x-mpegurl|audio/|video/|application/octet-stream)' `
-                              -or $entry.Url -match '\.(m3u8|ts|aac|mp3|mp4)(\?|$)'
+        # =========================
+        # Eksekusi dengan retry selektif (hanya untuk timeout)
+        # =========================
+        $result = Invoke-LiveCheck -Url $entry.Url -Referrer $entry.Referrer -TimeoutSec $timeoutSec
 
-                if ($isDashUrl -or $isDashCT) {
-                    # DASH: baca body untuk cek ContentProtection
+        if (-not $result.Success -and $result.Transient) {
+            # Retry sekali untuk timeout
+            $result = Invoke-LiveCheck -Url $entry.Url -Referrer $entry.Referrer -TimeoutSec $timeoutSec
+        }
+
+        if ($result.Success -and $result.FastPath) {
+            # =========================
+            # HEAD fast-path: content-type sudah definitif, skip body-sniff
+            # =========================
+            $alive     = $true
+            $latencyMs = $result.LatencyMs
+        }
+        elseif ($result.Success) {
+            $resp      = $result.Response
+            $code      = $result.StatusCode
+            $latencyMs = $result.LatencyMs
+            $client    = $result.Client
+            $handler   = $result.Handler
+
+            try {
+                if ($code -eq 451) {
+                    $blockReason = 'geo'
+                }
+                elseif ($code -eq 401) {
+                    $blockReason = 'auth'
+                }
+                elseif ($code -eq 403) {
+                    # Baca body: bedakan geo vs auth
                     $stream = $null
                     try {
                         $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
-                        $buf = New-Object byte[] 8192
-                        $bytesRead = $stream.Read($buf, 0, 8192)
+                        $buf = New-Object byte[] 4096
+                        $bytesRead = $stream.Read($buf, 0, 4096)
                         if ($bytesRead -gt 0) {
-                            $preview = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
-                            if ($preview -match '<ContentProtection') { $isDRM = $true }
+                            $previewLower = ([System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)).ToLower()
+                            $isGeo = $false
+                            foreach ($kw in $geoKeywords) {
+                                if ($previewLower.Contains($kw)) { $isGeo = $true; break }
+                            }
+                            $blockReason = if ($isGeo) { 'geo' } else { 'auth' }
                         }
+                        else { $blockReason = 'auth' }
+                    }
+                    catch { $blockReason = 'auth' }
+                    finally { if ($null -ne $stream) { $stream.Dispose() } }
+                }
+                elseif ($code -ge 200 -and $code -lt 300) {
+                    $contentType = $resp.Content.Headers.ContentType?.MediaType
+
+                    $isDashUrl  = $entry.Url -match '\.mpd(\?|$)'
+                    $isDashCT   = $contentType -match 'application/dash\+xml'
+                    $isStreamCT = $contentType -match '^(application/vnd\.apple\.mpegurl|application/x-mpegurl|audio/|video/|application/octet-stream)' `
+                                  -or $entry.Url -match '\.(m3u8|ts|aac|mp3|mp4)(\?|$)'
+
+                    if ($isDashUrl -or $isDashCT) {
+                        # DASH: baca body untuk cek ContentProtection
+                        $stream = $null
+                        try {
+                            $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
+                            $buf = New-Object byte[] 8192
+                            $bytesRead = $stream.Read($buf, 0, 8192)
+                            if ($bytesRead -gt 0) {
+                                $preview = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
+                                if ($preview -match '<ContentProtection') { $isDRM = $true }
+                            }
+                            $alive = $true
+                        }
+                        catch { $alive = $false }
+                        finally { if ($null -ne $stream) { $stream.Dispose() } }
+                    }
+                    elseif ($isStreamCT) {
+                        # Content-type sudah jelas stream, tidak perlu baca body
                         $alive = $true
                     }
-                    catch { $alive = $false }
-                    finally { if ($null -ne $stream) { $stream.Dispose() } }
-                }
-                elseif ($isStreamCT) {
-                    # Content-type sudah jelas stream, tidak perlu baca body
-                    $alive = $true
-                }
-                else {
-                    # Unknown content-type: baca body untuk validasi
-                    $stream = $null
-                    try {
-                        $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
-                        $buf = New-Object byte[] 8192
-                        $bytesRead = $stream.Read($buf, 0, 8192)
+                    else {
+                        # Content-type ambigu: baca body untuk validasi
+                        $stream = $null
+                        try {
+                            $stream = $resp.Content.ReadAsStreamAsync().GetAwaiter().GetResult()
+                            $buf = New-Object byte[] 8192
+                            $bytesRead = $stream.Read($buf, 0, 8192)
 
-                        if ($bytesRead -gt 0) {
-                            $preview      = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
-                            $previewLower = $preview.ToLower()
-                            $isHtml       = $previewLower.Contains('<html') -or $contentType -match 'text/html'
+                            if ($bytesRead -gt 0) {
+                                $preview      = [System.Text.Encoding]::UTF8.GetString($buf, 0, $bytesRead)
+                                $previewLower = $preview.ToLower()
+                                $isHtml       = $previewLower.Contains('<html') -or $contentType -match 'text/html'
 
-                            # DRM markers HLS
-                            if ($preview -match '#EXT-X-KEY:METHOD=(?!NONE)' -or
-                                $preview -match 'KEYFORMAT="urn:uuid:edef8ba9' -or
-                                $previewLower.Contains('skd://')) {
-                                $isDRM = $true
-                            }
-
-                            if ($isHtml) {
-                                # HTML: cek geo keyword
-                                $isGeo = $false
-                                foreach ($kw in $geoKeywords) {
-                                    if ($previewLower.Contains($kw)) { $isGeo = $true; break }
+                                # DRM markers HLS
+                                if ($preview -match '#EXT-X-KEY:METHOD=(?!NONE)' -or
+                                    $preview -match 'KEYFORMAT="urn:uuid:edef8ba9' -or
+                                    $previewLower.Contains('skd://')) {
+                                    $isDRM = $true
                                 }
-                                if ($isGeo) { $blockReason = 'geo' }
-                                # HTML tanpa geo keyword → dead (alive tetap false)
-                            }
-                            else {
-                                $alive = $true
+
+                                if ($isHtml) {
+                                    $isGeo = $false
+                                    foreach ($kw in $geoKeywords) {
+                                        if ($previewLower.Contains($kw)) { $isGeo = $true; break }
+                                    }
+                                    if ($isGeo) { $blockReason = 'geo' }
+                                    # HTML tanpa geo keyword -> dead (alive tetap false)
+                                }
+                                elseif ($buf[0] -eq 0x47) {
+                                    # MPEG-TS sync byte
+                                    $alive = $true
+                                }
+                                elseif ($bytesRead -ge 12 -and [System.Text.Encoding]::ASCII.GetString($buf, 4, 4) -eq 'ftyp') {
+                                    # MP4 container (ftyp box di offset 4)
+                                    $alive = $true
+                                }
+                                elseif (($buf[0] -eq 0x49 -and $buf[1] -eq 0x44 -and $buf[2] -eq 0x33) -or
+                                        ($buf[0] -eq 0xFF -and $buf[1] -eq 0xFB)) {
+                                    # ID3 tag / MP3 frame sync
+                                    $alive = $true
+                                }
+                                else {
+                                    # Bukan HTML, gak match signature dikenal -> tetap anggap alive
+                                    # (signature unknown != dead; hindari false negative)
+                                    $alive = $true
+                                }
                             }
                         }
+                        catch { $alive = $false }
+                        finally { if ($null -ne $stream) { $stream.Dispose() } }
                     }
-                    catch { $alive = $false }
-                    finally { if ($null -ne $stream) { $stream.Dispose() } }
                 }
+                # Semua status lain (4xx selain 401/403/451, 5xx) -> dead (default)
             }
-            # Semua status lain (5xx, dll) → dead
+            finally {
+                if ($null -ne $resp)    { $resp.Dispose() }
+                if ($null -ne $client)  { $client.Dispose() }
+                if ($null -ne $handler) { $handler.Dispose() }
+            }
         }
-        catch { }
-        finally {
-            if ($null -ne $resp)    { $resp.Dispose() }
-            if ($null -ne $req)     { $req.Dispose() }
-            if ($null -ne $client)  { $client.Dispose() }
-            if ($null -ne $handler) { $handler.Dispose() }
-        }
+        # Kalau $result.Success = $false (permanent error / timeout setelah retry) -> alive tetap false, dead
 
         [PSCustomObject]@{
             Entry       = $entry
@@ -506,7 +587,13 @@ function Test-UrlsParallel {
     $normalHash = @{}
     foreach ($k in $domainLatencies.Keys) { $normalHash[$k] = $domainLatencies[$k] }
 
-    return @($liveList.ToArray()), @($deadList.ToArray()), @($blockedList.ToArray()), @($drmList.ToArray()), $normalHash
+    return [PSCustomObject]@{
+        Live      = @($liveList.ToArray())
+        Dead      = @($deadList.ToArray())
+        Blocked   = @($blockedList.ToArray())
+        Drm       = @($drmList.ToArray())
+        Latencies = $normalHash
+    }
 }
 
 # =========================
@@ -590,15 +677,13 @@ $drmList         = @()
 $domainLatencies = @{}
 
 if ($DoCheck -eq 1) {
-    $liveList, $deadList, $blockedList, $drmList, $domainLatencies = Test-UrlsParallel `
-        -Entries $entries -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel
+    $checkResult = Test-UrlsParallel -Entries $entries -TimeoutSec $TimeoutSec -MaxParallel $MaxParallel
 
-    # Guard multi-return PS7
-    if ($null -ne $domainLatencies -and $domainLatencies -is [array]) {
-        $domainLatencies = $domainLatencies[-1] -as [System.Collections.IDictionary]
-    }
-
-    $liveEntries = $liveList
+    $liveEntries     = $checkResult.Live
+    $deadList        = $checkResult.Dead
+    $blockedList     = $checkResult.Blocked
+    $drmList         = $checkResult.Drm
+    $domainLatencies = $checkResult.Latencies
 
     if ($domainLatencies.Count -gt 0) {
         $rankingFile = Join-Path $dir "${baseName}_cdn_ranking.txt"

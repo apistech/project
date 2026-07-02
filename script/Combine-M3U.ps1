@@ -30,9 +30,10 @@ foreach ($f in $files) {
     Write-Host "  + $(Split-Path $f -Leaf)" -ForegroundColor DarkGray
     $lines = Get-Content $f -Encoding UTF8 -ErrorAction SilentlyContinue
     foreach ($line in $lines) {
-        if ($line -match '^#EXTM3U') { continue }
-		if ($line -match '^#\s*$') { continue }
-        if ([string]::IsNullOrWhiteSpace($line)) { continue }
+        $trimmed = $line.Trim()
+        if ($trimmed -eq '#EXTM3U') { continue }
+        if ($trimmed -match '^#\s*$') { continue }
+        if ([string]::IsNullOrWhiteSpace($trimmed)) { continue }
         $writer.WriteLine($line)
     }
 }
