@@ -2,6 +2,15 @@
 #EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
 #======= World Cup BD ================
 http://114.130.57.233:8080/BTV/video.m3u8?token=SkQuhAXZxgBan1
+#EXTINF:-1 tvg-id="toffee" tvg-name="Fifa World Cup" tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee 1
+#====== Toffee World Cup ============
+https://cdn-tt.pages.dev/ch3.m3u8
+#EXTINF:-1 tvg-id="toffee" tvg-name="Fifa World Cup" tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee 2
+https://cdn-tt.pages.dev/ch1.m3u8
+#EXTINF:-1 tvg-id="toffee" tvg-name="Fifa World Cup" tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee 3
+https://cdn-tt.pages.dev/ch2.m3u8
+#EXTINF:-1 tvg-id="toffee" tvg-name="Fifa World Cup" tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee 3
+https://cdn-tt.pages.dev/ch4.m3u8
 #EXTINF:-1 tvg-logo="https://i.imgur.com/N09UZWA.png",TSN1
 #====== TSN ============
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/748388.ts
