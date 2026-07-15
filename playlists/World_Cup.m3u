@@ -1,12 +1,14 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
+#======= World Cup BD ================
+http://103.151.61.12/tv.bdixbd.net/video.m3u8
+#EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
 https://node8.no-612.workers.dev/resource/MjQwNTk5MDY0MTY5OjI0MDU5OTA2NDE2OToxMjAzNTpsaXZl/index.m3u8
 #EXTINF:-1 tvg-id="toffee" tvg-name="Fifa World Cup" tvg-logo="https://i.imgur.com/53aSeDH.png" group-title="Sports Channels",Toffee
 #====== Toffee World Cup ============
 http://monirul.bro.bd/sm/play.php?id=toffee1
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/X7qgs8BY/images-d47abaf70fb3ea50af7cdf455ccab5a6-goplay-bioscope-icon-transparent-app.png" ,Bioscope
 #====== Bioscope World Cup ============
-#https://bioscope-ultra.sm-monirulislam-exp.workers.dev/bioscope.m3u8
 #EXTHTTP:{"X-Authorization":"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyMzI0NTg2MTU0MzM5NjE0NzIiLCJhdWQiOlsiMSJdLCJleHAiOjE4MTM4NTQ4NjgsIm5iZiI6MTc4MjMxODg2OCwiaWF0IjoxNzgyMzE4ODY4LCJqdGkiOiIwMmY3Y2Y2M2I5OTFiMjY0Mzk0YmU2MjE0ZDJhNzI4MWYzZTExNWFkMGE4OGJhZTBmYTcyZjkwMTJmOTJmNGU1ZTA1N2Y3NGMxOGViODQzYyIsInNjb3BlcyI6WyJtYW5hZ2VfcHJvZmlsZXMiXSwicGlkIjoiMjMyNDU4Njc1MjYyMDA1MjQ4In0.kr0qIPfh66MktNCEAW_AcqFPzzX58VdP2JkVNzOjiOaig25qi9H6rttTcnKzJZoHD0Urj6YEom2S3Z_VujPXSugq9UXPFrzFbBA9zD-nMDgsNQrBr15K2uTAweqTClFduLPLyi-JvZWXpq8UbHybjhoen-Q3nRyHzOsQakQp8nRhR2yUYCiDBjwDPzF56WCVUWAYr1M19xRyiGJTqLmDI1KrT8CXwVdZFBZWqAptUnFMI6TEcoFSsRSMhN9_8KZCXbezExsToFIPbnIxp7ZPDD-qGT-KZ4GfPWrBUS93fiR4p8UzHn9Q3Bwba_mTxq3Fy8OhHilKCefoVTmyngBHwodjTOw8D9JkYc5-16QmYS6tBGbdgPRHKklTgkNYDlrQHCSQuNLTI_pRskw5oygUXkudpiPcUM9IFz8ud-rbbxVii-0ISXtwUIaEv_HBf_aA9cCGttN7ZdEquMTxbIhR27EMTwj5RdgE-i64iH__Xv3Ua4A5tzJjA5XR9Cqrsa3k84uCJlk74Z-8KBpvTcbMjAOhtqZOfimw736vSBgV9Xdk4dsoxpIfg90g38tfvCgYSwDgq5ulxTl3ygq7kS6BY1kT2m_R1T2Xdorm-75kbJ9iTn9IGa9PruwtmrtLlbuT2uivaw3E05U_UCrMwqeFZslbGtjAij95j083wmxXqUQ"}
 https://fifa-stream-01.bioscopelive.com/out/v1/60e7608404004b1186261497b404630b/index.m3u8
 #EXTINF:-1  tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5a/DSports.png" ,DSPORTS
@@ -17,14 +19,6 @@ https://fifa-stream-01.bioscopelive.com/out/v1/60e7608404004b1186261497b404630b/
 #KODIPROP:inputstream.adaptive.license_key=f836853d8eac19446ed9535f5fc568b1:b3bc5ef00602b29abac7e482d3d9fbf3
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/z5oyxzsxdk/out/v1/7695a0f64a0e424b973d5b09a2a3eb91/cenc.mpd
-#EXTINF:-1 tvg-id="FIFA_PPV1" tvg-name="FIFA PPV 1" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="Sports", FIFA PPV 1
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=08c136b87678210bbac2224550f85c9e:17bb9e12c9d844bb9d032a5399d61cc5
-https://qp-pldt-live-bpk-ucd-prod.akamaized.net/bpk-tv/fifa_ppv1/default/index.mpd
-#EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
-http://103.151.61.12/tv.bdixbd.net/video.m3u8
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="FIFA WC 2026",FOX SPORTS
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
@@ -42,18 +36,3 @@ https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/w0rehjjrwe/out/v1
 #KODIPROP:inputstream.adaptive.license_key=30089c52924f037b225b82c616fee2a5:f55dc8b66ed4fc6753d6035ae7e17144
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
 https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/0eiyyz8qzm/out/v1/dd17af8835fe4bd087d1a4e359b635d7/cenc.mpd
-#EXTINF:-1 tvg-logo="https://static.wikia.nocookie.net/logopedia/images/b/b6/La_1_2026.svg", TVE LA 1
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=745cd6ec34a58f2f7ac2af35dc3da6d2:ae008f1e47e6567fe4201a6ff8f1ae54
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/c7di7zkdor/out/v1/f7d5b356e048494a8325563e8916d50b/cenc.mpd
-#EXTINF:-1 tvg-logo="https://upload.wikimedia.org/wikipedia/commons/5/5e/CTV_flat_logo.svg" , CTV ENGLISH
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=d185684e2330de5bea436daa094a5e86:014f0116154f5bf0050e03a6b0a23157
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36
-https://otte.cache.aiv-cdn.net/lhr-nitro/live/clients/dash/enc/72sjo8hygl/out/v1/3079be34d72a4985852d299a02406a0c/cenc.mpd
-#EXTINF:-1 tvg-logo="https://i.imgur.com/N09UZWA.png",TSN1
-#====== TSN ============
-http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/748388.ts
