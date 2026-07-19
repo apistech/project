@@ -1,8 +1,6 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
 #======= World Cup BD ================
-http://103.151.61.12/tv.bdixbd.net/video.m3u8
-#EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
 https://pull.niues.live/live/stream-9912060_lhd.m3u8?auth_key=1783440983-0-0-
 #EXTINF:-1 tvg-logo="https://i.postimg.cc/X7qgs8BY/images-d47abaf70fb3ea50af7cdf455ccab5a6-goplay-bioscope-icon-transparent-app.png" ,Bioscope
 #====== Bioscope World Cup ============
@@ -10,3 +8,19 @@ https://pull.niues.live/live/stream-9912060_lhd.m3u8?auth_key=1783440983-0-0-
 https://fifa-stream-01.bioscopelive.com/out/v1/60e7608404004b1186261497b404630b/index.m3u8
 #EXTINF:-1 tvg-id="t sports" tvg-name="T-Sports" tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png" group-title="world cup",Football World Cup
 https://live05.miekgo.app/live/78905744.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png", Channel 1 (Caze TV)
+https://dfr80qz435crc.cloudfront.net/MNOP/Amagi/Caze/Caze_TV_BR/Caze_TV.m3u8
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/sm-monirulislam/SM-Live-TV/main/Script/world_cup.png", Channel 4 (Live Stream Ali)
+https://live01-cn-ali.bvjicd.com/live/79361366.m3u8?nocache=1784052953102
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SQ5LftTh/1000113687.png",Channel
+#======  World Cup ISP ============
+#EXTVLCOPT:http-referrer=https://live.sportzfy.life/
+https://spown.pull-sp-tail-op.online/stream69?&.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SQ5LftTh/1000113687.png",Channel 1
+https://1nyaler.streamhostingcdn.top/stream/32/index.m3u8
+#EXTINF:-1 tvg-logo="https://i.postimg.cc/SQ5LftTh/1000113687.png",Channel 9 (DRM Protected)
+#KODIPROP:inputstream=inputstream.adaptive
+#KODIPROP:inputstream.adaptive.manifest_type=mpd
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key=14eeabf30c14b7fbf3008c03099ce011:17d2ac8dbc5429bd70af3433aa12158d
+https://otte-qw.live.pv-cdn.net/lhr-nitro/live/clients/dash/enc/w0rehjjrwe/out/v1/69a2a7041395406b970598f61680e7cf/cenc.mpd
