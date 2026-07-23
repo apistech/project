@@ -80,8 +80,6 @@ jobs:
             echo "Syncing with remote (Attempt $i/3)..."
             git fetch origin main
 
-            # NOTE: -Xtheirs sengaja dipilih supaya commit manual user di epgs/
-            # tidak ditimpa oleh hasil auto-generate kalau terjadi conflict.
             if ! git rebase origin/main -Xtheirs; then
               echo "Rebase failed. Aborting."
               git rebase --abort
