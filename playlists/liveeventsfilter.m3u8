@@ -54,7 +54,7 @@ https://mahioplan.s3.us-east-1.amazonaws.com/dodgers.m3u8
 #EXTVLCOPT:http-origin=https://xyzstreams.st/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
 https://ftv.xyzstreams.st/MLBTVBOS/B0005/master.m3u8
-#EXTINF:-1 tvg-chno="116" tvg-id="MLB.Baseball.Dummy.us" tvg-name="[MLB] Chicago White Sox at Boston Red Sox | CHW Feed (XYZ)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/mlb.png" group-title="Live Events",[MLB] Chicago White Sox at Boston Red Sox | CHW Feed (XYZ)
+#EXTINF:-1 tvg-chno="115" tvg-id="MLB.Baseball.Dummy.us" tvg-name="[MLB] Chicago White Sox at Boston Red Sox | CHW Feed (XYZ)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/mlb.png" group-title="Live Events",[MLB] Chicago White Sox at Boston Red Sox | CHW Feed (XYZ)
 #EXTVLCOPT:http-referrer=https://xyzstreams.st/
 #EXTVLCOPT:http-origin=https://xyzstreams.st/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
@@ -164,11 +164,6 @@ https://ftv.xyzstreams.st/MLBTVPHI/B0022/master.m3u8
 #EXTVLCOPT:http-origin=https://xyzstreams.st/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
 https://ftv.xyzstreams.st/MLBTVWAS/B0018/master.m3u8
-#EXTINF:-1 tvg-chno="163" tvg-id="NFL.Dummy.us" tvg-name="[NFL American Football] Carolina Panthers vs Arizona Cardinals (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL American Football] Carolina Panthers vs Arizona Cardinals (FAWA)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTVLCOPT:http-origin=http://www.fawanews.sc/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
-http://193.47.62.191/hls/YFFFAAAAAAA.m3u8
 #EXTINF:-1 tvg-chno="165" tvg-id="NFL.Dummy.us" tvg-name="[NFL Preseason] Arizona Cardinals vs Carolina Panthers (iSTRMEAST)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL Preseason] Arizona Cardinals vs Carolina Panthers (iSTRMEAST)
 #EXTVLCOPT:http-referrer=https://gooz.aapmains.net/new-stream-embed/54281?ad=111
 #EXTVLCOPT:http-origin=https://gooz.aapmains.net/new-stream-embed/54281?ad=111
@@ -179,6 +174,11 @@ https://chatgpt.hereisman.net/playlist/54281/load-playlist
 #EXTVLCOPT:http-origin=https://gooz.aapmains.net/new-stream-embed/54270?ad=111
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
 https://chatgpt.hereisman.net/playlist/54270/load-playlist
+#EXTINF:-1 tvg-chno="185" tvg-id="Live.Event.us" tvg-name="[Rugby New Zealand NPC] Taranaki vs Waikato (FAWA)" tvg-logo="https://i.gyazo.com/4a5e9fa2525808ee4b65002b56d3450e.png" group-title="Live Events",[Rugby New Zealand NPC] Taranaki vs Waikato (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-origin=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36 Edg/134.0.0.0
+http://193.47.62.190/hls/gnnn.m3u8
 #EXTINF:-1 tvg-chno="206" tvg-id="WNBA.dummy.us" tvg-name="[WNBA] Minnesota Lynx vs Los Angeles Sparks (iSTRMEAST)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/wnba.png" group-title="Live Events",[WNBA] Minnesota Lynx vs Los Angeles Sparks (iSTRMEAST)
 #EXTVLCOPT:http-referrer=https://gooz.aapmains.net/new-stream-embed/54292?ad=111
 #EXTVLCOPT:http-origin=https://gooz.aapmains.net/new-stream-embed/54292?ad=111
