@@ -2,7 +2,7 @@ name: Generate Live Events
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
   push:
     branches:
