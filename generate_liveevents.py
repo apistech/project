@@ -8,6 +8,7 @@ Simple IPTV Playlist Validator
 """
 
 import sys
+import os
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -20,8 +21,8 @@ from requests.adapters import HTTPAdapter
 # CONFIGURATION
 # =========================
 TIMEOUT = 10
-FETCH_TIMEOUT = 30  # separate timeout for downloading the playlist itself
-MAX_WORKERS = 32
+FETCH_TIMEOUT = 30
+MAX_WORKERS = min(32, (os.cpu_count() or 2) * 2)
 OUTPUT_DIR = Path("playlists")
 
 DEFAULT_HEADERS = {
@@ -30,12 +31,10 @@ DEFAULT_HEADERS = {
     )
 }
 
-# Add your M3U URLs here
 SOURCES = [
     "https://github.com/BuddyChewChew/sports/raw/refs/heads/main/liveeventsfilter.m3u8",
 ]
 
-# Stream content types (whitelist)
 VALID_CONTENT_TYPES = {
     "application/dash+xml",
     "application/vnd.apple.mpegurl",
@@ -51,9 +50,6 @@ VALID_CONTENT_TYPES = {
 # =========================
 # SESSION POOLING
 # =========================
-# One Session per worker thread (Session is not thread-safe to share directly,
-# but the underlying connection pool benefits from reuse across requests made
-# by the same thread). Using thread-local storage avoids cross-thread races.
 _thread_local = threading.local()
 
 
@@ -79,14 +75,13 @@ def get_session() -> requests.Session:
 # =========================
 def is_playable(url: str, headers: dict = None) -> bool:
     """Check if URL points to a valid stream."""
-    # Per-entry headers (e.g. Referer/Origin from #EXTVLCOPT) override the
-    # session's default UA only if explicitly set.
     req_headers = dict(headers) if headers else {}
     sess = get_session()
+    timeout_tuple = (3.0, TIMEOUT)
 
     # 1. HEAD request (fast path)
     try:
-        resp = sess.head(url, headers=req_headers, timeout=TIMEOUT, allow_redirects=True)
+        resp = sess.head(url, headers=req_headers, timeout=timeout_tuple, allow_redirects=True)
         if resp.status_code < 400:
             ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
             if ct in VALID_CONTENT_TYPES:
@@ -97,32 +92,27 @@ def is_playable(url: str, headers: dict = None) -> bool:
     # 2. GET with body sniffing (fallback)
     try:
         with sess.get(
-            url, headers=req_headers, timeout=TIMEOUT, stream=True, allow_redirects=True
+            url, headers=req_headers, timeout=timeout_tuple, stream=True, allow_redirects=True
         ) as resp:
             if resp.status_code >= 400:
                 return False
 
-            # Check Content-Type header
             ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
             if ct in VALID_CONTENT_TYPES:
                 return True
 
-            # Read first chunk for validation
             chunk = next(resp.iter_content(chunk_size=2048), b"")
             if not chunk:
                 return False
 
             preview = chunk.decode("utf-8", errors="ignore").strip()
 
-            # HTML page -> not a stream
             if preview.lower().startswith("<html") or "<html" in preview.lower()[:200]:
                 return False
 
-            # M3U8 manifest
             if preview.startswith("#EXTM3U") or preview.startswith("#EXT-X-"):
                 return True
 
-            # Binary stream signatures
             if chunk[0:1] == b"\x47":  # MPEG-TS sync byte
                 return True
             if b"ftyp" in chunk[:32]:  # MP4 container
@@ -136,12 +126,18 @@ def is_playable(url: str, headers: dict = None) -> bool:
         return False
 
 
-def parse_m3u(lines: list[str]) -> list[dict]:
-    """Parse M3U file into entries with metadata."""
+def parse_m3u(lines: list[str]) -> tuple[list[str], list[dict]]:
+    """
+    Parse M3U file into:
+    - headers: list of header lines (including #EXTM3U and its attributes)
+    - entries: list of entry dicts with metadata
+    """
+    headers = []
     entries = []
     extinf = []
     other_tags = []
     vlcopts = []
+    is_header = True
 
     for line in lines:
         line = line.strip()
@@ -149,53 +145,53 @@ def parse_m3u(lines: list[str]) -> list[dict]:
         if not line:
             continue
 
-        if line.startswith("#EXTM3U"):
+        if is_header and line.startswith("#"):
+            headers.append(line)
+            if line.startswith("#EXTINF"):
+                is_header = False
+                extinf.append(line)
             continue
 
-        if line.startswith("#EXTINF"):
-            extinf.append(line)
-            continue
+        if not line.startswith("#") and not is_header:
+            url = line
 
-        if line.startswith("#EXTVLCOPT"):
-            vlcopts.append(line)
+            entry_headers = {}
+            for opt in vlcopts:
+                if opt.startswith("#EXTVLCOPT:"):
+                    kv = opt[len("#EXTVLCOPT:") :].split("=", 1)
+                    if len(kv) == 2:
+                        key, val = kv
+                        if key.lower() == "http-referrer":
+                            entry_headers["Referer"] = val
+                        elif key.lower() == "http-origin":
+                            entry_headers["Origin"] = val
+                        elif key.lower() == "http-user-agent":
+                            entry_headers["User-Agent"] = val
+
+            entries.append(
+                {
+                    "extinf": extinf[:],
+                    "other": other_tags[:],
+                    "vlcopt": vlcopts[:],
+                    "url": url,
+                    "headers": entry_headers,
+                }
+            )
+
+            extinf.clear()
+            other_tags.clear()
+            vlcopts.clear()
             continue
 
         if line.startswith("#"):
-            other_tags.append(line)
-            continue
+            if line.startswith("#EXTINF"):
+                extinf.append(line)
+            elif line.startswith("#EXTVLCOPT"):
+                vlcopts.append(line)
+            else:
+                other_tags.append(line)
 
-        # This is a URL
-        url = line
-
-        # Extract headers from VLC options
-        headers = {}
-        for opt in vlcopts:
-            if opt.startswith("#EXTVLCOPT:"):
-                kv = opt[len("#EXTVLCOPT:") :].split("=", 1)
-                if len(kv) == 2:
-                    key, val = kv
-                    if key.lower() == "http-referrer":
-                        headers["Referer"] = val
-                    elif key.lower() == "http-origin":
-                        headers["Origin"] = val
-                    elif key.lower() == "http-user-agent":
-                        headers["User-Agent"] = val
-
-        entries.append(
-            {
-                "extinf": extinf[:],
-                "other": other_tags[:],
-                "vlcopt": vlcopts[:],
-                "url": url,
-                "headers": headers,
-            }
-        )
-
-        extinf.clear()
-        other_tags.clear()
-        vlcopts.clear()
-
-    return entries
+    return headers, entries
 
 
 def dedup_by_url(entries: list[dict]) -> tuple[list[dict], int]:
@@ -249,11 +245,17 @@ def process_source(url: str) -> bool:
         return False
 
     # Parse
-    entries = parse_m3u(lines)
+    headers, entries = parse_m3u(lines)
     if not entries:
         print(f"[SKIP] {filename}: no entries found")
         return False
+    
     print(f"Total entries: {len(entries)}")
+    
+    if headers:
+        print(f"Headers preserved: {len(headers)} lines")
+        for h in headers[:3]:  # Show first 3
+            print(f"  {h[:80]}...")
 
     # Dedup before checking (save resources)
     entries, dup_count = dedup_by_url(entries)
@@ -280,10 +282,9 @@ def process_source(url: str) -> bool:
             status = "OK" if entry["playable"] else "DEAD"
             print(f"[{i:>3}/{len(entries)}] {status} {entry['url'][:60]}")
 
-    # Build output
-    output = ["#EXTM3U"]
+    output = headers.copy()
+    
     playable_count = 0
-
     for entry in entries:
         if entry["playable"]:
             output.extend(entry["extinf"])
