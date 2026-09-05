@@ -8,6 +8,8 @@ import logging
 from dotenv import load_dotenv
 from datetime import datetime
 
+load_dotenv()
+
 # ========== KONFIGURASI ==========
 OUTPUT_DIR = "playlists"
 OUTPUT_FILE = "rctiplus.m3u"
@@ -55,12 +57,9 @@ def get_jwt_token(session):
 
 def extract_stream_url(data):
     """Extract stream URL dari response JSON"""
-    # Cek struktur response yang mungkin
     if isinstance(data, dict):
-        # Langsung di field url
         if 'url' in data and data['url']:
             return data['url']
-        # Di dalam data.url
         if 'data' in data and isinstance(data['data'], dict):
             if 'url' in data['data'] and data['data']['url']:
                 return data['data']['url']
@@ -112,7 +111,7 @@ def generate_m3u_content(channels_data):
         lines.append(f'#EXTVLCOPT:http-referrer={BASE_URL}/')
         lines.append(f'#EXTVLCOPT:http-user-agent={USER_AGENT}')
         lines.append(ch["stream_url"])
-        lines.append('')  # empty line for readability
+        lines.append('')
     
     return '\n'.join(lines)
 
