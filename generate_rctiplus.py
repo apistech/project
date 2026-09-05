@@ -10,11 +10,11 @@ from datetime import datetime
 # ========== KONFIGURASI ==========
 OUTPUT_DIR = "playlists"
 OUTPUT_FILE = "rctiplus.m3u"
-BASE_URL = "https://www.rctiplus.com"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0"
-API_KEY = os.getenv("RCTIPLUS_API_KEY")
-API_URL = os.getenv("RCTIPLUS_API_URL")
-FALLBACK_TOKEN = os.getenv("RCTIPLUS_FALLBACK_TOKEN")
+BASE_URL = 'https://www.rctiplus.com'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0'
+API_KEY = os.getenv('RCTIPLUS_API_KEY')
+API_URL = os.getenv('RCTIPLUS_API_URL')
+FALLBACK_TOKEN = os.getenv('RCTIPLUS_FALLBACK_TOKEN')
 
 CHANNELS = [
     {"api_id": 1, "name": "RCTI", "logo": "https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png"},
