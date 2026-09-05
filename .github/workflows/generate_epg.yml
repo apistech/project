@@ -11,6 +11,7 @@ on:
       - '.github/workflows/generate_epg.yml'
       - 'epgs/custom.channels.xml'
       - 'generate_epg.py'
+      - 'requirements.txt'
 
 permissions:
   contents: write

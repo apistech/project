@@ -11,6 +11,7 @@ on:
       - '.github/workflows/generate_rctiplus.yml'
       - 'generate_rctiplus.py'
       - 'merge_playlists.py'
+      - 'requirements.txt'
 
 permissions:
   contents: write
@@ -44,6 +45,10 @@ jobs:
           mkdir -p playlists
 
       - name: Generate RCTI+ Playlists
+        env:
+          RCTIPLUS_API_KEY: ${{ secrets.RCTIPLUS_API_KEY }}
+          RCTIPLUS_API_URL: ${{ secrets.RCTIPLUS_API_URL }}
+          RCTIPLUS_FALLBACK_TOKEN: ${{ secrets.RCTIPLUS_FALLBACK_TOKEN }}
         run: python generate_rctiplus.py
 
       - name: Merge to IndihomeTV.m3u

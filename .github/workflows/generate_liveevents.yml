@@ -10,6 +10,7 @@ on:
     paths:
       - '.github/workflows/generate_liveevents.yml'
       - 'generate_liveevents.py'
+      - 'requirements.txt'
 
 permissions:
   contents: write

@@ -11,11 +11,11 @@ from datetime import datetime
 # ========== KONFIGURASI ==========
 OUTPUT_DIR = "playlists"
 OUTPUT_FILE = "rctiplus.m3u"
-BASE_URL = 'https://www.rctiplus.com'
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0'
-API_URL = os.getenv('RCTIPLUS_API_URL', 'https://toutatis.rctiplus.com/video/live/api/v1/live/{}/url')
-API_KEY = os.getenv('RCTIPLUS_API_KEY')
-FALLBACK_TOKEN = os.getenv('RCTIPLUS_FALLBACK_TOKEN')
+BASE_URL = "https://www.rctiplus.com"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0"
+API_URL = os.getenv("RCTIPLUS_API_URL")
+API_KEY = os.getenv("RCTIPLUS_API_KEY")
+FALLBACK_TOKEN = os.getenv("RCTIPLUS_FALLBACK_TOKEN")
 
 if not API_KEY:
     logging.error("❌ RCTIPLUS_API_KEY tidak ditemukan!")

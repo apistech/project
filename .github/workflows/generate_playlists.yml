@@ -10,6 +10,7 @@ on:
     paths:
       - '.github/workflows/generate_playlists.yml'
       - 'generate_playlists.py'
+      - 'requirements.txt'
 
 permissions:
   contents: write
