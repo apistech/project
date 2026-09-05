@@ -1,8 +1,10 @@
 # .gitignore
 .env
 *.env
-.env.*
 !.env.example
 *.log
 __pycache__/
 *.pyc
+.DS_Store
+venv/
+.venv/
