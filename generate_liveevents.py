@@ -169,7 +169,7 @@ def parse_m3u(lines: list[str]) -> tuple[list[str], list[dict]]:
                 if opt.startswith("#EXTVLCOPT:"):
                     kv = opt[len("#EXTVLCOPT:") :].split("=", 1)
                     if len(kv) == 2:
-                        key, val = kv.strip(), kv[1].strip()
+                        key, val = kv[0].strip(), kv[1].strip()
                         key_lower = key.lower()
                         if key_lower == "http-referrer":
                             entry_headers["Referer"] = val
