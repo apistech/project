@@ -44,9 +44,9 @@ jobs:
           mkdir -p playlists
 
       - name: Generate Live Events
-          env:
-            PLAYLIST_SOURCES: ${{ secrets.PLAYLIST_SOURCES }}
-          run: python generate_liveevents.py
+        env:
+          PLAYLIST_SOURCES: ${{ secrets.PLAYLIST_SOURCES }}
+        run: python generate_liveevents.py
 
       - name: Commit and Push (Keep History Clean)
         run: |
