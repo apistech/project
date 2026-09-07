@@ -1,3 +1,4 @@
+import io
 import os
 import gzip
 import re
@@ -5,6 +6,8 @@ import sys
 import time
 import xml.etree.ElementTree as ET
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
@@ -33,6 +36,28 @@ REMOTE_EPG_URLS = [
 
 PRUNE_OLDER_THAN_HOURS = 6
 MIN_PROGRAMME_SANITY_THRESHOLD = 50
+MAX_DECOMPRESSED_BYTES = 200 * 1024 * 1024
+REQUEST_TIMEOUT = 60
+
+_session: Optional[requests.Session] = None
+
+
+def get_session() -> requests.Session:
+    global _session
+    if _session is not None:
+        return _session
+    s = requests.Session()
+    retry = Retry(
+        total=3,
+        backoff_factor=1,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET"],
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    s.mount("https://", adapter)
+    s.mount("http://", adapter)
+    _session = s
+    return s
 
 
 def get_tvg_ids_from_m3u() -> Optional[set[str]]:
@@ -41,7 +66,7 @@ def get_tvg_ids_from_m3u() -> Optional[set[str]]:
         return None
     print("Downloading M3U playlist...")
     try:
-        r = requests.get(M3U_URL, timeout=30)
+        r = get_session().get(M3U_URL, timeout=30)
         r.raise_for_status()
         ids = set(re.findall(r'tvg-id="([^"]+)"', r.text))
         print(f"  -> {len(ids)} unique tvg-ids found.")
@@ -109,8 +134,15 @@ def parse_xml(content: bytes, label: str) -> Optional[ET.Element]:
 
     if HAS_LXML:
         try:
-            root_lxml = lxml_etree.fromstring(content, parser=lxml_etree.XMLParser(recover=True))
-            return ET.fromstring(lxml_etree.tostring(root_lxml))
+            safe_parser = lxml_etree.XMLParser(
+                recover=True,
+                resolve_entities=False,
+                no_network=True,
+                huge_tree=False,
+            )
+            root_lxml = lxml_etree.fromstring(content, parser=safe_parser)
+            if root_lxml is not None:
+                return ET.fromstring(lxml_etree.tostring(root_lxml))
         except Exception:
             pass
 
@@ -118,6 +150,20 @@ def parse_xml(content: bytes, label: str) -> Optional[ET.Element]:
         return ET.fromstring(sanitize_xml_bytes(content))
     except ET.ParseError as e:
         print(f"  ! Parse failed for {label}: {e}")
+        return None
+
+
+def _safe_gzip_decompress(raw: bytes, label: str) -> Optional[bytes]:
+    try:
+        with gzip.GzipFile(fileobj=io.BytesIO(raw)) as gz:
+            content = gz.read(MAX_DECOMPRESSED_BYTES + 1)
+        if len(content) > MAX_DECOMPRESSED_BYTES:
+            print(f"  ! {label}: decompressed size exceeds "
+                  f"{MAX_DECOMPRESSED_BYTES} bytes cap. Skipping.")
+            return None
+        return content
+    except Exception as e:
+        print(f"  ! {label}: gzip decompress failed: {e}")
         return None
 
 
@@ -129,11 +175,14 @@ def fetch_epg_elements(url: str, valid_ids: set[str]) -> tuple[list[ET.Element],
     programmes: list[ET.Element] = []
 
     try:
-        r = requests.get(url, timeout=60)
+        r = get_session().get(url, timeout=REQUEST_TIMEOUT)
         r.raise_for_status()
         content = r.content
+
         if url.endswith(".gz"):
-            content = gzip.decompress(content)
+            content = _safe_gzip_decompress(content, filename)
+            if content is None:
+                return channels, programmes
 
         epg_root = parse_xml(content, filename)
         if epg_root is None:
@@ -191,14 +240,31 @@ def merge_into_root(
         master_root.append(prog)
 
 
+def _atomic_write(path: str, write_fn) -> None:
+    tmp_path = f"{path}.tmp"
+    try:
+        with open(tmp_path, "wb") as f:
+            write_fn(f)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp_path, path)  # atomic on POSIX & Windows NTFS same-volume
+    except Exception:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+        raise
+
+
 def save_epg(root: ET.Element) -> None:
     tree = ET.ElementTree(root)
     print(f"Saving {OUTPUT_XML}...")
-    with open(OUTPUT_XML, "wb") as f:
-        tree.write(f, encoding="utf-8", xml_declaration=True)
+    _atomic_write(OUTPUT_XML, lambda f: tree.write(f, encoding="utf-8", xml_declaration=True))
     print(f"Saving {OUTPUT_GZ}...")
-    with gzip.open(OUTPUT_GZ, "wb") as f:
-        tree.write(f, encoding="utf-8", xml_declaration=True)
+    _atomic_write(
+        OUTPUT_GZ,
+        lambda f: (lambda gz: (tree.write(gz, encoding="utf-8", xml_declaration=True), gz.close()))(
+            gzip.GzipFile(fileobj=f, mode="wb")
+        ),
+    )
 
 
 def main() -> None:
