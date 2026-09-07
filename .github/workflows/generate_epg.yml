@@ -70,9 +70,6 @@ jobs:
             --output=../epgs/guide.xml \
             --maxConnections=8
 
-      - name: Backup pre-merge guide.xml
-        run: cp epgs/guide.xml epgs/guide.xml.bak
-
       # ========================================================
       # LANGKAH 2: Jalankan Fungsi 2 (generate_epg.py)
       # ========================================================
@@ -81,12 +78,6 @@ jobs:
         env:
           M3U_URL: ${{ secrets.M3U_URL }}
         run: python generate_epg.py
-
-      - name: Restore backup on merge failure
-        if: failure() && steps.merge_epg.outcome == 'failure'
-        run: |
-          echo "generate_epg.py failed sanity check or crashed. Restoring pre-merge guide.xml."
-          mv epgs/guide.xml.bak epgs/guide.xml
 
       # ========================================================
       # LANGKAH 3: Validasi XML & Index channels.txt
@@ -143,10 +134,6 @@ jobs:
           out.write_text("\n".join(entries), encoding="utf-8")
           print(f"Generated channels.txt index with {len(entries)} items.")
           PY
-
-      - name: Cleanup backup file
-        if: success()
-        run: rm -f epgs/guide.xml.bak
 
       # ========================================================
       # LANGKAH 4: Push Bersih Tanpa Merusak Commit Utama

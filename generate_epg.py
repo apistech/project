@@ -119,14 +119,10 @@ def load_base_epg() -> ET.Element:
 
 
 def sanitize_xml_bytes(content: bytes) -> bytes:
-    """Strip bytes yang ilegal di XML 1.0 tapi pertahankan whitespace valid."""
     return re.sub(rb'[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]', b'', content)
 
 
 def parse_xml(content: bytes, label: str) -> Optional[ET.Element]:
-    """3-tier fallback: strict stdlib -> lxml recover -> sanitize + retry stdlib.
-    Sama seperti update_epg.py -- ini yang menyelamatkan source FAST channel
-    (i.mjh.nz) yang sering punya XML kurang strict."""
     try:
         return ET.fromstring(content)
     except ET.ParseError:
@@ -247,7 +243,7 @@ def _atomic_write(path: str, write_fn) -> None:
             write_fn(f)
             f.flush()
             os.fsync(f.fileno())
-        os.replace(tmp_path, path)  # atomic on POSIX & Windows NTFS same-volume
+        os.replace(tmp_path, path)
     except Exception:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
