@@ -266,7 +266,6 @@ def process_source(url: str) -> bool:
 
 def main():
     if not SOURCES:
-    	print("ERROR: PLAYLIST_SOURCES is empty or not set in .env/secrets")
         sys.exit(1)
 
     results = {get_filename_from_url(url): process_source(url) for url in SOURCES}
