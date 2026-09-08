@@ -49,7 +49,7 @@ TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID")
 TCL_BASE_URL = os.getenv("TCL_BASE_URL", "https://gateway-prod.ideonow.com")
 TCL_IMAGE_BASE = os.getenv("TCL_IMAGE_BASE", "https://tcl-channel-cdn.ideonow.com")
 TCL_ORIGIN = os.getenv("TCL_ORIGIN", "https://tcltv.plus")
-TCL_EPG_URL = os.getenv("TCL_EPG_URL")
+TCL_EPG_URL = os.getenv("TCL_EPG_URL", "https://github.com/apistech/project/raw/refs/heads/main/playlists/tcl_epg.xml")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
