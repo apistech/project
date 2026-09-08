@@ -46,8 +46,8 @@ jobs:
 
       - name: Generate RCTI+ Playlists
         env:
-          RCTIPLUS_API_KEY: ${{ secrets.RCTIPLUS_API_KEY }}
           RCTIPLUS_API_URL: ${{ secrets.RCTIPLUS_API_URL }}
+          RCTIPLUS_API_KEY: ${{ secrets.RCTIPLUS_API_KEY }}
           RCTIPLUS_FALLBACK_TOKEN: ${{ secrets.RCTIPLUS_FALLBACK_TOKEN }}
         run: python generate_rctiplus.py
 
