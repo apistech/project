@@ -1,12 +1,12 @@
-import requests
 import json
-import re
+import logging
 import os
+import re
+import requests
 import sys
 import uuid
-import logging
-from dotenv import load_dotenv
 from datetime import datetime
+from dotenv import load_dotenv
 
 load_dotenv()
 

@@ -1,17 +1,17 @@
-import requests
 import gzip
 import json
 import logging
 import os
 import random
 import re
+import requests
 import sys
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
+from dotenv import load_dotenv
 from io import BytesIO
 from pathlib import Path
-from dotenv import load_dotenv
 
 load_dotenv()
 

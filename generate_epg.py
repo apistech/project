@@ -1,15 +1,18 @@
+import gzip
 import io
 import os
-import gzip
 import re
+import requests
 import sys
 import time
 import xml.etree.ElementTree as ET
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 from datetime import datetime, timezone, timedelta
+from dotenv import load_dotenv
+from requests.adapters import HTTPAdapter
 from typing import Optional
+from urllib3.util.retry import Retry
+
+load_dotenv()
 
 try:
     from lxml import etree as lxml_etree

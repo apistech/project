@@ -7,7 +7,6 @@ RCTI_FILE = os.path.join(OUTPUT_DIR, "rctiplus.m3u")
 INDIHOME_FILE = "IndihomeTV.m3u"
 
 def extract_rcti_streams():
-    """Extract stream URLs dari file rctiplus.m3u"""
     if not os.path.exists(RCTI_FILE):
         print(f"❌ RCTI file not found: {RCTI_FILE}")
         return []
@@ -15,7 +14,6 @@ def extract_rcti_streams():
     with open(RCTI_FILE, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Regex buat extract #EXTINF + URL (handle multiple #EXTVLCOPT lines)
     streams = []
     lines = content.split('\n')
     i = 0
@@ -23,13 +21,11 @@ def extract_rcti_streams():
         line = lines[i]
         if line.startswith('#EXTINF'):
             extinf = line
-            # Kumpulin #EXTVLCOPT lines
             opts = []
             i += 1
             while i < len(lines) and lines[i].startswith('#EXTVLCOPT'):
                 opts.append(lines[i])
                 i += 1
-            # URL line
             if i < len(lines) and lines[i].startswith('http'):
                 url = lines[i]
                 streams.append((extinf, opts, url))
@@ -47,10 +43,8 @@ def merge_to_indihome():
     
     print(f"📺 Found {len(streams)} RCTI+ streams")
     
-    # Path di root repo (bukan di playlists/)
     indihome_path = INDIHOME_FILE
     
-    # Baca file IndihomeTV.m3u yang ada (kalo ada)
     if os.path.exists(indihome_path):
         with open(indihome_path, 'r', encoding='utf-8') as f:
             content = f.read()
@@ -58,7 +52,6 @@ def merge_to_indihome():
         content = "#EXTM3U\n\n"
         print(f"📝 Creating new {indihome_path}")
     
-    # Hapus section RCTI+ lama
     marker_start = "# === RCTI+ SECTION ==="
     marker_end = "# === END RCTI+ SECTION ==="
     
@@ -68,7 +61,6 @@ def merge_to_indihome():
         content = content.rstrip() + "\n\n"
         print("🗑️ Removed old RCTI+ section")
     
-    # Tambah section baru
     new_section = [
         marker_start,
         f"# Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
@@ -85,7 +77,6 @@ def merge_to_indihome():
     
     new_content = content + "\n".join(new_section)
     
-    # Simpan di root repo
     with open(indihome_path, 'w', encoding='utf-8') as f:
         f.write(new_content)
     

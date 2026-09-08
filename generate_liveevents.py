@@ -1,21 +1,14 @@
-#!/usr/bin/env python3
-"""
-Simple IPTV Playlist Validator
-- Fetch M3U from sources
-- Dedup by URL
-- Check playability (HEAD + body-sniff)
-- Save valid streams
-"""
-
 import os
+import requests
 import sys
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from dotenv import load_dotenv
 from pathlib import Path
+from requests.adapters import HTTPAdapter
 from urllib.parse import urlparse
 
-import requests
-from requests.adapters import HTTPAdapter
+load_dotenv()
 
 # =========================
 # CONFIGURATION
@@ -273,6 +266,7 @@ def process_source(url: str) -> bool:
 
 def main():
     if not SOURCES:
+    	print("ERROR: PLAYLIST_SOURCES is empty or not set in .env/secrets")
         sys.exit(1)
 
     results = {get_filename_from_url(url): process_source(url) for url in SOURCES}
