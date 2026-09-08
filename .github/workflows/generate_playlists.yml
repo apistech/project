@@ -44,6 +44,14 @@ jobs:
           mkdir -p playlists
 
       - name: Generate FAST Service Playlists
+        env:
+          PLUTO_REGION_FILTER: ${{ secrets.PLUTO_REGION_FILTER }}
+          PLUTO_GROUP_FILTER: ${{ secrets.PLUTO_GROUP_FILTER }}
+          SAMSUNG_REGION_FILTER: ${{ secrets.SAMSUNG_REGION_FILTER }}
+          SAMSUNG_GROUP_FILTER: ${{ secrets.SAMSUNG_GROUP_FILTER }}
+          TCL_GROUP_FILTER: ${{ secrets.TCL_GROUP_FILTER }}
+          ROKU_GROUP_METHOD: ${{ secrets.ROKU_GROUP_METHOD }}
+          ROKU_GROUP_FILTER: ${{ secrets.ROKU_GROUP_FILTER }}
         run: python generate_playlists.py
 
       - name: Commit and Push (Keep History Clean)
