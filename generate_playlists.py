@@ -13,6 +13,10 @@ from dotenv import load_dotenv
 
 load_dotenv("generate_playlists.env")
 
+OUTPUT_DIR = "playlists"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+REQUEST_TIMEOUT = 30 
+
 # ===================================================================
 # CONFIG FILTER & METHOD
 # ===================================================================
@@ -20,10 +24,6 @@ load_dotenv("generate_playlists.env")
 # GROUP_FILTER: Isi dengan list kategori, atau ('all')
 # GROUP_METHOD: "api" / "chno" / "hybrid" (Hanya untuk ROKU)
 # ===================================================================
-
-OUTPUT_DIR = "playlists"
-USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
-REQUEST_TIMEOUT = 30 
 
 PLUTO_REGION_FILTER = tuple(os.getenv("PLUTO_REGION_FILTER", "all").split(","))
 PLUTO_GROUP_FILTER = tuple(os.getenv("PLUTO_GROUP_FILTER", "all").split(","))
@@ -42,6 +42,11 @@ TCL_BASE_URL = os.getenv("TCL_BASE_URL", "https://gateway-prod.ideonow.com")
 TCL_IMAGE_BASE = os.getenv("TCL_IMAGE_BASE", "https://tcl-channel-cdn.ideonow.com")
 TCL_ORIGIN = os.getenv("TCL_ORIGIN", "https://tcltv.plus")
 TCL_EPG_URL = os.getenv("TCL_EPG_URL", "")
+
+if not PLUTO_GROUP_FILTER: PLUTO_GROUP_FILTER = 'all'
+if not SAMSUNG_GROUP_FILTER: SAMSUNG_GROUP_FILTER = 'all'
+if not ROKU_GROUP_FILTER: ROKU_GROUP_FILTER = 'all'
+if not TCL_GROUP_FILTER: TCL_GROUP_FILTER = 'all'
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
