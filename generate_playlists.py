@@ -45,11 +45,11 @@ ROKU_GROUP_FILTER = get_env_list("ROKU_GROUP_FILTER", "all")
 TCL_GROUP_FILTER = get_env_list("TCL_GROUP_FILTER", "all")
 TCL_COUNTRY_CODE = os.getenv("TCL_COUNTRY_CODE", "US")
 TCL_STATE_CODE = os.getenv("TCL_STATE_CODE", "OH")
-TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID", "1776786148042-4c4uc")
+TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID")
 TCL_BASE_URL = os.getenv("TCL_BASE_URL", "https://gateway-prod.ideonow.com")
 TCL_IMAGE_BASE = os.getenv("TCL_IMAGE_BASE", "https://tcl-channel-cdn.ideonow.com")
 TCL_ORIGIN = os.getenv("TCL_ORIGIN", "https://tcltv.plus")
-TCL_EPG_URL = os.getenv("TCL_EPG_URL", "https://github.com/apistech/project/raw/refs/heads/main/playlists/tcl_epg.xml",)
+TCL_EPG_URL = os.getenv("TCL_EPG_URL")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"

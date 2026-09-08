@@ -44,6 +44,8 @@ jobs:
           mkdir -p playlists
 
       - name: Generate FAST Service Playlists
+          TCL_DEVICE_ID: ${{ secrets.TCL_DEVICE_ID }}
+          TCL_EPG_URL: ${{ secrets.TCL_EPG_URL }}
         run: python generate_playlists.py
 
       - name: Commit and Push (Keep History Clean)
