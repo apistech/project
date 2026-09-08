@@ -52,7 +52,6 @@ jobs:
           ROKU_GROUP_METHOD: ${{ secrets.ROKU_GROUP_METHOD || 'hybrid' }}
           ROKU_GROUP_FILTER: ${{ secrets.ROKU_GROUP_FILTER || 'Kids,Movies' }}
           TCL_GROUP_FILTER: ${{ secrets.TCL_GROUP_FILTER || 'Anime,Family & Kids,Movies,TCL TOP 15' }}
-          TCL_DEVICE_ID: ${{ secrets.TCL_DEVICE_ID }}
         run: python generate_playlists.py
 
       - name: Commit and Push (Keep History Clean)
