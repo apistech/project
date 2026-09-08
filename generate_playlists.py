@@ -9,10 +9,8 @@ import random
 import xml.etree.ElementTree as ET
 from io import BytesIO
 from datetime import datetime, timezone, timedelta
-from dotenv import load_dotenv
 
-load_dotenv("generate_playlists.env")
-
+# --- Configuration ---
 OUTPUT_DIR = "playlists"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 REQUEST_TIMEOUT = 30 
@@ -23,25 +21,25 @@ REQUEST_TIMEOUT = 30
 # REGION_FILTER: Pilih region ('us', 'gb', 'ca') atau ('all')
 # GROUP_FILTER: Isi dengan list kategori, atau ('all')
 # GROUP_METHOD: "api" / "chno" / "hybrid" (Hanya untuk ROKU)
-# ===================================================================
 
-PLUTO_REGION_FILTER = tuple(os.getenv("PLUTO_REGION_FILTER", "all").split(","))
-PLUTO_GROUP_FILTER = tuple(os.getenv("PLUTO_GROUP_FILTER", "all").split(","))
+PLUTO_REGION_FILTER = ('us', 'gb', 'ca')
+PLUTO_GROUP_FILTER = ('Anime', 'Kids', 'Movies')
 
-SAMSUNG_REGION_FILTER = tuple(os.getenv("SAMSUNG_REGION_FILTER", "all").split(","))
-SAMSUNG_GROUP_FILTER = tuple(os.getenv("SAMSUNG_GROUP_FILTER", "all").split(","))
+SAMSUNG_REGION_FILTER = ('us', 'gb', 'ca')
+SAMSUNG_GROUP_FILTER = ('Anime & Gaming', 'Kids', 'Movies')
 
-TCL_GROUP_FILTER = tuple(os.getenv("TCL_GROUP_FILTER", "all").split(","))
-ROKU_GROUP_METHOD = os.getenv("ROKU_GROUP_METHOD", "hybrid")
-ROKU_GROUP_FILTER = tuple(os.getenv("ROKU_GROUP_FILTER", "all").split(","))
+TCL_GROUP_FILTER = ('Anime', 'Family & Kids', 'Movies')
 
-TCL_COUNTRY_CODE = os.getenv("TCL_COUNTRY_CODE", "US")
-TCL_STATE_CODE = os.getenv("TCL_STATE_CODE", "OH")
-TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID", "default-device")
-TCL_BASE_URL = os.getenv("TCL_BASE_URL", "https://gateway-prod.ideonow.com")
-TCL_IMAGE_BASE = os.getenv("TCL_IMAGE_BASE", "https://tcl-channel-cdn.ideonow.com")
-TCL_ORIGIN = os.getenv("TCL_ORIGIN", "https://tcltv.plus")
-TCL_EPG_URL = os.getenv("TCL_EPG_URL", "")
+ROKU_GROUP_METHOD = ('hybrid')
+ROKU_GROUP_FILTER = ('Kids', 'Movies')
+
+TCL_COUNTRY_CODE = 'US'
+TCL_STATE_CODE = 'OH'
+TCL_DEVICE_ID = '1776786148042-4c4uc'
+TCL_BASE_URL = "https://gateway-prod.ideonow.com"
+TCL_IMAGE_BASE = "https://tcl-channel-cdn.ideonow.com"
+TCL_ORIGIN = "https://tcltv.plus"
+TCL_EPG_URL = "https://github.com/apistech/project/raw/refs/heads/main/playlists/tcl_epg.xml"
 
 if not PLUTO_GROUP_FILTER: PLUTO_GROUP_FILTER = 'all'
 if not SAMSUNG_GROUP_FILTER: SAMSUNG_GROUP_FILTER = 'all'
