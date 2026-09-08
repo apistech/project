@@ -1,3 +1,4 @@
+import requests
 import gzip
 import json
 import logging
@@ -10,8 +11,6 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 from io import BytesIO
 from pathlib import Path
-
-import requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -23,12 +22,9 @@ def get_env_list(key: str, default: str = "all") -> tuple:
     return tuple(x.strip() for x in val.split(",") if x.strip())
 
 # --- Configuration ---
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "playlists")
-USER_AGENT = os.getenv(
-    "USER_AGENT",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-)
-REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "30"))
+OUTPUT_DIR = "playlists"
+USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+REQUEST_TIMEOUT = 30 
 
 # ===================================================================
 # CONFIG FILTER & METHOD
@@ -37,20 +33,20 @@ REQUEST_TIMEOUT = int(os.getenv("REQUEST_TIMEOUT", "30"))
 # GROUP_FILTER: Isi dengan list kategori, atau ('all')
 # GROUP_METHOD: "api" / "chno" / "hybrid" (Hanya untuk ROKU)
 
-PLUTO_REGION_FILTER = get_env_list("PLUTO_REGION_FILTER")
-PLUTO_GROUP_FILTER = get_env_list("PLUTO_GROUP_FILTER")
+PLUTO_REGION_FILTER = get_env_list("PLUTO_REGION_FILTER", "all")
+PLUTO_GROUP_FILTER = get_env_list("PLUTO_GROUP_FILTER", "all")
 
-SAMSUNG_REGION_FILTER = get_env_list("SAMSUNG_REGION_FILTER")
-SAMSUNG_GROUP_FILTER = get_env_list("SAMSUNG_GROUP_FILTER")
+SAMSUNG_REGION_FILTER = get_env_list("SAMSUNG_REGION_FILTER", "all")
+SAMSUNG_GROUP_FILTER = get_env_list("SAMSUNG_GROUP_FILTER", "all")
 
-TCL_GROUP_FILTER = get_env_list("TCL_GROUP_FILTER")
+TCL_GROUP_FILTER = get_env_list("TCL_GROUP_FILTER", "all")
 
 ROKU_GROUP_METHOD = os.getenv("ROKU_GROUP_METHOD", "hybrid").lower()
-ROKU_GROUP_FILTER = get_env_list("ROKU_GROUP_FILTER")
+ROKU_GROUP_FILTER = get_env_list("ROKU_GROUP_FILTER", "all")
 
-TCL_COUNTRY_CODE = os.getenv("TCL_COUNTRY_CODE")
-TCL_STATE_CODE = os.getenv("TCL_STATE_CODE")
-TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID")
+TCL_COUNTRY_CODE = os.getenv("TCL_COUNTRY_CODE", "US")
+TCL_STATE_CODE = os.getenv("TCL_STATE_CODE", "OH")
+TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID", "1776786148042-4c4uc")
 TCL_BASE_URL = os.getenv("TCL_BASE_URL", "https://gateway-prod.ideonow.com")
 TCL_IMAGE_BASE = os.getenv("TCL_IMAGE_BASE", "https://tcl-channel-cdn.ideonow.com")
 TCL_ORIGIN = os.getenv("TCL_ORIGIN", "https://tcltv.plus")
