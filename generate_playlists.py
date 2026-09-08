@@ -39,11 +39,10 @@ PLUTO_GROUP_FILTER = get_env_list("PLUTO_GROUP_FILTER", "all")
 SAMSUNG_REGION_FILTER = get_env_list("SAMSUNG_REGION_FILTER", "all")
 SAMSUNG_GROUP_FILTER = get_env_list("SAMSUNG_GROUP_FILTER", "all")
 
-TCL_GROUP_FILTER = get_env_list("TCL_GROUP_FILTER", "all")
-
 ROKU_GROUP_METHOD = os.getenv("ROKU_GROUP_METHOD", "hybrid").lower()
 ROKU_GROUP_FILTER = get_env_list("ROKU_GROUP_FILTER", "all")
 
+TCL_GROUP_FILTER = get_env_list("TCL_GROUP_FILTER", "all")
 TCL_COUNTRY_CODE = os.getenv("TCL_COUNTRY_CODE", "US")
 TCL_STATE_CODE = os.getenv("TCL_STATE_CODE", "OH")
 TCL_DEVICE_ID = os.getenv("TCL_DEVICE_ID", "1776786148042-4c4uc")
