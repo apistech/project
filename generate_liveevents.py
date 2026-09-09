@@ -2,11 +2,12 @@ import os
 import requests
 import sys
 import threading
+import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dotenv import load_dotenv
 from pathlib import Path
 from requests.adapters import HTTPAdapter
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 load_dotenv()
 
@@ -212,6 +213,42 @@ def get_filename_from_url(url: str) -> str:
     return filename if filename and filename != "/" else "playlist.m3u"
 
 
+def get_group_title(entry: dict) -> str:
+    """Extract group-title from the first EXTINF line."""
+    for line in entry.get("extinf", []):
+        if line.startswith("#EXTINF"):
+            match = re.search(r"(?i)\\bgroup-title\\s*=\\s*[\"']([^\"']*)[\"']", line)
+            if match:
+                return match.group(1).strip()
+    return ""
+
+
+def get_entry_filename(entry: dict) -> str:
+    """Use the URL path basename as the secondary filename sort key."""
+    parsed = urlparse(entry.get("url", ""))
+    filename = unquote(Path(parsed.path).name).strip()
+    return filename or entry.get("url", "").strip()
+
+
+def natural_sort_key(value: str) -> list[object]:
+    """Case-insensitive natural sort: Channel 2 < Channel 10."""
+    return [
+        int(part) if part.isdigit() else part.casefold()
+        for part in re.split(r"(\\d+)", value)
+    ]
+
+
+def sort_playlist_entries(entries: list[dict]) -> list[dict]:
+    """Stable natural sort: group-title, then filename."""
+    return sorted(
+        entries,
+        key=lambda entry: (
+            natural_sort_key(get_group_title(entry)),
+            natural_sort_key(get_entry_filename(entry)),
+        ),
+    )
+
+
 def process_source(url: str) -> bool:
     filename = get_filename_from_url(url)
     print(f"\n{'=' * 60}\nProcessing: {filename}\nURL: {url}\n{'=' * 60}")
@@ -247,20 +284,25 @@ def process_source(url: str) -> bool:
     if not output:
         output.append("#EXTM3U")
 
+    playable_entries = sort_playlist_entries(
+        [entry for entry in entries if entry["playable"]]
+    )
+
     playable_count = 0
-    for entry in entries:
-        if entry["playable"]:
-            output.extend(entry["extinf"])
-            output.extend(entry["vlcopt"])
-            output.extend(entry["other"])
-            output.append(entry["url"])
-            playable_count += 1
+    for entry in playable_entries:
+        output.extend(entry["extinf"])
+        output.extend(entry["vlcopt"])
+        output.extend(entry["other"])
+        output.append(entry["url"])
+        playable_count += 1
 
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUTPUT_DIR / filename
     out_path.write_text("\n".join(output) + "\n", encoding="utf-8")
 
-    print(f"\nPlayable: {playable_count}/{len(entries)}\nSaved: {out_path}")
+    print(f"\nPlayable: {playable_count}/{len(entries)}")
+    print("Sorted: group-title -> filename")
+    print(f"Saved: {out_path}")
     return True
 
 
