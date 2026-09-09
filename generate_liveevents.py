@@ -1,42 +1,24 @@
+#!/usr/bin/env python3
 import os
-import requests
+import re
 import sys
 import threading
-import re
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from dotenv import load_dotenv
 from pathlib import Path
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 from urllib.parse import unquote, urlparse
 
-load_dotenv()
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 # =========================
-# CONFIGURATION
+# CONFIG
 # =========================
 TIMEOUT = 10
 FETCH_TIMEOUT = 30
 MAX_WORKERS = min(32, (os.cpu_count() or 2) * 2)
 OUTPUT_DIR = Path("playlists")
 MIN_PLAYABLE_RATIO = 0.10
-
-
-env_file = Path(".env")
-if env_file.exists():
-    for line in env_file.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if line and not line.startswith("#") and "=" in line:
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"\''))
-
-sources_raw = os.getenv("PLAYLIST_SOURCES", "")
-
-SOURCES = [
-    url.strip()
-    for url in sources_raw.replace("\n", ",").split(",")
-    if url.strip()
-]
 
 DEFAULT_HEADERS = {
     "User-Agent": (
@@ -47,309 +29,237 @@ DEFAULT_HEADERS = {
     "Accept": "*/*",
 }
 
-VALID_CONTENT_TYPES = {
+VALID_CT = {
     "application/dash+xml",
     "application/vnd.apple.mpegurl",
     "application/x-mpegurl",
-    "video/mp2t",
-    "video/mp4",
-    "video/mpeg",
-    "video/ogg",
-    "video/webm",
-    "video/x-flv",
+    "video/mp2t", "video/mp4", "video/mpeg",
+    "video/ogg", "video/webm", "video/x-flv",
 }
 
-# =========================
-# SESSION POOLING
-# =========================
-_thread_local = threading.local()
+# Load .env sederhana
+env_path = Path(".env")
+if env_path.exists():
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip().strip("'\""))
 
+SOURCES = [
+    u.strip()
+    for u in os.getenv("PLAYLIST_SOURCES", "").replace("\n", ",").split(",")
+    if u.strip()
+]
+
+# =========================
+# SESSION
+# =========================
+_local = threading.local()
 
 def get_session() -> requests.Session:
-    sess = getattr(_thread_local, "session", None)
-    if sess is None:
-        sess = requests.Session()
-        retry = Retry(
-            total=2,
-            connect=2,
-            read=2,
-            backoff_factor=0.5,
-            status_forcelist=[429, 500, 502, 503, 504],
-            allowed_methods=["HEAD", "GET"],
-        )
-        adapter = HTTPAdapter(
-            pool_connections=MAX_WORKERS,
-            pool_maxsize=MAX_WORKERS,
-            max_retries=retry,
-        )
-        sess.mount("http://", adapter)
-        sess.mount("https://", adapter)
-        sess.headers.update(DEFAULT_HEADERS)
-        _thread_local.session = sess
-    return sess
-
+    if not getattr(_local, "session", None):
+        s = requests.Session()
+        retry = Retry(total=2, backoff_factor=0.5,
+                      status_forcelist=[429, 500, 502, 503, 504],
+                      allowed_methods=["HEAD", "GET"])
+        adapter = HTTPAdapter(pool_connections=MAX_WORKERS,
+                              pool_maxsize=MAX_WORKERS, max_retries=retry)
+        s.mount("http://", adapter)
+        s.mount("https://", adapter)
+        s.headers.update(DEFAULT_HEADERS)
+        _local.session = s
+    return _local.session
 
 # =========================
-# CORE FUNCTIONS
+# LIVE CHECK
 # =========================
-def is_playable(url: str, headers: dict = None) -> bool:
-    req_headers = dict(headers) if headers else {}
+def is_playable(url: str, headers: dict | None = None) -> bool:
     sess = get_session()
-    timeout_tuple = (3.0, TIMEOUT)
+    h = headers or {}
+    to = (3.0, TIMEOUT)
 
-    # 1. HEAD request
+    # HEAD fast-path
     try:
-        resp = sess.head(url, headers=req_headers, timeout=timeout_tuple, allow_redirects=True)
-        if resp.status_code < 400:
-            ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
-            if ct in VALID_CONTENT_TYPES:
+        r = sess.head(url, headers=h, timeout=to, allow_redirects=True)
+        if r.status_code < 400:
+            ct = r.headers.get("Content-Type", "").split(";")[0].strip().lower()
+            if ct in VALID_CT:
                 return True
     except requests.RequestException:
         pass
 
-    # 2. GET fallback
+    # GET + sniff
     try:
-        with sess.get(
-            url, headers=req_headers, timeout=timeout_tuple, stream=True, allow_redirects=True
-        ) as resp:
-            if resp.status_code >= 400:
+        with sess.get(url, headers=h, timeout=to, stream=True, allow_redirects=True) as r:
+            if r.status_code >= 400:
                 return False
-
-            ct = resp.headers.get("Content-Type", "").split(";")[0].strip().lower()
-            if ct in VALID_CONTENT_TYPES:
+            ct = r.headers.get("Content-Type", "").split(";")[0].strip().lower()
+            if ct in VALID_CT:
                 return True
 
-            chunk = next(resp.iter_content(chunk_size=2048), b"")
+            chunk = next(r.iter_content(2048), b"")
             if not chunk:
                 return False
 
             preview = chunk.decode("utf-8", errors="ignore").strip()
-
-            if preview.lower().startswith("<html") or "<html" in preview.lower()[:200]:
+            if "<html" in preview[:200].lower():
                 return False
-
-            if preview.startswith("#EXTM3U") or preview.startswith("#EXT-X-"):
+            if preview.startswith(("#EXTM3U", "#EXT-X-")):
                 return True
-
             if chunk[0:1] == b"\x47" or b"ftyp" in chunk[:32] or chunk[:3] == b"ID3" or chunk[:2] == b"\xff\xfb":
                 return True
-
             return False
     except requests.RequestException:
         return False
 
-
+# =========================
+# PARSER & HELPERS
+# =========================
 def parse_m3u(lines: list[str]) -> tuple[list[str], list[dict]]:
-    headers = []
-    entries = []
-
-    current_extinf = []
-    current_other = []
-    current_vlc = []
-
-    in_global_header = True
+    headers, entries = [], []
+    extinf, vlc, other = [], [], []
+    in_header = True
 
     for line in lines:
         line = line.strip()
         if not line:
             continue
 
-        if in_global_header:
+        if in_header:
             if line.startswith("#EXTINF"):
-                in_global_header = False
+                in_header = False
             elif line.startswith("#"):
                 headers.append(line)
                 continue
 
         if line.startswith("#EXTINF"):
-            current_extinf.append(line)
+            extinf.append(line)
         elif line.startswith("#EXTVLCOPT"):
-            current_vlc.append(line)
+            vlc.append(line)
         elif line.startswith("#"):
-            current_other.append(line)
+            other.append(line)
         else:
-            # Reached a URL line
-            entry_headers = {}
-            for opt in current_vlc:
+            hdrs = {}
+            for opt in vlc:
                 if opt.startswith("#EXTVLCOPT:"):
-                    kv = opt[len("#EXTVLCOPT:") :].split("=", 1)
+                    kv = opt[11:].split("=", 1)
                     if len(kv) == 2:
-                        key, val = kv[0].strip(), kv[1].strip()
-                        key_lower = key.lower()
-                        if key_lower == "http-referrer":
-                            entry_headers["Referer"] = val
-                        elif key_lower == "http-origin":
-                            entry_headers["Origin"] = val
-                        elif key_lower == "http-user-agent":
-                            entry_headers["User-Agent"] = val
+                        k, v = kv[0].strip().lower(), kv[1].strip()
+                        if k == "http-referrer":
+                            hdrs["Referer"] = v
+                        elif k == "http-origin":
+                            hdrs["Origin"] = v
+                        elif k == "http-user-agent":
+                            hdrs["User-Agent"] = v
 
             entries.append({
-                "extinf": current_extinf[:],
-                "vlcopt": current_vlc[:],
-                "other": current_other[:],
-                "url": line,
-                "headers": entry_headers,
+                "extinf": extinf[:], "vlcopt": vlc[:], "other": other[:],
+                "url": line, "headers": hdrs
             })
-
-            current_extinf.clear()
-            current_vlc.clear()
-            current_other.clear()
+            extinf.clear(); vlc.clear(); other.clear()
 
     return headers, entries
 
 
-def dedup_by_url(entries: list[dict]) -> tuple[list[dict], int]:
-    seen = set()
-    unique = []
-    for entry in entries:
-        if entry["url"] not in seen:
-            seen.add(entry["url"])
-            unique.append(entry)
-    return unique, len(entries) - len(unique)
+def natural_key(s: str) -> list:
+    return [int(p) if p.isdigit() else p.casefold() for p in re.split(r"(\d+)", s)]
 
 
-def fetch_playlist(url: str) -> list[str] | None:
-    try:
-        resp = get_session().get(url, timeout=FETCH_TIMEOUT)
-        resp.raise_for_status()
-        return resp.text.splitlines()
-    except requests.RequestException as e:
-        print(f"  [ERROR] Failed to fetch: {e}")
-        return None
-
-
-def get_filename_from_url(url: str) -> str:
-    parsed = urlparse(url)
-    filename = Path(parsed.path).name
-    return filename if filename and filename != "/" else "playlist.m3u"
-
-
-def get_group_title(entry: dict) -> str:
-    """Extract group-title from the first EXTINF line."""
+def get_group(entry: dict) -> str:
     for line in entry.get("extinf", []):
-        if line.startswith("#EXTINF"):
-            match = re.search(r"(?i)\bgroup-title\s*=\s*[\"']([^\"']*)[\"']", line)
-            if match:
-                return match.group(1).strip()
+        m = re.search(r'(?i)group-title\s*=\s*["\']([^"\']*)["\']', line)
+        if m:
+            return m.group(1).strip()
     return ""
 
 
-def get_entry_filename(entry: dict) -> str:
-    """Use the URL path basename as the secondary filename sort key."""
-    parsed = urlparse(entry.get("url", ""))
-    filename = unquote(Path(parsed.path).name).strip()
-    return filename or entry.get("url", "").strip()
+def get_filename(entry: dict) -> str:
+    name = unquote(Path(urlparse(entry.get("url", "")).path).name).strip()
+    return name or entry.get("url", "")
 
 
-def natural_sort_key(value: str) -> list[object]:
-    """Case-insensitive natural sort: Channel 2 < Channel 10."""
-    return [
-        int(part) if part.isdigit() else part.casefold()
-        for part in re.split(r"(\d+)", value)
-    ]
+def sort_entries(entries: list[dict]) -> list[dict]:
+    return sorted(entries, key=lambda e: (natural_key(get_group(e)), natural_key(get_filename(e))))
 
 
-def sort_playlist_entries(entries: list[dict]) -> list[dict]:
-    """Stable natural sort: group-title, then filename."""
-    return sorted(
-        entries,
-        key=lambda entry: (
-            natural_sort_key(get_group_title(entry)),
-            natural_sort_key(get_entry_filename(entry)),
-        ),
-    )
-
-
-def _atomic_write_text(path: Path, content: str) -> None:
-    tmp_path = path.with_suffix(path.suffix + ".tmp")
+def atomic_write(path: Path, text: str) -> None:
+    tmp = path.with_suffix(path.suffix + ".tmp")
     try:
-        tmp_path.write_text(content, encoding="utf-8")
-        tmp_path.replace(path)  # atomic on POSIX & Windows NTFS same-volume
+        tmp.write_text(text, encoding="utf-8")
+        tmp.replace(path)
     except Exception:
-        if tmp_path.exists():
-            tmp_path.unlink()
+        if tmp.exists():
+            tmp.unlink()
         raise
 
-
+# =========================
+# PROCESS
+# =========================
 def process_source(url: str) -> bool:
-    filename = get_filename_from_url(url)
-    print(f"\n{'=' * 60}\nProcessing: {filename}\nURL: {url}\n{'=' * 60}")
+    filename = Path(urlparse(url).path).name or "playlist.m3u"
+    print(f"\n{'='*60}\nProcessing: {filename}\n{url}\n{'='*60}")
 
     try:
-        lines = fetch_playlist(url)
-        if not lines:
-            return False
-
-        headers, entries = parse_m3u(lines)
-        if not entries:
-            print(f"[SKIP] {filename}: no entries found")
-            return False
-
-        entries, dup_count = dedup_by_url(entries)
-        print(f"Unique entries to test: {len(entries)} (Duplicates: {dup_count})")
-
-        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
-            futures = {
-                executor.submit(is_playable, entry["url"], entry["headers"]): entry
-                for entry in entries
-            }
-
-            for i, future in enumerate(as_completed(futures), 1):
-                entry = futures[future]
-                try:
-                    entry["playable"] = future.result()
-                except Exception:
-                    entry["playable"] = False
-                status = "OK" if entry["playable"] else "DEAD"
-                print(f"[{i:>3}/{len(entries)}] {status} {entry['url'][:60]}")
-
-        output = headers.copy()
-        if not output:
-            output.append("#EXTM3U")
-
-        playable_entries = sort_playlist_entries(
-            [entry for entry in entries if entry["playable"]]
-        )
-        playable_count = len(playable_entries)
-
-        ratio = playable_count / len(entries) if entries else 0
-        if ratio < MIN_PLAYABLE_RATIO:
-            print(
-                f"[SANITY CHECK FAILED] {filename}: only {playable_count}/{len(entries)} "
-                f"playable ({ratio:.0%}, threshold {MIN_PLAYABLE_RATIO:.0%}). "
-                f"Refusing to overwrite existing output."
-            )
-            return False
-
-        for entry in playable_entries:
-            output.extend(entry["extinf"])
-            output.extend(entry["vlcopt"])
-            output.extend(entry["other"])
-            output.append(entry["url"])
-
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        out_path = OUTPUT_DIR / filename
-        _atomic_write_text(out_path, "\n".join(output) + "\n")
-
-        print(f"\nPlayable: {playable_count}/{len(entries)}")
-        print("Sorted: group-title -> filename")
-        print(f"Saved: {out_path}")
-        return True
-
-    except Exception as e:
-        print(f"[ERROR] {filename}: unhandled exception: {e}")
+        resp = get_session().get(url, timeout=FETCH_TIMEOUT)
+        resp.raise_for_status()
+        lines = resp.text.splitlines()
+    except requests.RequestException as e:
+        print(f"  [ERROR] Fetch failed: {e}")
         return False
+
+    headers, entries = parse_m3u(lines)
+    if not entries:
+        print(f"[SKIP] {filename}: no entries")
+        return False
+
+    # Dedup
+    seen, unique = set(), []
+    for e in entries:
+        if e["url"] not in seen:
+            seen.add(e["url"])
+            unique.append(e)
+    print(f"Unique: {len(unique)} (dup: {len(entries)-len(unique)})")
+
+    # Parallel check
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
+        futs = {pool.submit(is_playable, e["url"], e["headers"]): e for e in unique}
+        for i, fut in enumerate(as_completed(futs), 1):
+            e = futs[fut]
+            try:
+                e["playable"] = fut.result()
+            except Exception:
+                e["playable"] = False
+            print(f"[{i:>3}/{len(unique)}] {'OK' if e['playable'] else 'DEAD'} {e['url'][:60]}")
+
+    playable = sort_entries([e for e in unique if e.get("playable")])
+    ratio = len(playable) / len(unique) if unique else 0
+
+    if ratio < MIN_PLAYABLE_RATIO:
+        print(f"[SANITY] {filename}: {len(playable)}/{len(unique)} ({ratio:.0%}) < {MIN_PLAYABLE_RATIO:.0%} → skip write")
+        return False
+
+    out = headers or ["#EXTM3U"]
+    for e in playable:
+        out.extend(e["extinf"] + e["vlcopt"] + e["other"] + [e["url"]])
+
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_path = OUTPUT_DIR / filename
+    atomic_write(out_path, "\n".join(out) + "\n")
+
+    print(f"Playable: {len(playable)}/{len(unique)} | Saved: {out_path}")
+    return True
 
 
 def main():
     if not SOURCES:
         sys.exit(1)
 
-    results = {get_filename_from_url(url): process_source(url) for url in SOURCES}
+    results = {Path(urlparse(u).path).name or u: process_source(u) for u in SOURCES}
 
-    print(f"\n{'=' * 60}\nSUMMARY\n{'=' * 60}")
-    for name, success in results.items():
-        print(f"  {name}: {'OK' if success else 'FAILED'}")
+    print(f"\n{'='*60}\nSUMMARY\n{'='*60}")
+    for name, ok in results.items():
+        print(f"  {name}: {'OK' if ok else 'FAILED'}")
 
     if not any(results.values()):
         sys.exit(1)
