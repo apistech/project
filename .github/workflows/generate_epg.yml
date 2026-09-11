@@ -2,7 +2,7 @@ name: Generate Master EPG Pipeline
 
 on:
   schedule:
-    - cron: '0 */12 * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
   push:
     branches:
@@ -23,7 +23,7 @@ concurrency:
 jobs:
   build-epg:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout Repository
