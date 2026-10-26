@@ -1,53 +1,13 @@
 #EXTM3U url-tvg="https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
-#EXTINF:-1 tvg-chno="317" tvg-id="NFL.Dummy.us" tvg-name="[NFL] Denver Broncos at Arizona Cardinals (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL] Denver Broncos at Arizona Cardinals (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nfl/broncos.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/f1.m3u8
-#EXTINF:-1 tvg-chno="284" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Memphis Grizzlies at Sacramento Kings (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Memphis Grizzlies at Sacramento Kings (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nba/grizzlies.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/grizzlies.m3u8
-#EXTINF:-1 tvg-chno="293" tvg-id="NFL.Dummy.us" tvg-name="[NFL American Football] Seattle Seahawks vs Kansas City Chiefs 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL American Football] Seattle Seahawks vs Kansas City Chiefs 1 (FAWA)
+#EXTINF:-1 tvg-chno="190" tvg-id="Tennis.Dummy.us" tvg-name="[Tennis ATP] Tennis ATP Vienna (FAWA)" tvg-logo="https://files.catbox.moe/q8ljra.png" group-title="Live Events",[Tennis ATP] Tennis ATP Vienna (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.44/hls/HYHYHY.m3u8
-#EXTINF:-1 tvg-chno="283" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Los Angeles Lakers at Utah Jazz (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Los Angeles Lakers at Utah Jazz (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nba/lakers.html
+http://193.47.62.44/hls/EJJJA.m3u8
+#EXTINF:-1 tvg-chno="189" tvg-id="Tennis.Dummy.us" tvg-name="[Tennis ATP] Tennis ATP Basel (FAWA)" tvg-logo="https://files.catbox.moe/q8ljra.png" group-title="Live Events",[Tennis ATP] Tennis ATP Basel (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/lakers.m3u8
-#EXTINF:-1 tvg-chno="360" tvg-id="Racing.Dummy.us" tvg-name="[Nascar Cup Series] Nascar Cup Series 2026 - Yellawood 500 (iSTRMEAST)" tvg-logo="https://logos-world.net/wp-content/uploads/2021/09/NASCAR-Logo.png" group-title="Live Events",[Nascar Cup Series] Nascar Cup Series 2026 - Yellawood 500 (iSTRMEAST)
+http://193.47.62.44/hls/EJJJAA.m3u8
+#EXTINF:-1 tvg-chno="143" tvg-id="Racing.Dummy.us" tvg-name="[Nascar Cup Series] Nascar Cup Series 2026 - Yellawood 500 (iSTRMEAST)" tvg-logo="https://logos-world.net/wp-content/uploads/2021/09/NASCAR-Logo.png" group-title="Live Events",[Nascar Cup Series] Nascar Cup Series 2026 - Yellawood 500 (iSTRMEAST)
 #EXTVLCOPT:http-referrer=https://gooz.aapmains.net/new-stream-embed/58654?ad=111
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
 https://chatgpt.hereisman.net/playlist/58654/load-playlist
-#EXTINF:-1 tvg-chno="344" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Nashville Predators vs Colorado Avalanche (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Nashville Predators vs Colorado Avalanche (FAWA)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/befa533e-778f-4284-a205-cca6dffcd8a7/master.m3u8
-#EXTINF:-1 tvg-chno="345" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Vancouver Canucks vs Minnesota Wild (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Vancouver Canucks vs Minnesota Wild (FAWA)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/251c5470-406e-4e2f-86b5-946daf4fc2bf/master.m3u8
-#EXTINF:-1 tvg-chno="346" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Winnipeg Jets vs Montreal Canadiens (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Winnipeg Jets vs Montreal Canadiens (FAWA)
-#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/ecf17c46-fc5c-4209-bae9-28df09488ab5/master.m3u8
-#EXTINF:-1 tvg-chno="289" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Sacramento Kings vs Memphis Grizzlies (REED)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Sacramento Kings vs Memphis Grizzlies (REED)
-#EXTVLCOPT:http-referrer=https://reedstreams.link
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://admin2.formaturamaxi.com.br/nba7.m3u8
-#EXTINF:-1 tvg-chno="357" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL] Vancouver Canucks vs Minnesota Wild (REED)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL] Vancouver Canucks vs Minnesota Wild (REED)
-#EXTVLCOPT:http-referrer=https://reedstreams.link
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://admin2.formaturamaxi.com.br/nhl5.m3u8
-#EXTINF:-1 tvg-chno="278" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Indiana Pacers at Brooklyn Nets (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Indiana Pacers at Brooklyn Nets (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nba/pacers.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/pacers.m3u8
-#EXTINF:-1 tvg-chno="321" tvg-id="NFL.Dummy.us" tvg-name="[NFL] Green Bay Packers at Detroit Lions (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL] Green Bay Packers at Detroit Lions (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nfl/packers.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/packers.m3u8
-#EXTINF:-1 tvg-chno="329" tvg-id="NFL.Dummy.us" tvg-name="[NFL] Los Angeles Rams at Las Vegas Raiders (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nfl.png" group-title="Live Events",[NFL] Los Angeles Rams at Las Vegas Raiders (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://edgesports.cfd/nfl/raiders.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://timberlinevault.s3.eu-central-1.amazonaws.com/raiders.m3u8
