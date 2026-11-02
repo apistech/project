@@ -1,17 +1,22 @@
 #EXTM3U
-# Generated: 2026-11-01 20:07:17
+# Generated: 2026-11-02 04:06:43
 
 #EXTINF:-1 tvg-id="RCTI" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png",RCTI
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/rcti/index.m3u8?auth_key=1793574436-dfe7651ff9faaa17b14aea40065ec7ed-0-1934f9100fa4a54e2df3590be56a8a26
+https://proxy-b.rctiplus.id/live/web/rcti/index.m3u8?auth_key=1793603202-174012f63e17c6517daf8f45286b9c82-0-c4595f90696b1b9fc230f9a56946c501
 
 #EXTINF:-1 tvg-id="MNCTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/MNCTV.png",MNCTV
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/mnctv/index.m3u8?auth_key=1793574436-ffcbf587143524f610099c8e7c00fc30-0-70e36aba0b123ea4a44f9366cbb61aeb
+https://proxy-b.rctiplus.id/live/web/mnctv/index.m3u8?auth_key=1793603203-0afd4f35aa0660704590c3d34d23388c-0-c815ff11135cc4e2392dda3d81b49a26
+
+#EXTINF:-1 tvg-id="GTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/GTV.png",GTV
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+https://proxy-b.rctiplus.id/live/web/gtv/index.m3u8?auth_key=1793603203-4207a06a451ee634ac3d6dfc6ed65227-0-c89df7d2a76d474a321d454dfc7d8c95
 
 #EXTINF:-1 tvg-id="iNews" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/iNews.png",iNews
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/inews/index.m3u8?auth_key=1793574437-88e0ae49791f34e6d1ee6dea2e495a94-0-365cdc1de869dcb6f4f64ec793e1695a
+https://proxy-b.rctiplus.id/live/web/inews/index.m3u8?auth_key=1793603203-81463a7fffb85cb11481e4b5cf6afa31-0-18c16056b20818bc249ed1ee91e149fe
