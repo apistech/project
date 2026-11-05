@@ -1,77 +1,141 @@
 #EXTM3U url-tvg="https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
-#EXTINF:-1 tvg-chno="14" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Eurocup] Hapoel Jerusalem vs Aris (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2024/04/Basketball-Emoji-1536x864.png" group-title="Live Events",[Basketball Eurocup] Hapoel Jerusalem vs Aris (FAWA)
+#EXTINF:-1 tvg-chno="181" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Philadelphia 76ers at Detroit Pistons (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Philadelphia 76ers at Detroit Pistons (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/76ers.m3u8
+#EXTINF:-1 tvg-chno="146" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Cleveland Cavaliers at Oklahoma City Thunder (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Cleveland Cavaliers at Oklahoma City Thunder (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/cavaliers.m3u8
+#EXTINF:-1 tvg-chno="168" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Milwaukee Bucks at Boston Celtics (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Milwaukee Bucks at Boston Celtics (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/celtics.m3u8
+#EXTINF:-1 tvg-chno="63" tvg-id="Soccer.Dummy.us" tvg-name="[Colombia Primera A] Cucuta vs Santa Fe (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/1543.png" group-title="Live Events",[Colombia Primera A] Cucuta vs Santa Fe (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/hahahaaqqq.m3u8
-#EXTINF:-1 tvg-chno="151" tvg-id="Soccer.Dummy.us" tvg-name="[Soccer] Borussia Dortmund vs Real Betis (XYZ)" tvg-logo="https://images.grassy-level770.workers.dev/?logo1=https://cdn.livesoccertv.com/tt/images/teams/germany/logos/borussia-dortmund.png?q=65&w=100&logo2=https://cdn.livesoccertv.com/tt/images/teams/spain/logos/real-betis.png?q=65&w=100&logo3=https://cdn.livesoccertv.com/tt/images/competitions/50-uefa-champions-league.png?q=75&w=50&color1=FDE100&color2=00BB2D&q=65&w=100" group-title="Live Events",[Soccer] Borussia Dortmund vs Real Betis (XYZ)
-#EXTVLCOPT:http-referrer=https://xyzstreams.st/soccer-4.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://hls.kozow.com/tnt4/mono.ts.m3u8?token=62f45ea2b4f4c3461934caa08a091e71
-#EXTINF:-1 tvg-chno="152" tvg-id="Soccer.Dummy.us" tvg-name="[Soccer] Porto vs Napoli (XYZ)" tvg-logo="https://images.grassy-level770.workers.dev/?logo1=https://cdn.livesoccertv.com/tt/images/teams/portugal/logos/fc-porto.png?q=65&w=100&logo2=https://cdn.livesoccertv.com/tt/images/teams/italy/logos/napoli.png?q=65&w=100&logo3=https://cdn.livesoccertv.com/tt/images/competitions/50-uefa-champions-league.png?q=75&w=50&color1=004A97&color2=1D64B0&q=65&w=100" group-title="Live Events",[Soccer] Porto vs Napoli (XYZ)
-#EXTVLCOPT:http-referrer=https://xyzstreams.st/soccer-5.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://us-xyz.work.gd/CBSSN/mono.ts.m3u8?token=dc0099942e7ab1cc957d896d36d6a969
-#EXTINF:-1 tvg-chno="153" tvg-id="Soccer.Dummy.us" tvg-name="[Soccer] RB Leipzig vs Manchester City (XYZ)" tvg-logo="https://images.grassy-level770.workers.dev/?logo1=https://cdn.livesoccertv.com/tt/images/teams/germany/logos/rb-leipzig.png?q=65&w=100&logo2=https://cdn.livesoccertv.com/tt/images/teams/england/logos/manchester-city.png?q=65&w=100&logo3=https://cdn.livesoccertv.com/tt/images/competitions/50-uefa-champions-league.png?q=75&w=50&color1=DD0033&color2=6CABDD&q=65&w=100" group-title="Live Events",[Soccer] RB Leipzig vs Manchester City (XYZ)
-#EXTVLCOPT:http-referrer=https://xyzstreams.st/soccer-2.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://hls.kozow.com/tnt2/mono.ts.m3u8?token=62f45ea2b4f4c3461934caa08a091e71
-#EXTINF:-1 tvg-chno="154" tvg-id="Soccer.Dummy.us" tvg-name="[Soccer] Slavia Praha vs Arsenal (XYZ)" tvg-logo="https://images.grassy-level770.workers.dev/?logo1=https://cdn.livesoccertv.com/tt/images/teams/czech-republic/logos/slavia-praha.png?q=65&w=100&logo2=https://cdn.livesoccertv.com/tt/images/teams/england/logos/arsenal.png?q=65&w=100&logo3=https://cdn.livesoccertv.com/tt/images/competitions/50-uefa-champions-league.png?q=75&w=50&color1=E30613&color2=EF0107&q=65&w=100" group-title="Live Events",[Soccer] Slavia Praha vs Arsenal (XYZ)
-#EXTVLCOPT:http-referrer=https://xyzstreams.st/soccer-1.html
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://eu-4605069466.duckdns.org/tnt1/mono.ts.m3u8?token=a72572a88cf8b93c7ced978cb5992c69
-#EXTINF:-1 tvg-chno="37" tvg-id="Soccer.Dummy.us" tvg-name="[Champions League] Borussia Dortmund vs Real Betis (DAMITV)" tvg-logo="https://damitv.st/img/cards/uefa.champions/401915304.jpg?v=ball1nf" group-title="Live Events",[Champions League] Borussia Dortmund vs Real Betis (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-2dc3c39dad
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/ucl/2026-11-04/dor-bet/playlist.m3u8?tk=fme1jZIZlH23R-i7bWB90g&e=1793863818
-#EXTINF:-1 tvg-chno="40" tvg-id="Soccer.Dummy.us" tvg-name="[Champions League] Lens vs Como (DAMITV)" tvg-logo="https://damitv.st/img/cards/uefa.champions/401915305.jpg?v=ball1nf" group-title="Live Events",[Champions League] Lens vs Como (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-590dce01de
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/ucl/2026-11-04/rcl-como/playlist.m3u8?tk=OrzWSJnY9hC7sizTN7TWrg&e=1793863823
-#EXTINF:-1 tvg-chno="44" tvg-id="Soccer.Dummy.us" tvg-name="[Champions League] PSV Eindhoven vs Club Brugge (DAMITV)" tvg-logo="https://damitv.st/img/cards/uefa.champions/401915303.jpg?v=ball1nf" group-title="Live Events",[Champions League] PSV Eindhoven vs Club Brugge (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-53dce371e1
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/ucl/2026-11-04/psv-bru/playlist.m3u8?tk=3Vw9emejGOSpfMAogRj1Lg&e=1793863827
-#EXTINF:-1 tvg-chno="45" tvg-id="Soccer.Dummy.us" tvg-name="[Champions League] RB Leipzig vs Manchester City (DAMITV)" tvg-logo="https://damitv.st/img/cards/uefa.champions/401915306.jpg?v=ball1nf" group-title="Live Events",[Champions League] RB Leipzig vs Manchester City (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-82ef1db99f
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/ucl/2026-11-04/rbl-mci/playlist.m3u8?tk=hkVlR1tS8YUaqFF03AF5JQ&e=1793863828
-#EXTINF:-1 tvg-chno="49" tvg-id="Soccer.Dummy.us" tvg-name="[Champions League] Slavia Prague vs Arsenal (DAMITV)" tvg-logo="https://damitv.st/img/cards/uefa.champions/401915381.jpg?v=ball1nf" group-title="Live Events",[Champions League] Slavia Prague vs Arsenal (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-ed9ae2a1f2
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/ucl/2026-11-04/slp-ars/playlist.m3u8?tk=hkVlR1tS8YUaqFF03AF5JQ&e=1793863828
-#EXTINF:-1 tvg-chno="50" tvg-id="Soccer.Dummy.us" tvg-name="[Championship] Bristol City vs Wolverhampton Wanderers (DAMITV)" tvg-logo="https://damitv.st/img/cards/eng.2/401880176.jpg?v=3nf" group-title="Live Events",[Championship] Bristol City vs Wolverhampton Wanderers (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=mm-own-3ec3116fc6
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/efl-championship/2026-11-04/brc-wol/playlist.m3u8?tk=UoHdjSuh1jBcZxcOZFoeFw&e=1793863834
-#EXTINF:-1 tvg-chno="159" tvg-id="Tennis.Dummy.us" tvg-name="[Tennis ATP] Tennis Masters Paris 1 (FAWA)" tvg-logo="https://files.catbox.moe/q8ljra.png" group-title="Live Events",[Tennis ATP] Tennis Masters Paris 1 (FAWA)
+http://193.47.62.50/hls/GUUU.m3u8
+#EXTINF:-1 tvg-chno="206" tvg-id="NCAA.Sports.Dummy.us" tvg-name="[NCAA American Football] CS Sacramento vs Toledo (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2021/12/NCAA-Logo-500x281.png" group-title="Live Events",[NCAA American Football] CS Sacramento vs Toledo (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.44/hls/T777AA.m3u8
-#EXTINF:-1 tvg-chno="90" tvg-id="Soccer.Dummy.us" tvg-name="[English Championship] Bristol City vs Wolves (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/24.png" group-title="Live Events",[English Championship] Bristol City vs Wolves (FAWA)
+http://193.47.62.50/hls/GUUUAAAQ.m3u8
+#EXTINF:-1 tvg-chno="131" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Atlanta Hawks at Washington Wizards (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Atlanta Hawks at Washington Wizards (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/hawks.m3u8
+#EXTINF:-1 tvg-chno="139" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Charlotte Hornets at Brooklyn Nets (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Charlotte Hornets at Brooklyn Nets (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/hornets.m3u8
+#EXTINF:-1 tvg-chno="120" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA Basketball] New Orleans Pelicans vs Utah Jazz (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA Basketball] New Orleans Pelicans vs Utah Jazz (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/tiiiAAAA.m3u8
-#EXTINF:-1 tvg-chno="120" tvg-id="Soccer.Dummy.us" tvg-name="[Morocco Botola Pro] FAR Rabat vs Raja Casablanca (FAWA)" tvg-logo="https://assets.footylogos.com/previews/botola-pro-1/botola-pro-1-logo-footylogos-320.webp" group-title="Live Events",[Morocco Botola Pro] FAR Rabat vs Raja Casablanca (FAWA)
+http://193.47.62.59/hls/IIIIS.m3u8
+#EXTINF:-1 tvg-chno="115" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA Basketball] Houston Rockets vs Minnesota Timberwolves (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA Basketball] Houston Rockets vs Minnesota Timberwolves (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/tiiiAAAAA.m3u8
-#EXTINF:-1 tvg-chno="95" tvg-id="Soccer.Dummy.us" tvg-name="[English Championship] Wrexham vs Middlesbrough 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/24.png" group-title="Live Events",[English Championship] Wrexham vs Middlesbrough 1 (FAWA)
+http://193.47.62.41/hls/JJJJAA.m3u8
+#EXTINF:-1 tvg-chno="175" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] New Orleans Pelicans vs Utah Jazz (iSTRMEAST)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] New Orleans Pelicans vs Utah Jazz (iSTRMEAST)
+#EXTVLCOPT:http-referrer=https://gooz.aapmains.net/new-stream-embed/59280?ad=111
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://chatgpt.hereisman.net/playlist/59280/load-playlist
+#EXTINF:-1 tvg-chno="186" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Portland Trail Blazers vs Phoenix Suns | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Portland Trail Blazers vs Phoenix Suns | English (STRMGATE)
+#EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401909932
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://instreams.live/live/tv401909932/master.m3u8?st=0ecX7Q6-_zPNt_YKTGAQQw&e=1793853008
+#EXTINF:-1 tvg-chno="196" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Toronto Raptors vs Denver Nuggets | English (STRMGATE)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Toronto Raptors vs Denver Nuggets | English (STRMGATE)
+#EXTVLCOPT:http-referrer=https://xstream.st/livetv.php?stream=tv401909931
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://instreams.pro/live/tv401909931/master.m3u8?st=UxQBvXUqgfheb8lFkvllPw&e=1793853007
+#EXTINF:-1 tvg-chno="233" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Buffalo Sabres vs Ottawa Senators (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Buffalo Sabres vs Ottawa Senators (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/tiiiAAAX.m3u8
-#EXTINF:-1 tvg-chno="97" tvg-id="Soccer.Dummy.us" tvg-name="[English League One] Oxford Utd vs Reading (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/25.png" group-title="Live Events",[English League One] Oxford Utd vs Reading (FAWA)
+https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/28df0116-44a4-4226-ae9f-9e902ffb5436/master.m3u8
+#EXTINF:-1 tvg-chno="234" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Florida Panthers vs Chicago Blackhawks (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Florida Panthers vs Chicago Blackhawks (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/tiiiAX.m3u8
-#EXTINF:-1 tvg-chno="15" tvg-id="Basketball.Dummy.us" tvg-name="[Basketball Euroleague] Real Madrid vs Panathinaikos (FAWA)" tvg-logo="https://www.euroleaguebasketball.net/images/logo-default.png" group-title="Live Events",[Basketball Euroleague] Real Madrid vs Panathinaikos (FAWA)
+https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/e605c24e-bdb8-4039-b8da-b3f6713cb42e/master.m3u8
+#EXTINF:-1 tvg-chno="235" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Los Angeles Kings vs San Jose Sharks (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Los Angeles Kings vs San Jose Sharks (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/tiiiX.m3u8
-#EXTINF:-1 tvg-chno="251" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Champions League] PSV vs Club Brugge 1 (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2.png" group-title="Live Events",[UEFA Champions League] PSV vs Club Brugge 1 (FAWA)
+https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/1815c607-a61f-446b-8084-0a0408e903f9/master.m3u8
+#EXTINF:-1 tvg-chno="236" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Seattle Kraken vs Calgary Flames (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Seattle Kraken vs Calgary Flames (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/z777AA.m3u8
-#EXTINF:-1 tvg-chno="305" tvg-id="Soccer.Dummy.us" tvg-name="[UEFA Champions League] UEFA Champions League Simulcast (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2.png" group-title="Live Events",[UEFA Champions League] UEFA Champions League Simulcast (FAWA)
+https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/921c0f98-fa7f-4b90-81cf-261ea8302108/master.m3u8
+#EXTINF:-1 tvg-chno="161" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Indiana Pacers at Memphis Grizzlies (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Indiana Pacers at Memphis Grizzlies (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/pacers.m3u8
+#EXTINF:-1 tvg-chno="197" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Utah Jazz at New Orleans Pelicans (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Utah Jazz at New Orleans Pelicans (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/pelicans.m3u8
+#EXTINF:-1 tvg-chno="2" tvg-id="PPV.EVENTS.Dummy.us" tvg-name="[AEW] AEW Wednesday Night Dynamite (DAMITV)" tvg-logo="https://r2.thesportsdb.com/images/media/event/thumb/2k4tzi1792804225.jpg/preview" group-title="Live Events",[AEW] AEW Wednesday Night Dynamite (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=ev-aew-2026-11-04
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/aew/2026-11-04/playlist.m3u8?tk=zVaPaqkqfQZgCEQCgDksmQ&e=1793881809
+#EXTINF:-1 tvg-chno="250" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Boston Celtics vs Milwaukee Bucks (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909924.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Boston Celtics vs Milwaukee Bucks (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909924
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/mil-bos/playlist.m3u8?tk=V2jqkS5FEyJgNMsL6Rntsg&e=1793880009
+#EXTINF:-1 tvg-chno="252" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Brooklyn Nets vs Charlotte Hornets (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909925.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Brooklyn Nets vs Charlotte Hornets (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909925
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/cha-bkn/playlist.m3u8?tk=Xzry8GHxUDvwmozPilPbBA&e=1793880010
+#EXTINF:-1 tvg-chno="254" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Denver Nuggets vs Toronto Raptors (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909931.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Denver Nuggets vs Toronto Raptors (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909931
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/tor-den/playlist.m3u8?tk=AjHfodA6sgqU3z5ytsVGPg&e=1793885407
+#EXTINF:-1 tvg-chno="256" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Detroit Pistons vs Philadelphia 76ers (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909922.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Detroit Pistons vs Philadelphia 76ers (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909922
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/phi-det/playlist.m3u8?tk=V2jqkS5FEyJgNMsL6Rntsg&e=1793880009
+#EXTINF:-1 tvg-chno="258" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Houston Rockets vs Minnesota Timberwolves (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909930.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Houston Rockets vs Minnesota Timberwolves (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909930
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/min-hou/playlist.m3u8?tk=VIs3Fk_4x6ndDmHIirxPBw&e=1793883606
+#EXTINF:-1 tvg-chno="262" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] New Orleans Pelicans vs Utah Jazz (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909928.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] New Orleans Pelicans vs Utah Jazz (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909928
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/utah-no/playlist.m3u8?tk=OjhOkQQ2kPQrUpu7igBOcw&e=1793881808
+#EXTINF:-1 tvg-chno="264" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] New York Knicks vs Chicago Bulls (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909926.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] New York Knicks vs Chicago Bulls (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909926
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/chi-ny/playlist.m3u8?tk=Xzry8GHxUDvwmozPilPbBA&e=1793880010
+#EXTINF:-1 tvg-chno="266" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Oklahoma City Thunder vs Cleveland Cavaliers (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909929.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Oklahoma City Thunder vs Cleveland Cavaliers (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909929
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/cle-okc/playlist.m3u8?tk=OjhOkQQ2kPQrUpu7igBOcw&e=1793881808
+#EXTINF:-1 tvg-chno="268" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Phoenix Suns vs Portland Trail Blazers (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909932.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Phoenix Suns vs Portland Trail Blazers (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909932
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nba/2026-11-04/por-phx/playlist.m3u8?tk=AjHfodA6sgqU3z5ytsVGPg&e=1793885407
+#EXTINF:-1 tvg-chno="272" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[National Hockey League] Buffalo Sabres vs Ottawa Senators (DAMITV)" tvg-logo="https://damitv.st/img/cards/nhl/401892644.jpg?v=spl2nf" group-title="Live Events",[National Hockey League] Buffalo Sabres vs Ottawa Senators (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401892644
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nhl/2026-11-04/ott-buf/playlist.m3u8?tk=0ZEi9lW8WmsMXz0RvjThcQ&e=1793880011
+#EXTINF:-1 tvg-chno="274" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[National Hockey League] Florida Panthers vs Chicago Blackhawks (DAMITV)" tvg-logo="https://damitv.st/img/cards/nhl/401892645.jpg?v=spl2nf" group-title="Live Events",[National Hockey League] Florida Panthers vs Chicago Blackhawks (DAMITV)
+#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401892645
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://messi.damitv.st/live-hls/channel/nhl/2026-11-04/chi-fla/playlist.m3u8?tk=0ZEi9lW8WmsMXz0RvjThcQ&e=1793880011
+#EXTINF:-1 tvg-chno="128" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA Basketball] San Antonio Spurs vs Dallas Mavericks (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA Basketball] San Antonio Spurs vs Dallas Mavericks (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-http://193.47.62.50/hls/z777AAA.m3u8
+http://193.47.62.55/hls/QQQQFF.m3u8
+#EXTINF:-1 tvg-chno="1" tvg-id="PPV.EVENTS.Dummy.us" tvg-name="[AEW Wrestling] AEW Dynamite (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="Live Events",[AEW Wrestling] AEW Dynamite (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.55/hls/QQQQFFA.m3u8
+#EXTINF:-1 tvg-chno="172" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Minnesota Timberwolves at Houston Rockets (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Minnesota Timberwolves at Houston Rockets (SPRTSPASS)
+#EXTVLCOPT:http-referrer=https://streamseast.dad
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+https://calmcedar.s3.eu-west-1.amazonaws.com/rockets.m3u8
+#EXTINF:-1 tvg-chno="208" tvg-id="NCAA.Sports.Dummy.us" tvg-name="[NCAA American Football] Massachusetts vs Ball State (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2021/12/NCAA-Logo-500x281.png" group-title="Live Events",[NCAA American Football] Massachusetts vs Ball State (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.50/hls/ROOO.m3u8
+#EXTINF:-1 tvg-chno="207" tvg-id="NCAA.Sports.Dummy.us" tvg-name="[NCAA American Football] Eastern Michigan vs Central Michigan (FAWA)" tvg-logo="https://1000logos.net/wp-content/uploads/2021/12/NCAA-Logo-500x281.png" group-title="Live Events",[NCAA American Football] Eastern Michigan vs Central Michigan (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
+http://193.47.62.50/hls/ROOOA.m3u8
