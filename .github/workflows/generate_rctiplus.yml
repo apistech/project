@@ -51,16 +51,18 @@ jobs:
           RCTIPLUS_FALLBACK_TOKEN: ${{ secrets.RCTIPLUS_FALLBACK_TOKEN }}
         run: python generate_rctiplus.py
 
-      - name: Merge to IndihomeTV.m3u
-        run: python merge_playlists.py
-          
+      # ========================================================
+      # - name: Merge to IndihomeTV.m3u
+      #   run: python merge_playlists.py
+      # ========================================================
+
       - name: Commit and Push (Keep History Clean)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add -A playlists/
-          git add IndihomeTV.m3u
+          # git add IndihomeTV.m3u
 
           if git diff-index --quiet HEAD --; then
             echo "No changes detected. Skipping commit."
