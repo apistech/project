@@ -1,33 +1,21 @@
 #EXTM3U url-tvg="https://epgshare01.online/epgshare01/epg_ripper_DUMMY_CHANNELS.xml.gz"
-#EXTINF:-1 tvg-chno="113" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Edmonton Oilers vs New York Rangers (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Edmonton Oilers vs New York Rangers (FAWA)
+#EXTINF:-1 tvg-chno="59" tvg-id="Live.Event.us" tvg-name="[English FA Trohpy] Barnet vs Leyton Orient (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="Live Events",[English FA Trohpy] Barnet vs Leyton Orient (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/1779fa43-5cf5-458f-9a6c-6c13d718f1c2/master.m3u8
-#EXTINF:-1 tvg-chno="114" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] San Jose Sharks vs New York Islanders (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] San Jose Sharks vs New York Islanders (FAWA)
+http://193.47.62.44/hls/bbbb.m3u8
+#EXTINF:-1 tvg-chno="61" tvg-id="Live.Event.us" tvg-name="[English FA Trohpy] Bristol Rovers vs Reading (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="Live Events",[English FA Trohpy] Bristol Rovers vs Reading (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/42544de9-c804-4301-b831-52e908f4fab5/master.m3u8
-#EXTINF:-1 tvg-chno="115" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[NHL Hockey] Vancouver Canucks vs Philadelphia Flyers (FAWA)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nhl.png" group-title="Live Events",[NHL Hockey] Vancouver Canucks vs Philadelphia Flyers (FAWA)
+http://193.47.62.44/hls/bbbbA.m3u8
+#EXTINF:-1 tvg-chno="75" tvg-id="Live.Event.us" tvg-name="[English FA Trohpy] Stockport County vs Tranmere (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="Live Events",[English FA Trohpy] Stockport County vs Tranmere (FAWA)
 #EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://live.kinescopecdn.net/on-air/5bf2c07e-3604-42cf-959a-67ed8914ffd5/6c92893c-177d-4b95-a084-4fde33fcaa8e/master.m3u8
-#EXTINF:-1 tvg-chno="60" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] Indiana Pacers at Dallas Mavericks (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] Indiana Pacers at Dallas Mavericks (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://streamseast.dad
+http://193.47.62.55/hls/CVVV.m3u8
+#EXTINF:-1 tvg-chno="62" tvg-id="Live.Event.us" tvg-name="[English FA Trohpy] Bromley vs MK Dons (FAWA)" tvg-logo="https://files.catbox.moe/jd3pxq.png" group-title="Live Events",[English FA Trohpy] Bromley vs MK Dons (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://mineralmaple.s3.eu-west-2.amazonaws.com/mavericks.m3u8
-#EXTINF:-1 tvg-chno="143" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[National Basketball Association] Golden State Warriors vs New Orleans Pelicans (DAMITV)" tvg-logo="https://damitv.st/img/cards/nba/401909959.jpg?v=ghst2nf" group-title="Live Events",[National Basketball Association] Golden State Warriors vs New Orleans Pelicans (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401909959
+http://193.47.62.55/hls/CVVVAA.m3u8
+#EXTINF:-1 tvg-chno="138" tvg-id="Tennis.Dummy.us" tvg-name="[Tennis ATP] Tennis ATP Stockholm (FAWA)" tvg-logo="https://files.catbox.moe/q8ljra.png" group-title="Live Events",[Tennis ATP] Tennis ATP Stockholm (FAWA)
+#EXTVLCOPT:http-referrer=http://www.fawanews.sc/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/nba/2026-11-09/no-gs/playlist.m3u8?tk=j6bYaRq9PbT6c1fqjIjP0Q&e=1794321008
-#EXTINF:-1 tvg-chno="145" tvg-id="NHL.Hockey.Dummy.us" tvg-name="[National Hockey League] San Jose Sharks vs New York Islanders (DAMITV)" tvg-logo="https://damitv.st/img/cards/nhl/401892682.jpg?v=spl2nf" group-title="Live Events",[National Hockey League] San Jose Sharks vs New York Islanders (DAMITV)
-#EXTVLCOPT:http-referrer=https://damitv.st/embed/?id=espn-401892682
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://messi.damitv.st/live-hls/channel/nhl/2026-11-09/nyi-sj/playlist.m3u8?tk=1H89h8G1RcwU77Ea07aW8A&e=1794321012
-#EXTINF:-1 tvg-chno="81" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] San Antonio Spurs at Phoenix Suns (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] San Antonio Spurs at Phoenix Suns (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://streamseast.dad
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://mineralmaple.s3.eu-west-2.amazonaws.com/spurs.m3u8
-#EXTINF:-1 tvg-chno="66" tvg-id="NBA.Basketball.Dummy.us" tvg-name="[NBA] New Orleans Pelicans at Golden State Warriors (SPRTSPASS)" tvg-logo="https://a.espncdn.com/combiner/i?img=/i/teamlogos/leagues/500/nba.png" group-title="Live Events",[NBA] New Orleans Pelicans at Golden State Warriors (SPRTSPASS)
-#EXTVLCOPT:http-referrer=https://streamseast.dad
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36
-https://mineralmaple.s3.eu-west-2.amazonaws.com/warriors.m3u8
+http://193.47.62.55/hls/RGGG.m3u8
