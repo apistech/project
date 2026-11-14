@@ -1,17 +1,22 @@
 #EXTM3U
-# Generated: 2026-11-13 19:08:42
+# Generated: 2026-11-14 00:39:36
+
+#EXTINF:-1 tvg-id="RCTI" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png",RCTI
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+https://proxy-b.rctiplus.id/live/web/rcti/index.m3u8?auth_key=1794627575-613458cb28789c2fdd1ba9a6b9393128-0-6402ac4dd6399c1481b67f5d31e17b78
 
 #EXTINF:-1 tvg-id="MNCTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/MNCTV.png",MNCTV
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/mnctv/index.m3u8?auth_key=1794607721-e90c16b7180f5e290eae571c96f6de0c-0-3bc0645be137b48ab41f4b7d708e9742
+https://proxy-b.rctiplus.id/live/web/mnctv/index.m3u8?auth_key=1794627575-7fe9c283a948546ef3e10fe0407837c0-0-292f2f65f6f22c11c90c2bcd4594923d
 
 #EXTINF:-1 tvg-id="GTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/GTV.png",GTV
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/gtv/index.m3u8?auth_key=1794607721-98cc01f808ea983fdeb08ca32eaab66c-0-da48429507b82f6ac3eb07215e1ac0b7
+https://proxy-b.rctiplus.id/live/web/gtv/index.m3u8?auth_key=1794627575-ff6e7930ccf33830d992eb3e091625db-0-52e565d91fd09934e2ae2cf7727a8512
 
 #EXTINF:-1 tvg-id="iNews" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/iNews.png",iNews
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://proxy-b.rctiplus.id/live/web/inews/index.m3u8?auth_key=1794607722-723bee677c006dd4475c73ff752b7217-0-b752179b63cf3273370a7ac3969dca5e
+https://proxy-b.rctiplus.id/live/web/inews/index.m3u8?auth_key=1794627576-5e80004c2f74444722a60ec5a625f7de-0-1fc0136fbf697d2cd424ce7867b6738f
