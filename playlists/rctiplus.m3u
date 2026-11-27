@@ -1,22 +1,17 @@
 #EXTM3U
-# Generated: 2026-11-27 07:55:20
+# Generated: 2026-11-27 21:00:12
 
 #EXTINF:-1 tvg-id="RCTI" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png",RCTI
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://poclive.rctiplus.id/rcti-sdi.m3u8?hdnts=exp=1795838119~hmac=6ad1812d3754a8a1821265f9df8c4a602e5b2067144346330413645b165296de
+https://poclive.rctiplus.id/rcti-sdi.m3u8?hdnts=exp=1795885211~hmac=73ce6b75f8a78a18bded6645ed622002ae08badb7d7bf1c93cc6307ec4db740f
 
 #EXTINF:-1 tvg-id="MNCTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/MNCTV.png",MNCTV
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://linier-mnctv.rctiplus.id/mnctv-sdi.m3u8?auth_key=1795776920-16386a349b0df2474feec312c9dd17ee-0-ff85513cb4b197f418e2bf9df578e6b4
-
-#EXTINF:-1 tvg-id="GTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/GTV.png",GTV
-#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
-#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://linier-gtv.rctiplus.id/gtv-sdi.m3u8?auth_key=1795776920-ad49d7ed9a78aedbeef91c1c785e23cc-0-108b602c4c7b37b7b1604489a1e00ee4
+https://linier-mnctv.rctiplus.id/mnctv-sdi.m3u8?auth_key=1795824011-307dbc333d79a65a931e72ccb774c433-0-eac421ac994e88108f3455fa93f4698e
 
 #EXTINF:-1 tvg-id="iNews" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/iNews.png",iNews
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://linier-inews.rctiplus.id/inews-sdi.m3u8?auth_key=1795776920-ca1e99373ae9f4b30a9559073d43f2b4-0-9a7b9c9877dcf8db8a82d2161b26842c
+https://linier-inews.rctiplus.id/inews-sdi.m3u8?auth_key=1795824011-877d24309457cec7526375a01bdd81f2-0-d066ac1f307552f37243308b6363514f
