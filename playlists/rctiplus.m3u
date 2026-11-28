@@ -1,17 +1,22 @@
 #EXTM3U
-# Generated: 2026-11-27 21:00:12
+# Generated: 2026-11-28 07:25:18
 
 #EXTINF:-1 tvg-id="RCTI" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/RCTI.png",RCTI
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://poclive.rctiplus.id/rcti-sdi.m3u8?hdnts=exp=1795885211~hmac=73ce6b75f8a78a18bded6645ed622002ae08badb7d7bf1c93cc6307ec4db740f
+https://poclive.rctiplus.id/rcti-sdi.m3u8?hdnts=exp=1795922717~hmac=e66fed072629c42f7625f73a24eab72c7933d1b8078b74a02b5da95928bd728c
 
 #EXTINF:-1 tvg-id="MNCTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/MNCTV.png",MNCTV
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://linier-mnctv.rctiplus.id/mnctv-sdi.m3u8?auth_key=1795824011-307dbc333d79a65a931e72ccb774c433-0-eac421ac994e88108f3455fa93f4698e
+https://linier-mnctv.rctiplus.id/mnctv-sdi.m3u8?auth_key=1795861517-edd5db6603d3232f6a1564199c370849-0-7cf8498f143a91ff220274f4595f1c1f
+
+#EXTINF:-1 tvg-id="GTV" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/GTV.png",GTV
+#EXTVLCOPT:http-referrer=https://www.rctiplus.com/
+#EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+https://linier-gtv.rctiplus.id/gtv-sdi.m3u8?auth_key=1795861518-b1bcd0277985f0313786c3abe4b35c6b-0-29df3b5e0673128fc2ee995a59840f40
 
 #EXTINF:-1 tvg-id="iNews" group-title="Nasional" tvg-logo="https://static.rctiplus.id/media/300/files/fta_rcti/Channel_Logo/iNews.png",iNews
 #EXTVLCOPT:http-referrer=https://www.rctiplus.com/
 #EXTVLCOPT:http-user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-https://linier-inews.rctiplus.id/inews-sdi.m3u8?auth_key=1795824011-877d24309457cec7526375a01bdd81f2-0-d066ac1f307552f37243308b6363514f
+https://linier-inews.rctiplus.id/inews-sdi.m3u8?auth_key=1795861518-2e384e32dc10af6f776d03873319cf59-0-4ce6ce96e6ada68e077359497655ec38
